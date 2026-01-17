@@ -1,0 +1,251 @@
+You are a vibecoding web builder.
+
+Build a stripped-back, editorial, multi-page portfolio website inspired primarily by jennywen.ca (restraint, whitespace, calm confidence) and secondarily danmachado.com (structure only). Do NOT copy either site.
+
+The site should feel neutral and invisible (1–2/5 personality), highly legible, and confident through clarity rather than decoration. No motion or animation. Light mode only. Strictly black, white, and greys for UI; imagery provides any colour.
+
+GOAL
+Create a “pretty complete v1” personal portfolio for Alex that allows recruiters, hiring managers, and founders to quickly assess:
+- strategic thinking
+- delivery credibility
+- ability to operate from ambiguity to shipped product
+
+Primary actions:
+1) Download CV
+2) Email Alex
+3) DM Alex on Instagram
+
+These actions should be accessible from any page.
+
+---
+
+TECH ASSUMPTIONS (make sensible defaults)
+- Use a modern static-capable stack (e.g. Next.js + Tailwind OR Astro + Tailwind).
+- Static export / SSG preferred.
+- Minimal JavaScript.
+- No heavy UI libraries or opinionated components.
+
+---
+
+TYPOGRAPHY
+- Use Google Sans Flex site-wide.
+- Establish a restrained type system:
+  - Display / H1
+  - H2 / section heading
+  - Body
+  - Small / meta
+- Comfortable line length (~60–75 characters).
+- Generous line-height.
+- Typography and spacing should do most of the work.
+
+---
+
+COLOUR & STYLE
+- Background: white.
+- Text: near-black / charcoal (not pure black everywhere).
+- Dividers/borders: very light grey.
+- Links: understated (underline or subtle shade change).
+- No gradients, no shadows, no visual effects.
+- Use whitespace as the primary design tool.
+
+---
+
+GLOBAL NAV (sticky)
+- Sticky header on all pages.
+- Left: site name “Alex”.
+- Right: Home | Work | Contact
+- Contact should scroll to a contact section or open a simple contact page.
+- CV download link should be clearly accessible but not loud.
+- Mobile: simple collapse menu, no animation.
+
+---
+
+SITE STRUCTURE
+
+PAGES:
+- /
+- /work
+- /work/kosign
+- Shared Contact section
+
+---
+
+HOME PAGE (/)
+
+Use the following copy verbatim. Do not paraphrase.
+
+HERO
+Title:
+“Product Design leader shaping strategy, teams, and products from mission to market”
+
+Body:
+“I’m a design leader with a flexible and even ‘generalist’ approach. I enjoy working closely with the best minds across business, product, and engineering to frame problems, prioritise opportunities, and ship with minimum delay, and maximum learnings.
+
+I place value on collaboration and facilitation to improve decision-making, and I focus on learning through deep discovery and real delivery - getting meaningful work into the hands of users early, learning from real behaviour, and improving results over time.
+
+In my current role, I head up Product Design across the Kobalt Music Group, leading Design vision, processes, and delivery across Kobalt, amra and KOSIGN. I’ve previously worked at world leading design and innovation studios Frog, Adaptive Lab, and ?WhatIf! Innovation, as well as supporting startups in my spare time.”
+
+Layout:
+- Text-first.
+- Optional framed image placeholder near top or after hero.
+- Avoid full-bleed imagery.
+
+---
+
+WORK OVERVIEW SECTION (on Home OR as lead-in to /work)
+
+Title:
+“Work overview”
+
+Overview copy:
+“My work sits across strategy, product, and delivery. I’m usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
+
+I partner closely with business leaders to frame the right problems, with product managers to shape and prioritise opportunities, and with engineers to ensure what we build is feasible and can ship without delay.
+
+And i’m relentlessly exploring new tools and methods to accelerate and augment what we do as designers using the capabilities brought by AI assistants, LLM’s and vibe-coding platforms.”
+
+---
+
+WHERE I TEND TO CREATE VALUE
+
+Render the following as four calm, editorial sections (numbered but understated):
+
+1. From ambiguity to a shipped product  
+“Zero-to-one or early-stage work where the problem, audience, or value proposition isn’t yet clear, and progress matters more than perfection.”
+
+2. Simplifying complex systems  
+“Taking operationally, technically, or legally complex workflows and platforms and making them easier to use, easier to scale, and easier for teams to reason about.”
+
+3. Creating momentum without mess  
+“Designing products, processes, and team ways of working that allow faster learning and iteration, while respecting real constraints like risk, compliance, or legacy systems.”
+
+4. Raising the bar for core experiences  
+“Revisiting foundational journeys or workflows and resetting expectations around clarity, quality, and craft.”
+
+---
+
+SELECTED WORK (Home preview)
+
+Render as a restrained list with framed thumbnail placeholders.
+
+Include these entries (titles + summaries only on Home):
+
+- KOSIGN  
+  “Launching a self-serve publishing platform for mid-market creators”
+
+- Kobalt Portal  
+  “Resetting the experience for songwriters at scale”  
+  (Mark as “Coming soon”)
+
+- Publishing Platform (Internal)  
+  “End-to-end royalties and metadata platform”  
+  (Coming soon)
+
+- Golf Caddy  
+  “Founding-designer work on an AI-driven product”  
+  (Coming soon)
+
+Only KOSIGN should link to a full project page for now.
+
+---
+
+WORK INDEX PAGE (/work)
+
+Intro:
+Short restatement that this page contains selected work across strategy, product, and delivery.
+
+Projects list:
+- Vertical list.
+- Calm typography.
+- Each item includes:
+  - Title
+  - One-line descriptor
+  - Status (Complete / Coming soon)
+  - Framed image placeholder
+
+Only KOSIGN is fully implemented.
+Other projects should exist as placeholders but clearly marked.
+
+---
+
+PROJECT PAGE: /work/kosign
+
+Use the following copy verbatim. Do not paraphrase.
+
+Title:
+“KOSIGN — Launching a self-serve publishing platform for mid-market creators”
+
+Sections:
+
+Context:
+“KOSIGN was an exploration of a new business opportunity: moving down the publishing deal curve to serve a growing, underserved middle-market of songwriters who were not collecting their publishing royalties.
+
+The ambition was to create a fully self-serve, admin-only publishing platform that balanced scale and efficiency with security, compliance, and brand trust. All whilst operating within the constraints of a mature, risk-averse organisation.”
+
+The real problem:
+[Insert provided copy verbatim]
+
+My role:
+[Insert provided copy verbatim]
+
+Strategy, tradeoffs and key decisions:
+- Render as a clear bulleted list.
+- Maintain generous spacing.
+- Allow in-page framed image placeholders between sections.
+
+Results:
+- Render metrics cleanly.
+- Avoid dashboard visuals.
+- Emphasise clarity and credibility.
+
+Reflection:
+[Insert provided reflection verbatim]
+
+End with:
+- “Back to Work” link
+- Contact CTA
+- CV download
+
+---
+
+IMAGES
+- Use framed image placeholders throughout.
+- Clearly labelled placeholders (e.g. “Hero image”, “Flow diagram”, “Product screen”).
+- No stock images.
+
+---
+
+CONTACT
+Implement as a shared section visible on all pages:
+- Email link
+- Instagram DM link
+- CV download link (/assets/cv.pdf placeholder)
+
+Minimal. No form.
+
+---
+
+ACCESSIBILITY & QUALITY
+- Semantic HTML.
+- Proper heading hierarchy.
+- Excellent readability.
+- High contrast.
+- Keyboard navigable.
+- Fast load.
+
+---
+
+DELIVERABLE
+Produce a working, clean codebase with:
+- All pages above
+- One complete project (KOSIGN)
+- Placeholder projects
+- Clear instructions for:
+  - adding projects
+  - swapping copy
+  - adding images
+  - replacing CV
+
+Tone check: calm, confident, editorial. No portfolio clichés. No visual noise. Let structure, words, and outcomes do the work.
+
+Now build it.
