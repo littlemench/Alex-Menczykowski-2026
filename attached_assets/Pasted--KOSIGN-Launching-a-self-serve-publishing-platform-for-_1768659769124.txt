@@ -1,0 +1,64 @@
+## KOSIGN — Launching a self-serve publishing platform for mid-market creators
+
+### Context
+
+KOSIGN was an exploration of a new business opportunity: moving down the publishing deal curve to serve a growing, underserved middle-market of songwriters who were not collecting their publishing royalties.
+
+The ambition was to create a fully self-serve, admin-only publishing platform that balanced scale and efficiency with security, compliance, and brand trust. All whilst operating within the constraints of a mature, risk-averse organisation.
+
+---
+
+### The real problem
+
+Publishing isn’t sexy. It’s complex, often misunderstood and built on delayed gratification. For most writers and artists, the challenge isn’t just choosing the right solution - it’s understanding that there is a problem at all.
+
+One of the key challenges when building and launching KOSIGN was the need to sell both the problem and the solution - all whilst navigating a series of tensions: perceived cost versus value, self-serve simplicity versus legal and security requirements, startup speed versus enterprise governance, and alignment across globally distributed teams, consultants and stakeholders.
+
+---
+
+### My role
+
+I was responsible for the end-to-end experience strategy and design execution for KOSIGN. 
+
+As well as translating the existing Kobalt ‘Portal’ functionality into a self-serve product for a mid-market audience, I set and implemented design direction across application, onboarding, verification, and in-life usage, collaborating closely with product, engineering, legal, operations, and executive stakeholders to get to market. 
+
+---
+
+### Strategy, tradeoff’s and key decisions
+
+To ship quickly and learn in-market, we deliberately deferred a number of augmentation and enhancement ideas. Rather than reinventing the product wholesale, we focused on adapting the core experience to prove demand and operational viability first. 
+
+- We opted to use the website as a sales and demand tool, majoring on increasing the quantity - not quality - of applications
+- We identified the post-acceptance journey as a key moment early on, and focused on increasing intuition and reduced friction wherever possible reduce procrastination through perceived effort, and drop-off through confusion
+- Once the contract had been standardised, we provided a summary of what is still a relatively complex document with clear summaries and optional depth to reduce friction in a key moment in this onboarding process
+- We focused heavily on the ‘empty and interim state’ product experience, majoring on directing user activity towards submitting music for collection as the key interaction
+- We re-architecting the song submission flow into focused, low-friction steps, before eventually augmenting it with optionality for input methods (link submission and reactive suggestions)
+
+---
+
+### Results
+
+Since launching in March 2025:
+
+- $3.16m revenue generated
+- 27,000+ applications processed
+- 2,300+ accepted members
+- 1,100+ fully onboarded creators
+- 39,000+ works delivered through the platform
+- 100% reduction in post-submission edit support queries
+- 350+ copyright working days saved
+- 50% of support queries resolved via automation
+
+Time-to-value improvements:
+
+- Days to activation: 20.6 → 1.6
+- Days to fully onboarded: 31.4 → 3.2
+- Total days to delivered: 51.2 → 4.9
+
+---
+
+### Reflection
+
+KOSIGN reinforced that many of the hardest design problems aren’t necessarily about pixels or flows. They’re about the maturity or outlook of our targeted segments, about sequencing effort across multi-disciplinary teams, and about finding the right relationship with the mothership to be able to ship and learn at pace. 
+
+One key mistake was not keeping website development in-house early enough. While the core product supported fast iteration, the website stack limited our ability to experiment at the pace required. Had we retained the ability to shape our ‘design conditions’ across tooling, decision making, and capability - it’s possible that more positive change could have been realised.

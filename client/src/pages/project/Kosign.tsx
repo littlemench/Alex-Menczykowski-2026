@@ -46,8 +46,13 @@ export default function KosignProject() {
             {/* The Real Problem */}
             <section className="space-y-8">
                <h2 className="text-xl font-medium text-muted-foreground uppercase tracking-widest">The Real Problem</h2>
-               <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light p-8 bg-muted/30 border border-dashed border-border text-center">
-                  <p className="italic">[Content to be supplied: The Real Problem]</p>
+               <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light">
+                  <p>
+                    Publishing isn’t sexy. It’s complex, often misunderstood and built on delayed gratification. For most writers and artists, the challenge isn’t just choosing the right solution - it’s understanding that there is a problem at all.
+                  </p>
+                  <p>
+                    One of the key challenges when building and launching KOSIGN was the need to sell both the problem and the solution - all whilst navigating a series of tensions: perceived cost versus value, self-serve simplicity versus legal and security requirements, startup speed versus enterprise governance, and alignment across globally distributed teams, consultants and stakeholders.
+                  </p>
                </div>
             </section>
 
@@ -60,26 +65,39 @@ export default function KosignProject() {
             {/* My Role */}
              <section className="space-y-8">
                <h2 className="text-xl font-medium text-muted-foreground uppercase tracking-widest">My Role</h2>
-               <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light p-8 bg-muted/30 border border-dashed border-border text-center">
-                  <p className="italic">[Content to be supplied: My Role]</p>
+               <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light">
+                  <p>
+                    I was responsible for the end-to-end experience strategy and design execution for KOSIGN.
+                  </p>
+                  <p>
+                    As well as translating the existing Kobalt ‘Portal’ functionality into a self-serve product for a mid-market audience, I set and implemented design direction across application, onboarding, verification, and in-life usage, collaborating closely with product, engineering, legal, operations, and executive stakeholders to get to market.
+                  </p>
                </div>
             </section>
 
             {/* Strategy & Tradeoffs */}
             <section className="space-y-8">
-              <h2 className="text-xl font-medium text-muted-foreground uppercase tracking-widest">Strategy, tradeoffs and key decisions</h2>
+              <h2 className="text-xl font-medium text-muted-foreground uppercase tracking-widest">Strategy, tradeoff’s and key decisions</h2>
+              <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light">
+                <p>
+                  To ship quickly and learn in-market, we deliberately deferred a number of augmentation and enhancement ideas. Rather than reinventing the product wholesale, we focused on adapting the core experience to prove demand and operational viability first.
+                </p>
+              </div>
               <ul className="list-disc pl-5 space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light marker:text-muted-foreground">
                 <li className="pl-4">
-                  <span className="font-medium text-primary block mb-1">Decision point one</span>
-                  Description of the tradeoff and why we chose this path. Focusing on the balance between speed and scalability.
+                  We opted to use the website as a sales and demand tool, majoring on increasing the quantity - not quality - of applications
                 </li>
                 <li className="pl-4">
-                   <span className="font-medium text-primary block mb-1">Decision point two</span>
-                   How we handled compliance requirements without destroying the user experience.
+                  We identified the post-acceptance journey as a key moment early on, and focused on increasing intuition and reduced friction wherever possible reduce procrastination through perceived effort, and drop-off through confusion
                 </li>
                 <li className="pl-4">
-                   <span className="font-medium text-primary block mb-1">Decision point three</span>
-                   Prioritising core features for MVP vs nice-to-haves for post-launch.
+                  Once the contract had been standardised, we provided a summary of what is still a relatively complex document with clear summaries and optional depth to reduce friction in a key moment in this onboarding process
+                </li>
+                <li className="pl-4">
+                  We focused heavily on the ‘empty and interim state’ product experience, majoring on directing user activity towards submitting music for collection as the key interaction
+                </li>
+                <li className="pl-4">
+                  We re-architecting the song submission flow into focused, low-friction steps, before eventually augmenting it with optionality for input methods (link submission and reactive suggestions)
                 </li>
               </ul>
             </section>
@@ -92,14 +110,53 @@ export default function KosignProject() {
             {/* Results */}
             <section className="space-y-8">
               <h2 className="text-xl font-medium text-muted-foreground uppercase tracking-widest">Results</h2>
-              <div className="grid grid-cols-2 gap-8 py-8 border-y border-divider">
+              <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light mb-8">
+                <p>Since launching in March 2025:</p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-divider">
                 <div>
-                  <div className="text-4xl md:text-5xl font-medium text-primary mb-2">XX%</div>
-                  <div className="text-sm text-muted-foreground">Increase in signup conversion</div>
+                  <div className="text-3xl md:text-4xl font-medium text-primary mb-1">$3.16m</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider">Revenue</div>
                 </div>
                 <div>
-                  <div className="text-4xl md:text-5xl font-medium text-primary mb-2">$X.Xm</div>
-                  <div className="text-sm text-muted-foreground">Royalties processed in Year 1</div>
+                  <div className="text-3xl md:text-4xl font-medium text-primary mb-1">27k+</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider">Apps</div>
+                </div>
+                <div>
+                  <div className="text-3xl md:text-4xl font-medium text-primary mb-1">100%</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider">Support Reduc.</div>
+                </div>
+                <div>
+                  <div className="text-3xl md:text-4xl font-medium text-primary mb-1">50%</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider">Auto Queries</div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8">
+                <div>
+                  <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Activation</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-medium">1.6</span>
+                    <span className="text-sm text-muted-foreground">days</span>
+                    <span className="text-xs text-muted-foreground line-through ml-2">20.6</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Onboarding</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-medium">3.2</span>
+                    <span className="text-sm text-muted-foreground">days</span>
+                    <span className="text-xs text-muted-foreground line-through ml-2">31.4</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Delivered</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-medium">4.9</span>
+                    <span className="text-sm text-muted-foreground">days</span>
+                    <span className="text-xs text-muted-foreground line-through ml-2">51.2</span>
+                  </div>
                 </div>
               </div>
             </section>
@@ -107,8 +164,13 @@ export default function KosignProject() {
              {/* Reflection */}
              <section className="space-y-8">
                <h2 className="text-xl font-medium text-muted-foreground uppercase tracking-widest">Reflection</h2>
-               <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light p-8 bg-muted/30 border border-dashed border-border text-center">
-                  <p className="italic">[Content to be supplied: Reflection]</p>
+               <div className="space-y-6 text-lg md:text-xl leading-relaxed text-secondary font-light">
+                  <p>
+                    KOSIGN reinforced that many of the hardest design problems aren’t necessarily about pixels or flows. They’re about the maturity or outlook of our targeted segments, about sequencing effort across multi-disciplinary teams, and about finding the right relationship with the mothership to be able to ship and learn at pace.
+                  </p>
+                  <p>
+                    One key mistake was not keeping website development in-house early enough. While the core product supported fast iteration, the website stack limited our ability to experiment at the pace required. Had we retained the ability to shape our ‘design conditions’ across tooling, decision making, and capability - it’s possible that more positive change could have been realised.
+                  </p>
                </div>
             </section>
 
