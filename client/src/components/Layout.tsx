@@ -62,6 +62,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         style={{ 
           background: `radial-gradient(circle 150px at ${mousePos.x}px ${mousePos.y}px, ${glowColor}, transparent)`,
           opacity: isGlowing ? 1 : 0,
+          transition: 'opacity 1s ease-out'
         }} 
       />
       
