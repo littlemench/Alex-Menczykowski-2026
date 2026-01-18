@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Top Header - mimicking jennywen.ca full width RHS nav */}
       <header className="mb-24 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-between items-start relative">
         <Link href="/">
-          <a className="text-sm font-bold hover:underline">Work</a>
+          <a className="text-sm font-bold hover:underline">Home</a>
         </Link>
 
         {/* Desktop Nav */}
