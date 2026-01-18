@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-12">
       {/* Top Header - mimicking jennywen.ca nav style */}
       <header className="mb-24">
-        <div className="layout-grid flex items-center justify-end">
+        <div className="max-w-[760px] ml-0 md:ml-24 px-6 md:px-8 flex items-center justify-end">
           <nav className="flex gap-8 text-sm font-medium">
              <Link href="/">
               <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground font-bold' : 'text-muted-foreground'}`}>
