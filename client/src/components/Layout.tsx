@@ -3,11 +3,11 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
 const COLORS = [
-  "rgba(59, 130, 246, 0.08)",   // Blue
-  "rgba(139, 92, 246, 0.08)",   // Violet
-  "rgba(236, 72, 153, 0.08)",   // Pink
-  "rgba(20, 184, 166, 0.08)",   // Teal
-  "rgba(245, 158, 11, 0.08)",   // Amber
+  "rgba(59, 130, 246, 0.15)",   // Blue
+  "rgba(139, 92, 246, 0.15)",   // Violet
+  "rgba(236, 72, 153, 0.15)",   // Pink
+  "rgba(20, 184, 166, 0.15)",   // Teal
+  "rgba(245, 158, 11, 0.15)",   // Amber
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   
   const lastMoveTime = useRef(Date.now());
   const glowTimeout = useRef<NodeJS.Timeout | null>(null);
-  const PAUSE_THRESHOLD = 2000; // 2 seconds of inactivity
+  const PAUSE_THRESHOLD = 1500; // Reduced to 1.5 seconds for better visibility
 
   const handleMouseMove = useCallback(() => {
     const now = Date.now();
