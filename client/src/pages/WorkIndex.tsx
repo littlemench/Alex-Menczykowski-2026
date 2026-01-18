@@ -5,82 +5,64 @@ import { Link } from "wouter";
 export default function WorkIndex() {
   return (
     <Layout>
-      <section className="pt-24 pb-20 md:pt-32 md:pb-20 layout-grid">
+      <section className="pt-24 pb-20 md:pt-32 md:pb-24 layout-grid">
         <div className="max-w-4xl">
-          <h1 className="mb-8 text-primary">Work</h1>
-          <p className="text-xl md:text-2xl text-secondary font-light max-w-2xl">
-            Selected work across strategy, product, and delivery.
-          </p>
+          <h1 className="mb-12 text-primary">Work</h1>
+          
+          <div className="grid md:grid-cols-12 gap-12 pt-8">
+            <div className="md:col-span-8 space-y-8 text-secondary font-light">
+              <p>
+                My work sits across strategy, product, and delivery. I’m usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
+              </p>
+              <p>
+                I partner closely with business leaders to frame the right problems, with product managers to shape and prioritise opportunities, and with engineers to ensure what we build is feasible and can ship without delay.
+              </p>
+              <p>
+                And i’m relentlessly exploring new tools and methods to accelerate and augment what we do as designers using the capabilities brought by AI assistants, LLM’s and vibe-coding platforms.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="pb-32 layout-grid">
-        <div className="space-y-24 md:space-y-32">
+      <section className="pb-32 layout-grid border-t border-divider pt-20">
+        <div className="space-y-32">
           
           {/* KOSIGN */}
           <Link href="/work/kosign">
-            <a className="group block grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-              <div className="md:col-span-5 order-2 md:order-1">
-                <div className="border border-border p-2 transition-colors group-hover:border-muted-foreground/30">
-                  <ImagePlaceholder label="KOSIGN Project" aspectRatio="square" />
-                </div>
+            <a className="group block">
+              <div className="border border-border p-2 transition-colors group-hover:border-muted-foreground/30 mb-8">
+                <ImagePlaceholder label="KOSIGN Case Study" aspectRatio="video" />
               </div>
-              <div className="md:col-span-7 order-1 md:order-2 space-y-4">
-                <h2 className="text-3xl md:text-4xl group-hover:text-primary transition-colors">KOSIGN</h2>
-                <p className="text-xl text-secondary">Launching a self-serve publishing platform for mid-market creators</p>
-                <div className="pt-4">
-                  <span className="text-sm font-medium uppercase tracking-widest text-primary border-b border-primary pb-0.5">View Case Study</span>
-                </div>
+              <div className="max-w-2xl">
+                <h2 className="text-xl mb-4 text-primary lowercase tracking-tight normal-case">KOSIGN</h2>
+                <p className="text-lg text-secondary mb-4">Launching a self-serve publishing platform for mid-market creators</p>
+                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5">View Project</span>
               </div>
             </a>
           </Link>
 
-          {/* Kobalt Portal */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center opacity-60 cursor-not-allowed">
-            <div className="md:col-span-5 order-2 md:order-1">
-               <div className="border border-border p-2">
-                 <ImagePlaceholder label="Kobalt Portal" aspectRatio="square" />
-               </div>
-            </div>
-            <div className="md:col-span-7 order-1 md:order-2 space-y-4">
-              <div className="flex items-center gap-4">
-                <h2 className="text-3xl md:text-4xl">Kobalt Portal</h2>
-                <span className="text-xs uppercase tracking-widest font-medium border border-border px-2 py-1 rounded-full">Coming Soon</span>
-              </div>
-              <p className="text-xl text-secondary">Resetting the experience for songwriters at scale</p>
-            </div>
-          </div>
+          {/* Other projects as a list */}
+          <div className="grid md:grid-cols-2 gap-16">
+             <div className="opacity-60 grayscale cursor-not-allowed space-y-6">
+                <div className="border border-border p-2">
+                  <ImagePlaceholder label="Kobalt Portal" aspectRatio="video" />
+                </div>
+                <div>
+                  <h2 className="text-lg mb-2 text-primary lowercase tracking-tight normal-case">Kobalt Portal — Coming Soon</h2>
+                  <p className="text-secondary">Resetting the experience for songwriters at scale</p>
+                </div>
+             </div>
 
-          {/* Publishing Platform */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center opacity-60 cursor-not-allowed">
-            <div className="md:col-span-5 order-2 md:order-1">
-               <div className="border border-border p-2">
-                 <ImagePlaceholder label="Internal Platform" aspectRatio="square" />
-               </div>
-            </div>
-            <div className="md:col-span-7 order-1 md:order-2 space-y-4">
-              <div className="flex items-center gap-4">
-                <h2 className="text-3xl md:text-4xl">Publishing Platform (Internal)</h2>
-                <span className="text-xs uppercase tracking-widest font-medium border border-border px-2 py-1 rounded-full">Coming Soon</span>
-              </div>
-              <p className="text-xl text-secondary">End-to-end royalties and metadata platform</p>
-            </div>
-          </div>
-
-          {/* Golf Caddy */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center opacity-60 cursor-not-allowed">
-            <div className="md:col-span-5 order-2 md:order-1">
-               <div className="border border-border p-2">
-                 <ImagePlaceholder label="Golf Caddy" aspectRatio="square" />
-               </div>
-            </div>
-            <div className="md:col-span-7 order-1 md:order-2 space-y-4">
-              <div className="flex items-center gap-4">
-                <h2 className="text-3xl md:text-4xl">Golf Caddy</h2>
-                <span className="text-xs uppercase tracking-widest font-medium border border-border px-2 py-1 rounded-full">Coming Soon</span>
-              </div>
-              <p className="text-xl text-secondary">Founding-designer work on an AI-driven product</p>
-            </div>
+             <div className="opacity-60 grayscale cursor-not-allowed space-y-6">
+                <div className="border border-border p-2">
+                  <ImagePlaceholder label="Internal Platform" aspectRatio="video" />
+                </div>
+                <div>
+                  <h2 className="text-lg mb-2 text-primary lowercase tracking-tight normal-case">Publishing Platform — Coming Soon</h2>
+                  <p className="text-secondary">End-to-end royalties and metadata platform</p>
+                </div>
+             </div>
           </div>
 
         </div>
