@@ -15,17 +15,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [glowColor, setGlowColor] = useState(COLORS[0]);
   const [isGlowing, setIsGlowing] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   
   const lastMoveTime = useRef(Date.now());
   const glowTimeout = useRef<NodeJS.Timeout | null>(null);
-  const PAUSE_THRESHOLD = 1500; // Reduced to 1.5 seconds for better visibility
+  const PAUSE_THRESHOLD = 1500; // 1.5 seconds of inactivity
 
-  const handleMouseMove = useCallback(() => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     const now = Date.now();
     const timeSinceLastMove = now - lastMoveTime.current;
+    
+    setMousePos({ x: e.clientX, y: e.clientY });
 
     if (timeSinceLastMove > PAUSE_THRESHOLD && !isGlowing) {
-      // Pick a random color different from the current one
       setGlowColor(prev => {
         const others = COLORS.filter(c => c !== prev);
         return others[Math.floor(Math.random() * others.length)];
@@ -36,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       if (glowTimeout.current) clearTimeout(glowTimeout.current);
       glowTimeout.current = setTimeout(() => {
         setIsGlowing(false);
-      }, 1000); // Glow duration
+      }, 1200);
     }
 
     lastMoveTime.current = now;
@@ -53,12 +55,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-0 transition-colors duration-1000 relative overflow-hidden">
-      {/* Glow Effect Layer */}
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-0 relative overflow-hidden">
+      {/* Radial Glow Effect Layer */}
       <div 
-        className="fixed inset-0 pointer-events-none transition-opacity duration-700 ease-out z-0"
+        className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-1000 ease-out"
         style={{ 
-          backgroundColor: glowColor,
+          background: `radial-gradient(circle 150px at ${mousePos.x}px ${mousePos.y}px, ${glowColor}, transparent)`,
           opacity: isGlowing ? 1 : 0,
         }} 
       />
