@@ -21,19 +21,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-12">
       {/* Top Header - mimicking jennywen.ca nav style */}
       <header className="mb-24">
-        <div className="layout-grid flex items-center justify-between">
-          <div className="flex gap-4 text-sm font-medium">
+        <div className="layout-grid flex items-center justify-end">
+          <nav className="flex gap-8 text-sm font-medium">
              <Link href="/">
               <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground font-bold' : 'text-muted-foreground'}`}>
+                Home
+              </a>
+            </Link>
+            <Link href="/work">
+              <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground font-bold' : 'text-muted-foreground'}`}>
                 Work
               </a>
             </Link>
-            <Link href="/notes">
-              <a className="text-muted-foreground hover:underline">
-                Notes
-              </a>
-            </Link>
-          </div>
+            <a 
+              href="#contact" 
+              onClick={scrollToContact}
+              className="text-muted-foreground hover:underline cursor-pointer"
+            >
+              Contact
+            </a>
+          </nav>
         </div>
       </header>
 
