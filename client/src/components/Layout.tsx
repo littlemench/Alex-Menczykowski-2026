@@ -19,36 +19,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-12">
-      {/* Top Header - mimicking jennywen.ca full width RHS nav */}
-      <header className="mb-24 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-between items-start relative">
-        <Link href="/">
-          <a className="text-sm font-bold hover:underline">Home</a>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex flex-col gap-1 text-sm font-medium items-end text-right">
+      {/* Top Header - RHS nav only */}
+      <header className="mb-12 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-end items-start relative">
+        <nav className="flex flex-col gap-1 text-sm font-medium items-end text-right">
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Home
-            </a>
-          </Link>
-          <Link href="/work">
-            <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}>
               Work
             </a>
           </Link>
-          <a 
-            href="#contact" 
-            onClick={scrollToContact}
-            className="text-muted-foreground hover:underline cursor-pointer"
-          >
-            Contact
-          </a>
+          <Link href="/notes">
+            <a className="text-muted-foreground hover:underline">
+              Notes
+            </a>
+          </Link>
+          <div className="mt-4 flex flex-col gap-1 items-end">
+            <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Twitter</a>
+            <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
+          </div>
         </nav>
 
         {/* Mobile Nav Toggle */}
         <button 
-          className="md:hidden p-1 text-foreground z-50"
+          className="md:hidden p-1 text-foreground z-50 absolute top-0 right-6"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -63,24 +56,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className={`text-xl font-medium transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Home
-              </a>
-            </Link>
-            <Link href="/work">
-              <a 
-                className={`text-xl font-medium transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
                 Work
               </a>
             </Link>
-            <a 
-              href="#contact" 
-              onClick={scrollToContact}
-              className="text-xl font-medium text-muted-foreground hover:underline cursor-pointer"
-            >
-              Contact
-            </a>
+            <Link href="/notes">
+              <a 
+                className="text-xl font-medium text-muted-foreground hover:underline cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Notes
+              </a>
+            </Link>
+            <div className="flex flex-col gap-2 items-end mt-4">
+              <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Twitter</a>
+              <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
+            </div>
           </nav>
         )}
       </header>

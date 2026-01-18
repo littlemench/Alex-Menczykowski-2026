@@ -38,7 +38,7 @@
   }
 
   h2 {
-    @apply text-[18px] font-semibold leading-snug text-primary normal-case tracking-normal;
+    @apply text-[22px] font-semibold leading-snug text-primary normal-case tracking-normal;
   }
   
   h3 {
@@ -46,7 +46,7 @@
   }
 
   p {
-    @apply text-[16px] leading-[1.6] text-primary;
+    @apply text-[18px] leading-[1.6] text-primary;
   }
 
   a {

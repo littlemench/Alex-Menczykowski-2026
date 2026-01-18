@@ -5,8 +5,8 @@ import { Link } from "wouter";
 export default function Home() {
   return (
     <Layout>
-      <section className="layout-grid">
-        <h1 className="mb-12">Alex Menczykowski</h1>
+      <section className="layout-grid -mt-24">
+        <h1 className="mb-8">Alex Menczykowski</h1>
         
         <div className="content-width space-y-6 mb-24">
           <p>
