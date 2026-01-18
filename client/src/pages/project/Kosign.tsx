@@ -8,7 +8,7 @@ export default function KosignProject() {
       <article className="layout-grid">
         <header className="mb-24">
           <h1 className="mb-8">KOSIGN</h1>
-          <p className="text-lg font-medium">Launching a self-serve publishing platform for mid-market creators</p>
+          <p className="text-lg font-medium content-width">Launching a self-serve publishing platform for mid-market creators</p>
         </header>
 
         <div className="space-y-24">
@@ -16,7 +16,7 @@ export default function KosignProject() {
             <ImagePlaceholder label="KOSIGN Hero" aspectRatio="video" />
           </div>
 
-          <section className="space-y-6">
+          <section className="space-y-6 content-width">
             <h2 className="text-lg font-semibold">Context</h2>
             <p>
               KOSIGN was an exploration of a new business opportunity: moving down the publishing deal curve to serve a growing, underserved middle-market of songwriters who were not collecting their publishing royalties.
@@ -26,7 +26,7 @@ export default function KosignProject() {
             </p>
           </section>
 
-          <section className="space-y-6">
+          <section className="space-y-6 content-width">
             <h2 className="text-lg font-semibold">The real problem</h2>
             <p>
               Publishing isn’t sexy. It’s complex, often misunderstood and built on delayed gratification. For most writers and artists, the challenge isn’t just choosing the right solution - it’s understanding that there is a problem at all.
@@ -40,7 +40,7 @@ export default function KosignProject() {
             <ImagePlaceholder label="Process / Flow Diagram" aspectRatio="video" />
           </div>
 
-          <section className="space-y-6">
+          <section className="space-y-6 content-width">
             <h2 className="text-lg font-semibold">My role</h2>
             <p>
               I was responsible for the end-to-end experience strategy and design execution for KOSIGN.
@@ -50,7 +50,7 @@ export default function KosignProject() {
             </p>
           </section>
 
-          <section className="space-y-6">
+          <section className="space-y-6 content-width">
             <h2 className="text-lg font-semibold">Strategy, tradeoff’s and key decisions</h2>
             <p>
               To ship quickly and learn in-market, we deliberately deferred a number of augmentation and enhancement ideas. Rather than reinventing the product wholesale, we focused on adapting the core experience to prove demand and operational viability first.
@@ -64,7 +64,7 @@ export default function KosignProject() {
             </ul>
           </section>
 
-          <section className="space-y-6">
+          <section className="space-y-6 content-width">
             <h2 className="text-lg font-semibold">Results</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-12 py-8 border-y border-divider">
               <div>
@@ -82,7 +82,7 @@ export default function KosignProject() {
             </div>
           </section>
 
-          <section className="space-y-6">
+          <section className="space-y-6 content-width">
             <h2 className="text-lg font-semibold">Reflection</h2>
             <p>
               KOSIGN reinforced that many of the hardest design problems aren’t necessarily about pixels or flows. They’re about the maturity or outlook of our targeted segments, about sequencing effort across multi-disciplinary teams, and about finding the right relationship with the mothership to be able to ship and learn at pace.
@@ -90,7 +90,7 @@ export default function KosignProject() {
           </section>
         </div>
 
-        <footer className="mt-32 pt-16 border-t border-divider">
+        <footer className="mt-32 pt-16 border-t border-divider content-width">
           <Link href="/work">
             <a className="text-sm font-medium hover:underline">← Back to Work</a>
           </Link>

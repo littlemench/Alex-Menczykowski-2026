@@ -19,29 +19,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-12">
-      {/* Top Header - mimicking jennywen.ca nav style */}
-      <header className="mb-24">
-        <div className="max-w-[760px] ml-0 md:ml-12 px-6 md:px-8 flex items-center justify-end">
-          <nav className="flex gap-8 text-sm font-medium">
-             <Link href="/">
-              <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground font-bold' : 'text-muted-foreground'}`}>
-                Home
-              </a>
-            </Link>
-            <Link href="/work">
-              <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground font-bold' : 'text-muted-foreground'}`}>
-                Work
-              </a>
-            </Link>
-            <a 
-              href="#contact" 
-              onClick={scrollToContact}
-              className="text-muted-foreground hover:underline cursor-pointer"
-            >
-              Contact
+      {/* Top Header - mimicking jennywen.ca full width RHS nav */}
+      <header className="mb-24 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-between items-start">
+        <Link href="/">
+          <a className="text-sm font-bold hover:underline">Work</a>
+        </Link>
+        <nav className="flex flex-col gap-1 text-sm font-medium items-end text-right">
+           <Link href="/">
+            <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Home
             </a>
-          </nav>
-        </div>
+          </Link>
+          <Link href="/work">
+            <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Work
+            </a>
+          </Link>
+          <a 
+            href="#contact" 
+            onClick={scrollToContact}
+            className="text-muted-foreground hover:underline cursor-pointer"
+          >
+            Contact
+          </a>
+        </nav>
       </header>
 
       {/* Main Content */}

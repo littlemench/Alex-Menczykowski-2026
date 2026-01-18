@@ -8,7 +8,7 @@ export default function WorkIndex() {
       <section className="layout-grid">
         <h1 className="mb-12">Work</h1>
         
-        <div className="space-y-6 mb-24">
+        <div className="content-width space-y-6 mb-24">
           <p>
             My work sits across strategy, product, and delivery. I’m usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
           </p>
@@ -23,33 +23,45 @@ export default function WorkIndex() {
         <div className="space-y-32">
           {/* KOSIGN */}
           <div className="space-y-4">
-            <span className="text-sm text-muted-foreground">March 2025</span>
+            <div className="space-y-1">
+              <span className="text-sm text-muted-foreground">March 2025</span>
+              <h2 className="text-lg font-semibold">KOSIGN</h2>
+              <p className="text-sm text-primary">Launching a self-serve publishing platform</p>
+            </div>
             <Link href="/work/kosign">
               <a className="block group">
-                <h2 className="text-lg underline decoration-border underline-offset-4 group-hover:decoration-foreground mb-6">KOSIGN — Launching a self-serve publishing platform</h2>
-                <div className="border border-border p-2">
+                <div className="border border-border p-2 transition-colors group-hover:border-muted-foreground/30 mb-2">
                   <ImagePlaceholder label="KOSIGN Case Study" aspectRatio="video" />
                 </div>
+                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5">View Project</span>
               </a>
             </Link>
           </div>
 
           {/* Others */}
           <div className="grid md:grid-cols-2 gap-12">
-             <div className="space-y-4 opacity-60 grayscale cursor-not-allowed">
-                <span className="text-sm text-muted-foreground">June 2024</span>
-                <h2 className="text-lg mb-4">Kobalt Portal — Resetting the experience</h2>
-                <div className="border border-border p-2">
+             <div className="space-y-4">
+                <div className="space-y-1 opacity-60">
+                  <span className="text-sm text-muted-foreground">June 2024</span>
+                  <h2 className="text-lg font-semibold">Kobalt Portal</h2>
+                  <p className="text-sm text-primary">Resetting the experience</p>
+                </div>
+                <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
                   <ImagePlaceholder label="Kobalt Portal" aspectRatio="video" />
                 </div>
+                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
              </div>
 
-             <div className="space-y-4 opacity-60 grayscale cursor-not-allowed">
-                <span className="text-sm text-muted-foreground">January 2024</span>
-                <h2 className="text-lg mb-4">Internal Platform — Royalty automation</h2>
-                <div className="border border-border p-2">
+             <div className="space-y-4">
+                <div className="space-y-1 opacity-60">
+                  <span className="text-sm text-muted-foreground">January 2024</span>
+                  <h2 className="text-lg font-semibold">Internal Platform</h2>
+                  <p className="text-sm text-primary">Royalty automation</p>
+                </div>
+                <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
                   <ImagePlaceholder label="Internal Platform" aspectRatio="video" />
                 </div>
+                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
              </div>
           </div>
         </div>

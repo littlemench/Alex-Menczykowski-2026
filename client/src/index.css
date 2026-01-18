@@ -34,7 +34,7 @@
 
   /* Typography System */
   h1 {
-    @apply font-google text-[112px] font-bold leading-[0.9] tracking-tighter text-primary;
+    @apply font-google text-[78px] font-bold leading-[0.9] tracking-tighter text-primary;
   }
 
   h2 {
@@ -54,6 +54,10 @@
   }
   
   .layout-grid {
-    @apply max-w-[760px] ml-0 md:ml-12 px-6 md:px-8;
+    @apply w-full max-w-[1400px] mx-auto px-6 md:px-12;
+  }
+  
+  .content-width {
+    @apply max-w-[640px];
   }
 }
