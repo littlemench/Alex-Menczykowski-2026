@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-0">
       {/* Top Header - RHS nav only */}
       <header className="pt-12 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-end items-start relative z-50">
-        <nav className="flex flex-col gap-1 text-sm font-medium items-end text-right">
+        <nav className="flex flex-col gap-0.5 text-sm font-medium items-end text-right">
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
               Home
@@ -32,7 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Work
             </a>
           </Link>
-          <div className="mt-4 flex flex-col gap-1 items-end">
+          <div className="mt-4 flex flex-col gap-0.5 items-end">
             <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Twitter</a>
             <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>

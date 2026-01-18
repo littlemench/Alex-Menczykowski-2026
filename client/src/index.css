@@ -45,8 +45,12 @@
     @apply text-[18px] font-semibold leading-snug text-primary;
   }
 
-  p {
+  p, li, ul, ol {
     @apply text-[18px] leading-[1.6] text-primary;
+  }
+
+  ul {
+    @apply list-disc list-outside ml-5;
   }
 
   a {

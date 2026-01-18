@@ -1,6 +1,28 @@
 import Layout from "@/components/Layout";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import ProjectCarousel from "@/components/ProjectCarousel";
 import { Link } from "wouter";
+
+const carouselSlides = [
+  {
+    id: "1",
+    title: "Onboarding Flow",
+    description: "Simplified the registration process for creators, reducing friction by 40% through a progressive disclosure model.",
+    imageLabel: "Kosign Onboarding UI"
+  },
+  {
+    id: "2",
+    title: "Publishing Dashboard",
+    description: "A centralized command center for creators to manage content across multiple platforms with real-time analytics.",
+    imageLabel: "Kosign Dashboard"
+  },
+  {
+    id: "3",
+    title: "Monetization Tools",
+    description: "Integrated flexible payment gateways and subscription management tools for sustainable creator growth.",
+    imageLabel: "Kosign Monetization"
+  }
+];
 
 export default function KosignProject() {
   return (
@@ -12,12 +34,10 @@ export default function KosignProject() {
         </header>
 
         <div className="space-y-24">
-          <div className="border border-border p-2">
-            <ImagePlaceholder label="KOSIGN Hero" aspectRatio="video" />
-          </div>
+          <ProjectCarousel slides={carouselSlides} />
 
           <section className="space-y-6 content-width">
-            <h2 className="text-lg font-semibold">Context</h2>
+            <h2 className="text-[22px] font-semibold">Context</h2>
             <p>
               KOSIGN was an exploration of a new business opportunity: moving down the publishing deal curve to serve a growing, underserved middle-market of songwriters who were not collecting their publishing royalties.
             </p>
@@ -27,7 +47,7 @@ export default function KosignProject() {
           </section>
 
           <section className="space-y-6 content-width">
-            <h2 className="text-lg font-semibold">The real problem</h2>
+            <h2 className="text-[22px] font-semibold">The real problem</h2>
             <p>
               Publishing isn’t sexy. It’s complex, often misunderstood and built on delayed gratification. For most writers and artists, the challenge isn’t just choosing the right solution - it’s understanding that there is a problem at all.
             </p>
@@ -41,7 +61,7 @@ export default function KosignProject() {
           </div>
 
           <section className="space-y-6 content-width">
-            <h2 className="text-lg font-semibold">My role</h2>
+            <h2 className="text-[22px] font-semibold">My role</h2>
             <p>
               I was responsible for the end-to-end experience strategy and design execution for KOSIGN.
             </p>
@@ -51,7 +71,7 @@ export default function KosignProject() {
           </section>
 
           <section className="space-y-6 content-width">
-            <h2 className="text-lg font-semibold">Strategy, tradeoff’s and key decisions</h2>
+            <h2 className="text-[22px] font-semibold">Strategy, tradeoff’s and key decisions</h2>
             <p>
               To ship quickly and learn in-market, we deliberately deferred a number of augmentation and enhancement ideas. Rather than reinventing the product wholesale, we focused on adapting the core experience to prove demand and operational viability first.
             </p>
@@ -65,7 +85,7 @@ export default function KosignProject() {
           </section>
 
           <section className="space-y-6 content-width">
-            <h2 className="text-lg font-semibold">Results</h2>
+            <h2 className="text-[22px] font-semibold">Results</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-12 py-8 border-y border-divider">
               <div>
                 <div className="text-2xl font-bold">$3.16m</div>
@@ -83,7 +103,7 @@ export default function KosignProject() {
           </section>
 
           <section className="space-y-6 content-width">
-            <h2 className="text-lg font-semibold">Reflection</h2>
+            <h2 className="text-[22px] font-semibold">Reflection</h2>
             <p>
               KOSIGN reinforced that many of the hardest design problems aren’t necessarily about pixels or flows. They’re about the maturity or outlook of our targeted segments, about sequencing effort across multi-disciplinary teams, and about finding the right relationship with the mothership to be able to ship and learn at pace.
             </p>

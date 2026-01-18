@@ -25,8 +25,8 @@ export default function WorkIndex() {
           <div className="space-y-4">
             <div className="space-y-1">
               <span className="text-sm text-muted-foreground">March 2025</span>
-              <h2 className="text-lg font-semibold">KOSIGN</h2>
-              <p className="text-sm text-primary">Launching a self-serve publishing platform</p>
+              <h2 className="text-[22px] font-semibold">KOSIGN</h2>
+              <p>Launching a self-serve publishing platform</p>
             </div>
             <Link href="/work/kosign">
               <a className="block group">
@@ -38,37 +38,38 @@ export default function WorkIndex() {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-             <div className="space-y-4">
-                <div className="space-y-1 opacity-60">
-                  <span className="text-sm text-muted-foreground">June 2024</span>
-                  <h2 className="text-lg font-semibold">Kobalt Portal</h2>
-                  <p className="text-sm text-primary">Resetting the experience</p>
-                </div>
-                <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
-                  <ImagePlaceholder label="Kobalt Portal" aspectRatio="video" />
-                </div>
-                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
-             </div>
+          {/* Kobalt Portal */}
+          <div className="space-y-4">
+            <div className="space-y-1 opacity-60">
+              <span className="text-sm text-muted-foreground">June 2024</span>
+              <h2 className="text-[22px] font-semibold">Kobalt Portal</h2>
+              <p>Resetting the experience</p>
+            </div>
+            <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
+              <ImagePlaceholder label="Kobalt Portal" aspectRatio="video" />
+            </div>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
+          </div>
 
-             <div className="space-y-4">
-                <div className="space-y-1 opacity-60">
-                  <span className="text-sm text-muted-foreground">January 2024</span>
-                  <h2 className="text-lg font-semibold">Internal Platform</h2>
-                  <p className="text-sm text-primary">Royalty automation</p>
-                </div>
-                <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
-                  <ImagePlaceholder label="Internal Platform" aspectRatio="video" />
-                </div>
-                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
-             </div>
+          {/* Internal Platform */}
+          <div className="space-y-4">
+            <div className="space-y-1 opacity-60">
+              <span className="text-sm text-muted-foreground">January 2024</span>
+              <h2 className="text-[22px] font-semibold">Internal Platform</h2>
+              <p>Royalty automation</p>
+            </div>
+            <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
+              <ImagePlaceholder label="Internal Platform" aspectRatio="video" />
+            </div>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
           </div>
           
+          {/* Golf Caddy */}
           <div className="space-y-4">
             <div className="space-y-1 opacity-60">
               <span className="text-sm text-muted-foreground">May 2023</span>
-              <h2 className="text-lg font-semibold">Golf Caddy</h2>
-              <p className="text-sm text-primary">Founding-designer work on an AI-driven product</p>
+              <h2 className="text-[22px] font-semibold">Golf Caddy</h2>
+              <p>Founding-designer work on an AI-driven product</p>
             </div>
             <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
               <ImagePlaceholder label="Golf Caddy" aspectRatio="video" />
