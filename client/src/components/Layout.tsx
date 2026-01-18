@@ -41,19 +41,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav Toggle */}
         <button 
-          className="md:hidden p-1 text-foreground z-50 absolute top-12 right-6"
+          className="md:hidden p-1 text-foreground z-[60] absolute top-12 right-6"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
         </button>
 
         {/* Mobile Nav Overlay */}
         {isMobileMenuOpen && (
-          <nav className="fixed inset-0 pt-32 pr-6 flex flex-col gap-4 text-right bg-background md:hidden z-40 w-full items-end pb-8">
+          <nav className="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-background md:hidden z-50 w-full h-full">
             <Link href="/">
               <a 
-                className={`text-xl font-medium transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
+                className={`text-3xl font-google font-bold tracking-tight transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
@@ -61,16 +61,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <Link href="/work">
               <a 
-                className={`text-xl font-medium transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}
+                className={`text-3xl font-google font-bold tracking-tight transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Work
               </a>
             </Link>
-            <div className="flex flex-col gap-2 items-end mt-4">
-              <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Twitter</a>
-              <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
+            <div className="flex flex-col gap-4 items-center mt-8">
+              <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>Instagram</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>Twitter</a>
+              <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LinkedIn</a>
             </div>
           </nav>
         )}
