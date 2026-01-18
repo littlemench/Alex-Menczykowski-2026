@@ -5,7 +5,7 @@ import { Link } from "wouter";
 export default function WorkIndex() {
   return (
     <Layout>
-      <section className="layout-grid">
+      <section className="layout-grid -mt-32">
         <h1 className="mb-12">Work</h1>
         
         <div className="content-width space-y-6 mb-24">
@@ -38,7 +38,6 @@ export default function WorkIndex() {
             </Link>
           </div>
 
-          {/* Others */}
           <div className="grid md:grid-cols-2 gap-12">
              <div className="space-y-4">
                 <div className="space-y-1 opacity-60">
@@ -63,6 +62,18 @@ export default function WorkIndex() {
                 </div>
                 <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
              </div>
+          </div>
+          
+          <div className="space-y-4">
+            <div className="space-y-1 opacity-60">
+              <span className="text-sm text-muted-foreground">May 2023</span>
+              <h2 className="text-lg font-semibold">Golf Caddy</h2>
+              <p className="text-sm text-primary">Founding-designer work on an AI-driven product</p>
+            </div>
+            <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
+              <ImagePlaceholder label="Golf Caddy" aspectRatio="video" />
+            </div>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
           </div>
         </div>
       </section>

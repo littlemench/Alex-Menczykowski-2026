@@ -18,18 +18,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-12">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-0">
       {/* Top Header - RHS nav only */}
-      <header className="mb-12 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-end items-start relative">
+      <header className="pt-12 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-end items-start relative z-50">
         <nav className="flex flex-col gap-1 text-sm font-medium items-end text-right">
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Work
+              Home
             </a>
           </Link>
-          <Link href="/notes">
-            <a className="text-muted-foreground hover:underline">
-              Notes
+          <Link href="/work">
+            <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Work
             </a>
           </Link>
           <div className="mt-4 flex flex-col gap-1 items-end">
@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav Toggle */}
         <button 
-          className="md:hidden p-1 text-foreground z-50 absolute top-0 right-6"
+          className="md:hidden p-1 text-foreground z-50 absolute top-12 right-6"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -50,21 +50,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav Overlay */}
         {isMobileMenuOpen && (
-          <nav className="absolute top-0 right-0 pt-16 pr-6 flex flex-col gap-4 text-right bg-background md:hidden z-40 w-full items-end pb-8">
+          <nav className="fixed inset-0 pt-32 pr-6 flex flex-col gap-4 text-right bg-background md:hidden z-40 w-full items-end pb-8">
             <Link href="/">
               <a 
                 className={`text-xl font-medium transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Work
+                Home
               </a>
             </Link>
-            <Link href="/notes">
+            <Link href="/work">
               <a 
-                className="text-xl font-medium text-muted-foreground hover:underline cursor-pointer"
+                className={`text-xl font-medium transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Notes
+                Work
               </a>
             </Link>
             <div className="flex flex-col gap-2 items-end mt-4">
