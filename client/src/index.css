@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: 'Inter', 'DM Sans', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-google: 'Product Sans', sans-serif;
   
   --color-background: #ffffff;
-  --color-foreground: #1a1a1a;
+  --color-foreground: #000000;
   
   --color-muted: #f5f5f5;
-  --color-muted-foreground: #555555;
+  --color-muted-foreground: #000000;
   
   --color-border: #e5e5e5;
   
-  /* Semantic names for this specific design system */
-  --color-primary: #1a1a1a;
-  --color-secondary: #444444;
+  --color-primary: #000000;
+  --color-secondary: #000000;
   --color-divider: #f0f0f0;
 }
 
@@ -24,7 +24,7 @@
   
   html {
     scroll-behavior: smooth;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   body {
@@ -34,27 +34,26 @@
 
   /* Typography System */
   h1 {
-    @apply text-4xl md:text-5xl font-medium tracking-tight leading-[1.1];
+    @apply font-google text-[32px] font-bold leading-tight tracking-tight text-primary;
   }
 
   h2 {
-    @apply text-[1rem] font-medium tracking-widest leading-snug uppercase text-muted-foreground;
+    @apply text-[18px] font-semibold leading-snug text-primary normal-case tracking-normal;
   }
   
   h3 {
-    @apply text-xl font-medium leading-snug;
+    @apply text-[18px] font-semibold leading-snug text-primary;
   }
 
   p {
-    @apply text-[1rem] leading-relaxed text-secondary;
+    @apply text-[16px] leading-[1.6] text-primary;
   }
 
   a {
     @apply transition-colors duration-200;
   }
   
-  /* Utility for the 'invisible' vibe */
   .layout-grid {
-    @apply max-w-[1200px] mx-auto px-6 md:px-12;
+    @apply max-w-[760px] mx-auto px-6 md:px-8;
   }
 }
