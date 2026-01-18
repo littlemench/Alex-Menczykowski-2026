@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   
   const lastMoveTime = useRef(Date.now());
   const glowTimeout = useRef<NodeJS.Timeout | null>(null);
-  const PAUSE_THRESHOLD = 1500; // 1.5 seconds of inactivity
+  const PAUSE_THRESHOLD = 5000; // 5 seconds of inactivity
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     const now = Date.now();
@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       if (glowTimeout.current) clearTimeout(glowTimeout.current);
       glowTimeout.current = setTimeout(() => {
         setIsGlowing(false);
-      }, 1200);
+      }, 1000); // Fades away after 1 second
     }
 
     lastMoveTime.current = now;
