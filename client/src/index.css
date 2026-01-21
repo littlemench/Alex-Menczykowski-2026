@@ -28,26 +28,26 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground selection:bg-gray-100 selection:text-black;
-    font-feature-settings: "ss01", "ss02", "cv11";
-  }
+  @apply font-sans antialiased bg-background text-foreground selection:bg-gray-100 selection:text-black;
+  font-feature-settings: "ss01", "ss02", "cv11";
+}
 
-  /* Typography System */
-  h1 {
-    @apply font-google text-[78px] font-bold leading-[0.9] tracking-[-0.0425em] text-primary;
-  }
+/* Typography System */
+h1 {
+  @apply font-google text-[78px] font-bold leading-[0.9] tracking-[-0.0425em] text-primary;
+}
 
-  h2 {
-    @apply text-[22px] font-semibold leading-snug text-primary normal-case tracking-normal;
-  }
-  
-  h3 {
-    @apply text-[18px] font-semibold leading-snug text-primary;
-  }
+h2 {
+  @apply font-google text-[22px] font-semibold leading-snug text-primary normal-case tracking-normal;
+}
 
-  p, li, ul, ol {
-    @apply text-[18px] leading-[1.6] text-primary;
-  }
+h3 {
+  @apply font-google text-[18px] font-semibold leading-snug text-primary;
+}
+
+p, li, ul, ol {
+  @apply font-sans text-[18px] leading-[1.6] text-primary;
+}
 
   ul {
     @apply list-disc list-outside ml-5;
