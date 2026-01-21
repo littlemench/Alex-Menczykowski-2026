@@ -82,7 +82,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Sub-header for project pages */}
           {location.startsWith('/work/') && (
             <div className="content-width">
-              <p className="text-lg font-medium m-0">
+              <p className="m-0">
                 {location.includes('kosign') 
                   ? "Launching a self-serve publishing platform for mid-market creators"
                   : "Product Design case study"}
