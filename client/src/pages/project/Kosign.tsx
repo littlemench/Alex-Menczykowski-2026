@@ -28,10 +28,6 @@ export default function KosignProject() {
   return (
     <Layout>
       <article className="layout-grid">
-        <header className="mb-24">
-          <p className="text-lg font-medium content-width">Launching a self-serve publishing platform for mid-market creators</p>
-        </header>
-
         <div className="space-y-24">
           <div className="border border-border p-2">
             <ImagePlaceholder label="KOSIGN Hero" aspectRatio="video" />
