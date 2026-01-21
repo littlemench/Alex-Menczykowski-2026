@@ -33,7 +33,9 @@ export default function KosignProject() {
         </header>
 
         <div className="space-y-24">
-          <ProjectCarousel slides={carouselSlides} />
+          <div className="border border-border p-2">
+            <ImagePlaceholder label="KOSIGN Hero" aspectRatio="video" />
+          </div>
 
           <section className="space-y-6 content-width">
             <h2 className="text-[22px] font-semibold">Context</h2>
@@ -55,9 +57,7 @@ export default function KosignProject() {
             </p>
           </section>
 
-          <div className="border border-border p-2">
-            <ImagePlaceholder label="Process / Flow Diagram" aspectRatio="video" />
-          </div>
+          <ProjectCarousel slides={carouselSlides} />
 
           <section className="space-y-6 content-width">
             <h2 className="text-[22px] font-semibold">My role</h2>
