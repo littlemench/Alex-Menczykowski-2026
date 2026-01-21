@@ -34,7 +34,7 @@
 
 /* Typography System */
 h1 {
-  @apply font-google text-[78px] font-medium leading-[0.9] tracking-[-0.0425em] text-primary;
+  @apply font-google text-[44px] sm:text-[54px] lg:text-[78px] font-medium leading-[0.9] tracking-[-0.0425em] text-primary;
 }
 
 h2 {
