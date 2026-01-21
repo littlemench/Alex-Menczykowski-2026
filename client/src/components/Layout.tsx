@@ -68,7 +68,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       
       {/* Top Header - Responsive Title + Nav */}
       <header className="pt-12 px-6 md:px-12 w-full mx-auto flex justify-between items-start relative z-50">
-        <div className="z-[70] flex flex-col gap-4">
+        <div className="z-[70] flex flex-col gap-4 w-full">
           {location === '/' ? (
             <h1 className="m-0 leading-none">Alex Menczykowski</h1>
           ) : location === '/work' ? (
@@ -82,7 +82,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Sub-header for project pages */}
           {location.startsWith('/work/') && (
             <div className="content-width">
-              <p className="m-0">
+              <p className="m-0 max-w-none">
                 {location.includes('kosign') 
                   ? "Launching a self-serve publishing platform for mid-market creators"
                   : "Product Design case study"}
