@@ -5,9 +5,7 @@ import { Link } from "wouter";
 export default function WorkIndex() {
   return (
     <Layout>
-      <section className="layout-grid -mt-32">
-        <h1 className="mb-12">Work</h1>
-        
+      <section className="layout-grid">
         <div className="content-width space-y-6 mb-24">
           <p>
             My work sits across strategy, product, and delivery. I’m usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.

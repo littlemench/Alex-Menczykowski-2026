@@ -66,8 +66,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }} 
       />
       
-      {/* Top Header - RHS nav only */}
-      <header className="pt-12 px-6 md:px-12 w-full mx-auto flex justify-end items-start relative z-50">
+      {/* Top Header - Responsive Title + Nav */}
+      <header className="pt-12 px-6 md:px-12 w-full mx-auto flex justify-between items-start relative z-50">
+        <div className="z-[70]">
+          {location === '/' ? (
+            <h1 className="m-0 leading-none">Alex Menczykowski</h1>
+          ) : location === '/work' ? (
+            <h1 className="m-0 leading-none">Work</h1>
+          ) : location.startsWith('/work/') ? (
+            <h1 className="m-0 leading-none">{location.split('/').pop()?.toUpperCase()}</h1>
+          ) : (
+            <h1 className="m-0 leading-none">Notes</h1>
+          )}
+        </div>
+
         <nav className="hidden md:flex flex-col gap-0.5 text-sm font-medium items-end text-right">
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
@@ -88,7 +100,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav Toggle */}
         <button 
-          className="md:hidden p-1 text-foreground z-[60] absolute top-12 right-6"
+          className="md:hidden p-1 text-foreground z-[70] mt-1"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -97,10 +109,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav Overlay */}
         {isMobileMenuOpen && (
-          <nav className="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-background md:hidden z-50 w-full h-full">
+          <nav className="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-background md:hidden z-[60] w-full h-full">
             <Link href="/">
               <a 
-                className={`text-3xl font-google font-bold tracking-tight transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
+                className={`text-3xl font-google font-medium tracking-tight transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
@@ -108,7 +120,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <Link href="/work">
               <a 
-                className={`text-3xl font-google font-bold tracking-tight transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}
+                className={`text-3xl font-google font-medium tracking-tight transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Work
@@ -124,7 +136,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow">
+      <main className="flex-grow pt-12">
         {children}
       </main>
 

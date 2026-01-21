@@ -27,9 +27,8 @@ const carouselSlides = [
 export default function KosignProject() {
   return (
     <Layout>
-      <article className="layout-grid -mt-32">
+      <article className="layout-grid">
         <header className="mb-24">
-          <h1 className="mb-8">KOSIGN</h1>
           <p className="text-lg font-medium content-width">Launching a self-serve publishing platform for mid-market creators</p>
         </header>
 

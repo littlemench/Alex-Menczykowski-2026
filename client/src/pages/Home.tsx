@@ -3,9 +3,7 @@ import Layout from "@/components/Layout";
 export default function Home() {
   return (
     <Layout>
-      <section className="layout-grid -mt-32">
-        <h1 className="mb-12">Alex Menczykowski</h1>
-        
+      <section className="layout-grid">
         <div className="content-width space-y-6">
           <p>
             I lead design for our friend, <span className="underline decoration-border underline-offset-2">KOSIGN</span>. I’m a design leader with a flexible and even ‘generalist’ approach. I enjoy working closely with the best minds across business, product, and engineering to frame problems, prioritise opportunities, and ship with minimum delay, and maximum learnings.
