@@ -67,7 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       />
       
       {/* Top Header - Responsive Title + Nav */}
-      <header className="pt-12 px-6 md:px-12 w-full mx-auto flex justify-between items-start relative z-50">
+      <header className="pt-[7.2%] px-[3.6%] md:px-[7.2%] w-full mx-auto flex justify-between items-start relative z-50">
         <div className="z-[70] flex flex-col gap-4 w-full">
           {location === '/' ? (
             <h1 className="m-0 leading-none">Alex Menczykowski</h1>
@@ -147,7 +147,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow pt-12">
+      <main className="flex-grow pt-8">
         {children}
       </main>
 
