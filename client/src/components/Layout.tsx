@@ -129,7 +129,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow pt-1">
+      <main className="flex-grow pt-8 md:pt-1">
         {children}
       </main>
 
