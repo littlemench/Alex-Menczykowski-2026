@@ -34,15 +34,15 @@
 
 /* Typography System */
 h1 {
-  @apply font-google text-[78px] font-semibold leading-[0.9] tracking-[-0.0425em] text-primary;
+  @apply font-google text-[78px] font-medium leading-[0.9] tracking-[-0.0425em] text-primary;
 }
 
 h2 {
-  @apply font-google text-[22px] font-semibold leading-snug text-primary normal-case tracking-normal;
+  @apply font-google text-[22px] font-medium leading-snug text-primary normal-case tracking-normal;
 }
 
 h3 {
-  @apply font-google text-[18px] font-semibold leading-snug text-primary;
+  @apply font-google text-[18px] font-medium leading-snug text-primary;
 }
 
 p, li, ul, ol {
