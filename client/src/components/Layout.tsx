@@ -104,7 +104,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
           <div className="mt-4 flex flex-col gap-0.5 items-end">
             <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Twitter</a>
+            <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
             <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
           </div>
         </nav>
@@ -139,7 +139,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <div className="flex flex-col gap-4 items-center mt-8">
               <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>Instagram</a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>Twitter</a>
+              <a href="mailto:alexmenczykowski@gmail.com" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>Email</a>
               <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LinkedIn</a>
             </div>
           </nav>
