@@ -67,7 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       />
       
       {/* Top Header - RHS nav only */}
-      <header className="pt-12 px-6 md:px-12 w-full max-w-[1400px] mx-auto flex justify-end items-start relative z-50">
+      <header className="pt-12 px-6 md:px-12 w-full mx-auto flex justify-end items-start relative z-50">
         <nav className="flex flex-col gap-0.5 text-sm font-medium items-end text-right">
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>

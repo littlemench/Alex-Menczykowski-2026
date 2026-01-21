@@ -58,8 +58,8 @@ export default function ProjectCarousel({ slides, autoPlay = true }: ProjectCaro
         </button>
       </div>
 
-      <div className="max-w-[640px] transition-all duration-300">
-        <h3 className="text-[22px] font-semibold mb-2">{slides[current].title}</h3>
+      <div className="lg:w-1/2 transition-all duration-300">
+        <h3 className="text-[22px] font-medium mb-2">{slides[current].title}</h3>
         <p className="text-[18px] text-primary">{slides[current].description}</p>
       </div>
       
