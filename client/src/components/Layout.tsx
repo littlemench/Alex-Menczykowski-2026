@@ -152,7 +152,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       {/* Footer / Social Links */}
-      <footer id="contact" className="py-24 border-t border-divider mt-24">
+      <footer id="contact" className="py-24 mt-24">
         <div className="layout-grid">
            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
               <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="hover:underline">
