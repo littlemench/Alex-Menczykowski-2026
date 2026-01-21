@@ -67,7 +67,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       />
       
       {/* Top Header - Responsive Title + Nav */}
-      <header className="pt-8 px-4 md:px-8 w-full mx-auto flex justify-between items-start relative z-50">
+      <header className="pt-8 px-4 md:px-8 w-full mx-auto flex flex-col items-start relative z-50">
+        <nav className="flex flex-row gap-6 text-sm font-medium items-center mb-6 w-full">
+           <Link href="/">
+            <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Home
+            </a>
+          </Link>
+          <Link href="/work">
+            <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Work
+            </a>
+          </Link>
+          <div className="flex flex-row gap-6 items-center">
+            <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
+            <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
+            <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
+          </div>
+        </nav>
+
         <div className="z-[70] flex flex-col gap-1 w-full">
           {location === '/' ? (
             <h1 className="m-0 leading-none">Alex Menczykowski</h1>
@@ -90,60 +108,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           )}
         </div>
-
-        <nav className="hidden md:flex flex-col gap-0.5 text-sm font-medium items-end text-right">
-           <Link href="/">
-            <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Home
-            </a>
-          </Link>
-          <Link href="/work">
-            <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Work
-            </a>
-          </Link>
-          <div className="mt-4 flex flex-col gap-0.5 items-end">
-            <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-            <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
-            <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
-          </div>
-        </nav>
-
-        {/* Mobile Nav Toggle */}
-        <button 
-          className="md:hidden p-1 text-foreground z-[70] mt-1"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
-        </button>
-
-        {/* Mobile Nav Overlay */}
-        {isMobileMenuOpen && (
-          <nav className="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-background md:hidden z-[60] w-full h-full">
-            <Link href="/">
-              <a 
-                className={`text-3xl font-google font-medium tracking-tight transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </a>
-            </Link>
-            <Link href="/work">
-              <a 
-                className={`text-3xl font-google font-medium tracking-tight transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Work
-              </a>
-            </Link>
-            <div className="flex flex-col gap-4 items-center mt-8">
-              <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>Instagram</a>
-              <a href="mailto:alexmenczykowski@gmail.com" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>Email</a>
-              <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-xl text-muted-foreground hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LinkedIn</a>
-            </div>
-          </nav>
-        )}
       </header>
 
       {/* Main Content */}
