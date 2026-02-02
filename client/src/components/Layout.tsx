@@ -75,11 +75,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Home
             </a>
           </Link>
-          <Link href="/work">
-            <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Work
-            </a>
-          </Link>
           <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
           <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
           <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
@@ -113,11 +108,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
               Home
-            </a>
-          </Link>
-          <Link href="/work">
-            <a className={`transition-colors hover:underline ${location.startsWith('/work') ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Work
             </a>
           </Link>
           <div className="mt-4 flex flex-col gap-0.5 items-end">
