@@ -14,9 +14,6 @@ export default function Home() {
           <p>
             I was raised in design and innovation studios like <a href="https://www.frog.co/" target="_blank" rel="noopener noreferrer" className="italic hover:text-muted-foreground transition-colors">Frog</a>, <a href="https://x.com/adaptivelab?lang=en" target="_blank" rel="noopener noreferrer" className="italic hover:text-muted-foreground transition-colors">Adaptive Lab</a>, and <a href="https://whatifinnovation.com/" target="_blank" rel="noopener noreferrer" className="italic hover:text-muted-foreground transition-colors">?WhatIf! Innovation</a>, and have supported several startups in my spare time along the way.
           </p>
-          <p>
-            If you'd like to chat, or want to know more, please reach out.
-          </p>
         </div>
       </section>
     </Layout>

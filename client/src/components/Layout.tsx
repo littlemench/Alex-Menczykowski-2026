@@ -75,6 +75,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Home
             </a>
           </Link>
+          <span className="text-muted-foreground cursor-not-allowed">Work</span>
           <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
           <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
           <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
@@ -110,6 +111,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Home
             </a>
           </Link>
+          <span className="text-muted-foreground cursor-not-allowed">Work</span>
           <div className="mt-4 flex flex-col gap-0.5 items-end">
             <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
             <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
