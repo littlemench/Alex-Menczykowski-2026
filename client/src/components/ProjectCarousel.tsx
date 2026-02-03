@@ -29,7 +29,7 @@ export default function ProjectCarousel({ slides, autoPlay = true }: ProjectCaro
   const prev = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 content-width">
       <div className="relative group">
         <div className="border border-border p-2 overflow-hidden bg-white">
           <div 

@@ -29,7 +29,7 @@ export default function KosignProject() {
     <Layout>
       <article className="layout-grid">
         <div className="space-y-24">
-          <div className="border border-border p-2">
+          <div className="content-width border border-border p-2">
             <ImagePlaceholder label="KOSIGN Hero" aspectRatio="video" />
           </div>
 

@@ -20,7 +20,7 @@ export default function WorkIndex() {
 
         <div className="space-y-32">
           {/* KOSIGN */}
-          <div className="space-y-4">
+          <div className="space-y-4 content-width">
             <div className="space-y-1">
               <span className="text-sm text-muted-foreground">March 2025</span>
               <h2 className="text-[22px] font-semibold">KOSIGN</h2>
@@ -37,7 +37,7 @@ export default function WorkIndex() {
           </div>
 
           {/* Kobalt Portal */}
-          <div className="space-y-4">
+          <div className="space-y-4 content-width">
             <div className="space-y-1 opacity-60">
               <span className="text-sm text-muted-foreground">June 2024</span>
               <h2 className="text-[22px] font-semibold">Kobalt Portal</h2>
@@ -50,7 +50,7 @@ export default function WorkIndex() {
           </div>
 
           {/* Internal Platform */}
-          <div className="space-y-4">
+          <div className="space-y-4 content-width">
             <div className="space-y-1 opacity-60">
               <span className="text-sm text-muted-foreground">January 2024</span>
               <h2 className="text-[22px] font-semibold">Internal Platform</h2>
@@ -63,7 +63,7 @@ export default function WorkIndex() {
           </div>
           
           {/* Golf Caddy */}
-          <div className="space-y-4">
+          <div className="space-y-4 content-width">
             <div className="space-y-1 opacity-60">
               <span className="text-sm text-muted-foreground">May 2023</span>
               <h2 className="text-[22px] font-semibold">Golf Caddy</h2>
