@@ -12,7 +12,7 @@ export default function Home() {
             I enjoy work most when given the chance to collaborate on shaping strategy, teams, and products, all the way from mission to market.
           </p>
           <p>
-            I was raised in design and innovation studios like <a href="https://www.frog.co/" target="_blank" rel="noopener noreferrer" className="italic hover:text-muted-foreground transition-colors">Frog</a>, <a href="https://x.com/adaptivelab?lang=en" target="_blank" rel="noopener noreferrer" className="italic hover:text-muted-foreground transition-colors">Adaptive Lab</a>, and <a href="https://whatifinnovation.com/" target="_blank" rel="noopener noreferrer" className="italic hover:text-muted-foreground transition-colors">?WhatIf! Innovation</a>, and have supported several startups in my spare time along the way.
+            I was raised in design and innovation studios like <a href="https://www.frog.co/" target="_blank" rel="noopener noreferrer" className="underline decoration-border underline-offset-2 hover:text-muted-foreground transition-colors">Frog</a>, <a href="https://x.com/adaptivelab?lang=en" target="_blank" rel="noopener noreferrer" className="underline decoration-border underline-offset-2 hover:text-muted-foreground transition-colors">Adaptive Lab</a>, and <a href="https://whatifinnovation.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border underline-offset-2 hover:text-muted-foreground transition-colors">?WhatIf! Innovation</a>, and have supported several startups in my spare time along the way.
           </p>
         </div>
       </section>
