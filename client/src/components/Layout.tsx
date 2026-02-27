@@ -1,70 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
-
-const COLORS = [
-  "rgba(59, 130, 246, 0.15)",   // Blue
-  "rgba(139, 92, 246, 0.15)",   // Violet
-  "rgba(236, 72, 153, 0.15)",   // Pink
-  "rgba(20, 184, 166, 0.15)",   // Teal
-  "rgba(245, 158, 11, 0.15)",   // Amber
-];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [glowColor, setGlowColor] = useState(COLORS[0]);
-  const [isGlowing, setIsGlowing] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  
-  const lastMoveTime = useRef(Date.now());
-  const glowTimeout = useRef<NodeJS.Timeout | null>(null);
-  const PAUSE_THRESHOLD = 5000; // 5 seconds of inactivity
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    const now = Date.now();
-    const timeSinceLastMove = now - lastMoveTime.current;
-    
-    setMousePos({ x: e.clientX, y: e.clientY });
-
-    if (timeSinceLastMove > PAUSE_THRESHOLD && !isGlowing) {
-      setGlowColor(prev => {
-        const others = COLORS.filter(c => c !== prev);
-        return others[Math.floor(Math.random() * others.length)];
-      });
-      
-      setIsGlowing(true);
-      
-      if (glowTimeout.current) clearTimeout(glowTimeout.current);
-      glowTimeout.current = setTimeout(() => {
-        setIsGlowing(false);
-      }, 1000); // Fades away after 1 second
-    }
-
-    lastMoveTime.current = now;
-  }, [isGlowing]);
-
-  useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (glowTimeout.current) clearTimeout(glowTimeout.current);
-    };
-  }, [handleMouseMove]);
-
-  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-100 selection:text-black flex flex-col pt-0 relative overflow-hidden">
-      {/* Radial Glow Effect Layer */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-1000 ease-out"
-        style={{ 
-          background: `radial-gradient(circle 150px at ${mousePos.x}px ${mousePos.y}px, ${glowColor}, transparent)`,
-          opacity: isGlowing ? 1 : 0,
-          transition: 'opacity 1s ease-out'
-        }} 
-      />
       
       {/* Top Header - Responsive Title + Nav */}
       <header className="pt-8 px-4 md:px-8 w-full mx-auto flex flex-col md:flex-row justify-between items-start relative z-50">

@@ -1,6 +1,4 @@
 import Layout from "@/components/Layout";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
-import { Link } from "wouter";
 
 export default function WorkIndex() {
   return (
@@ -8,71 +6,51 @@ export default function WorkIndex() {
       <section className="layout-grid">
         <div className="content-width space-y-6 mb-24">
           <p>
-            My work sits across strategy, product, and delivery. I’m usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
+            My work sits across strategy, product, and delivery. I'm usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
           </p>
           <p>
             I partner closely with business leaders to frame the right problems, with product managers to shape and prioritise opportunities, and with engineers to ensure what we build is feasible and can ship without delay.
-          </p>
-          <p>
-            And i’m relentlessly exploring new tools and methods to accelerate and augment what we do as designers using the capabilities brought by AI assistants, LLM’s and vibe-coding platforms.
           </p>
         </div>
 
         <div className="space-y-32">
           {/* KOSIGN */}
           <div className="space-y-4 content-width">
-            <div className="space-y-1">
-              <span className="text-sm text-muted-foreground">March 2025</span>
+            <div className="space-y-1 opacity-60">
+              <span className="text-sm text-muted-foreground">March 2025 &gt; Present</span>
               <h2 className="text-[22px] font-semibold">KOSIGN</h2>
-              <p>Launching a self-serve publishing platform</p>
+              <p>Launching a self-serve music publishing platform</p>
             </div>
-            <Link href="/work/kosign">
-              <a className="block group">
-                <div className="border border-border p-2 transition-colors group-hover:border-muted-foreground/30 mb-2">
-                  <ImagePlaceholder label="KOSIGN Case Study" aspectRatio="video" />
-                </div>
-                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5">View Project</span>
-              </a>
-            </Link>
+            <div className="cursor-not-allowed mb-2 group">
+              <img src="/Preview-KOSIGN.png" alt="KOSIGN Case Study" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" />
+              <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground opacity-60 mt-2 block">Coming Soon</span>
+            </div>
           </div>
 
-          {/* Kobalt Portal */}
+          {/* Kobalt Client Product */}
           <div className="space-y-4 content-width">
             <div className="space-y-1 opacity-60">
-              <span className="text-sm text-muted-foreground">June 2024</span>
-              <h2 className="text-[22px] font-semibold">Kobalt Portal</h2>
-              <p>Resetting the experience</p>
+              <span className="text-sm text-muted-foreground">June 2024 &gt; Present</span>
+              <h2 className="text-[22px] font-semibold">Kobalt Client Product</h2>
+              <p>Resetting the client experience for the worlds biggest independent music publisher</p>
             </div>
-            <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
-              <ImagePlaceholder label="Kobalt Portal" aspectRatio="video" />
+            <div className="cursor-not-allowed mb-2 group">
+              <img src="/Preview-Portal.png" alt="Kobalt Client Product" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" />
+              <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground opacity-60 mt-2 block">Coming Soon</span>
             </div>
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
           </div>
 
-          {/* Internal Platform */}
+          {/* Internal Data Platform */}
           <div className="space-y-4 content-width">
             <div className="space-y-1 opacity-60">
-              <span className="text-sm text-muted-foreground">January 2024</span>
-              <h2 className="text-[22px] font-semibold">Internal Platform</h2>
-              <p>Royalty automation</p>
+              <span className="text-sm text-muted-foreground">January 2024 &gt; Present</span>
+              <h2 className="text-[22px] font-semibold">Internal Data Platform</h2>
+              <p>A new generation of data processing tools for the Kobalt music group</p>
             </div>
-            <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
-              <ImagePlaceholder label="Internal Platform" aspectRatio="video" />
+            <div className="cursor-not-allowed mb-2 group">
+              <img src="/Preview-Tools.png" alt="Internal Data Platform" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" />
+              <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground opacity-60 mt-2 block">Coming Soon</span>
             </div>
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
-          </div>
-          
-          {/* Golf Caddy */}
-          <div className="space-y-4 content-width">
-            <div className="space-y-1 opacity-60">
-              <span className="text-sm text-muted-foreground">May 2023</span>
-              <h2 className="text-[22px] font-semibold">Golf Caddy</h2>
-              <p>Founding-designer work on an AI-driven product</p>
-            </div>
-            <div className="border border-border p-2 opacity-60 grayscale cursor-not-allowed mb-2">
-              <ImagePlaceholder label="Golf Caddy" aspectRatio="video" />
-            </div>
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground border-b border-divider pb-0.5 opacity-60">Coming Soon</span>
           </div>
         </div>
       </section>
