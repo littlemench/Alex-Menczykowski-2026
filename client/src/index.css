@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Geist', sans-serif;
   --font-google: 'Product Sans', sans-serif;
   
   --color-background: #ffffff;
@@ -38,7 +38,7 @@ h1 {
 }
 
 h2 {
-  @apply font-google text-[22px] font-medium leading-snug text-primary normal-case tracking-normal;
+  @apply font-sans text-[20px] font-normal leading-snug text-primary normal-case tracking-normal;
 }
 
 h3 {
@@ -46,8 +46,14 @@ h3 {
 }
 
 p, li, ul, ol {
-  @apply font-sans text-[18px] leading-[1.6];
+  @apply font-sans text-[16px] font-extralight leading-[1.6];
   color: #0d0d0d;
+}
+
+.label {
+  font-family: 'Geist', sans-serif;
+  font-weight: 200;
+  font-size: 12px;
 }
 
   ul {
