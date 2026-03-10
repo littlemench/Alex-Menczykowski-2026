@@ -6,10 +6,10 @@ export default function WorkIndex() {
       <section className="layout-grid">
         <div className="content-width space-y-6 mb-24">
           <p>
-            My work sits across strategy, product, and delivery. I'm usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
+            My work sits across product strategy, design, and delivery. I'm usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
           </p>
           <p>
-            I partner closely with business leaders to frame the right problems, with product managers to shape and prioritise opportunities, and with engineers to ensure what we build is feasible and can ship without delay.
+            I lead a team that partners closely with business leadership on framing the right problems, with product management to shape and prioritise opportunities, and with engineering to ensure what we build is feasible - and can ship without delay.
           </p>
         </div>
 
