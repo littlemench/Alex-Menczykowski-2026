@@ -30,6 +30,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="m-0 leading-none">Alex Menczykowski</h1>
           ) : location === '/work' ? (
             <h1 className="m-0 leading-none">Work</h1>
+          ) : location.includes('nexus-black') ? (
+            <h1 className="m-0 leading-none">Work / Nexus Black</h1>
           ) : location.startsWith('/work/') ? (
             <h1 className="m-0 leading-none">{location.split('/').pop()?.toUpperCase()}</h1>
           ) : (
@@ -37,13 +39,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           )}
           
           {/* Sub-header for project pages */}
-          {location.startsWith('/work/') && (
+          {location.startsWith('/work/') && !location.includes('nexus-black') && (
             <div className="content-width md:mt-4">
               <p className="m-0 max-w-none">
                 {location.includes('kosign')
                   ? "Launching a self-serve publishing platform for mid-market creators"
-                  : location.includes('nexus-black')
-                  ? "Selected product design work"
                   : "Product Design case study"}
               </p>
             </div>

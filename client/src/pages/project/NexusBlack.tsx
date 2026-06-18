@@ -18,12 +18,16 @@ export default function NexusBlack() {
   return (
     <Layout>
       <section className="layout-grid">
+        <div className="content-width mb-24">
+          <p>A page to help navigate the discussion around my previous and current work</p>
+        </div>
+
         <div className="space-y-32">
 
           {/* KOSIGN Venture */}
           <div className="space-y-4 content-width">
             <div className="space-y-1">
-              <h2>KOSIGN Venture</h2>
+              <h2 className="font-medium">KOSIGN Venture</h2>
               <p className="text-muted-foreground">A self-serve music publishing platform for the mid-market</p>
             </div>
             <img src="/Preview-KOSIGN.png" alt="KOSIGN Venture" className="w-full h-auto" />
@@ -36,7 +40,7 @@ export default function NexusBlack() {
           {/* Kobalt Client Product */}
           <div className="space-y-4 content-width">
             <div className="space-y-1">
-              <h2>Kobalt Client Product</h2>
+              <h2 className="font-medium">Kobalt Client Product</h2>
               <p className="text-muted-foreground">A new client & team experience for the world's biggest independent music publisher</p>
             </div>
             <img src="/Preview-Portal.png" alt="Kobalt Client Product" className="w-full h-auto" />
@@ -49,7 +53,7 @@ export default function NexusBlack() {
           {/* Kobalt & amra Platform */}
           <div className="space-y-4 content-width">
             <div className="space-y-1">
-              <h2>Kobalt & amra Platform</h2>
+              <h2 className="font-medium">Kobalt & amra Platform</h2>
               <p className="text-muted-foreground">A new generation of data processing tools for the Kobalt music group</p>
             </div>
             <img src="/Preview-Tools.png" alt="Kobalt & amra Platform" className="w-full h-auto" />
@@ -61,7 +65,7 @@ export default function NexusBlack() {
           {/* Design Ops & AI */}
           <div className="space-y-4 content-width">
             <div className="space-y-1">
-              <h2>Design Ops & AI</h2>
+              <h2 className="font-medium">Design Ops & AI</h2>
               <p className="text-muted-foreground">Refactoring FE & Design collaboration with a new stack</p>
             </div>
             <img src="/Preview-Rights-Claude-Design.jpg" alt="Design Ops & AI" className="w-full h-auto" />
