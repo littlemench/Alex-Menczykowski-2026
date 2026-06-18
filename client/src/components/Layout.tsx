@@ -40,8 +40,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {location.startsWith('/work/') && (
             <div className="content-width md:mt-4">
               <p className="m-0 max-w-none">
-                {location.includes('kosign') 
+                {location.includes('kosign')
                   ? "Launching a self-serve publishing platform for mid-market creators"
+                  : location.includes('nexus-black')
+                  ? "Selected product design work"
                   : "Product Design case study"}
               </p>
             </div>
