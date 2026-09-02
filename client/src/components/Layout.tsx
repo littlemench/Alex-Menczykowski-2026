@@ -38,16 +38,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="m-0 leading-none">Notes</h1>
           )}
           
-          {/* Sub-header for project pages */}
-          {location.startsWith('/work/') && !location.includes('nexus-black') && (
-            <div className="content-width md:mt-4">
-              <p className="m-0 max-w-none">
-                {location.includes('kosign')
-                  ? "Launching a self-serve publishing platform for mid-market creators"
-                  : "Product Design case study"}
-              </p>
-            </div>
-          )}
         </div>
 
         {/* Desktop Nav - Visible only md and up */}

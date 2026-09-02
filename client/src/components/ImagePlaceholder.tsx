@@ -20,7 +20,7 @@ export default function ImagePlaceholder({
   }[aspectRatio];
 
   return (
-    <div className={`w-full bg-muted border border-border flex items-center justify-center p-4 ${ratioClass} ${className}`}>
+    <div className={`w-full bg-muted flex items-center justify-center p-4 rounded-xl overflow-hidden ${ratioClass} ${className}`}>
       <span className="text-muted-foreground text-sm font-medium uppercase tracking-widest text-center">
         {label}
       </span>
