@@ -74,22 +74,22 @@ export const sections = {
 };
 
 export const carousel1Slides = [
-  { id: "1.1", title: "", description: "", src: "/KOSIGN-1.1-thumb.png", fullscreenSrc: "/KOSIGN-1.1.png" },
-  { id: "1.2", title: "", description: "", src: "/KOSIGN-1.2-thumb.png", fullscreenSrc: "/KOSIGN-1.2.png" },
-  { id: "1.3", title: "", description: "", src: "/KOSIGN-1.3-thumb.png", fullscreenSrc: "/KOSIGN-1.3.png" },
-  { id: "1.4", title: "", description: "", src: "/KOSIGN-1.4-thumb.png", fullscreenSrc: "/KOSIGN-1.4.png" },
+  { id: "1.1", title: "", description: "", src: "/KOSIGN-1.1.png", fullscreenSrc: "/KOSIGN-1.1.png" },
+  { id: "1.2", title: "", description: "", src: "/KOSIGN-1.2.png", fullscreenSrc: "/KOSIGN-1.2.png" },
+  { id: "1.3", title: "", description: "", src: "/KOSIGN-1.3.png", fullscreenSrc: "/KOSIGN-1.3.png" },
+  { id: "1.4", title: "", description: "", src: "/KOSIGN-1.4.png", fullscreenSrc: "/KOSIGN-1.4.png" },
 ];
 
 export const carousel2Slides = [
-  { id: "2.1", title: "", description: "", src: "/KOSIGN-2.1-thumb.png", fullscreenSrc: "/KOSIGN-2.1.png" },
-  { id: "2.2", title: "", description: "", src: "/KOSIGN-2.2-thumb.png", fullscreenSrc: "/KOSIGN-2.2.png" },
-  { id: "2.3", title: "", description: "", src: "/KOSIGN-2.3-thumb.png", fullscreenSrc: "/KOSIGN-2.3.png" },
-  { id: "2.4", title: "", description: "", src: "/KOSIGN-2.4-thumb.png", fullscreenSrc: "/KOSIGN-2.4.png" },
+  { id: "2.1", title: "", description: "", src: "/KOSIGN-2.1.png", fullscreenSrc: "/KOSIGN-2.1.png" },
+  { id: "2.2", title: "", description: "", src: "/KOSIGN-2.2.png", fullscreenSrc: "/KOSIGN-2.2.png" },
+  { id: "2.3", title: "", description: "", src: "/KOSIGN-2.3.png", fullscreenSrc: "/KOSIGN-2.3.png" },
+  { id: "2.4", title: "", description: "", src: "/KOSIGN-2.4.png", fullscreenSrc: "/KOSIGN-2.4.png" },
 ];
 
 export const carousel3Slides = [
-  { id: "3.1", title: "", description: "", src: "/KOSIGN-3.1-thumb.png", fullscreenSrc: "/KOSIGN-3.1.png" },
-  { id: "3.2", title: "", description: "", src: "/KOSIGN-3.2-thumb.png", fullscreenSrc: "/KOSIGN-3.2.png" },
-  { id: "3.3", title: "", description: "", src: "/KOSIGN-3.3-thumb.png", fullscreenSrc: "/KOSIGN-3.3.png" },
-  { id: "3.4", title: "", description: "", src: "/KOSIGN-3.4-thumb.png", fullscreenSrc: "/KOSIGN-3.4.png" },
+  { id: "3.1", title: "", description: "", src: "/KOSIGN-3.1.png", fullscreenSrc: "/KOSIGN-3.1.png" },
+  { id: "3.2", title: "", description: "", src: "/KOSIGN-3.2.png", fullscreenSrc: "/KOSIGN-3.2.png" },
+  { id: "3.3", title: "", description: "", src: "/KOSIGN-3.3.png", fullscreenSrc: "/KOSIGN-3.3.png" },
+  { id: "3.4", title: "", description: "", src: "/KOSIGN-3.4.png", fullscreenSrc: "/KOSIGN-3.4.png" },
 ];
