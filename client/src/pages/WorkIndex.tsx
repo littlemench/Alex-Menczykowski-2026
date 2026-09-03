@@ -8,7 +8,10 @@ export default function WorkIndex() {
       <section className="layout-grid">
         <div className="content-width space-y-6 mb-24">
           <p>
-            My outlook spans product strategy, design, and delivery. I enjoy my work most when we're solving ambiguous problems, simplifying complex systems, or helping teams move faster without increasing risk.
+            My outlook spans product strategy, design, and delivery. I enjoy my work most when we're solving ambiguous problems, simplifying complex systems, or helping teams move faster without increasing risk. 
+          </p>
+          <p>
+            I'm also excited by, and relentessly pushing to adopt, the changes to our workflows, tools, and roles brought by the advent and improvement of AI and emerging technologies.  
           </p>
           <p>
             I lead a department that partners closely with business leadership on attacking the right problems, with product management to shape and prioritise opportunities, and with engineering to ensure what we build can work - and can ship without delay.
