@@ -43,9 +43,9 @@
 
 <!-- 1–3 paragraphs setting the scene. What was the product? What was the opportunity? -->
 
-KOSIGN was - and is - the identification and exploration of a new segment, seeing an existing leader in the music industry move down the publishing deal curve to serve a growing, underserved middle-market of songwriters who aren’t collecting the publishing royalties they’re owed.
+KOSIGN is a new solution for a new segment -  an existing music industry leader prioritising a growing, underserved middle-market of songwriters who don’t collect the publishing royalties they’re owed.
 
-The ambition was to create a fully self-serve, admin-only publishing platform that brought together scale and efficiency with security, compliance, and critically the brand maturity required to create a point of differentiation. 
+The ambition was to create a self-serve, admin-only publishing offering, delivering transparency, efficiency, and security using the market reputation Kobalt has amassed over 25 years.
 
 Fast forward 18 months since launch, and we’re operating a rapidly growing corporate venture with 100k applicants, 5000 MAU, and administer publishing rights for over 100k new songs.
 ---
@@ -54,20 +54,20 @@ Fast forward 18 months since launch, and we’re operating a rapidly growing cor
 
 <!-- The harder, underlying challenge beneath the surface brief. -->
 
-Publishing isn’t sexy. It’s complex, misunderstood and built on delayed gratification. For most writers and artists, the challenge isn’t just choosing the right solution - it’s understanding that there is a problem at all.
+Publishing isn’t sexy - it’s complex, misunderstood, and built on delayed gratification. And for most writers and artists, the challenge isn’t just choosing the right solution - it’s being aware that that there is a problem at all.
 
-One of the key hurdles when building and launching KOSIGN was the need to sell both (the problem and the solution) - all whilst navigating a series of tensions: perceived cost versus value, self-serve simplicity versus legal and security requirements, startup speed versus enterprise governance, and alignment across globally distributed teams, sponsors and subject matter experts.
+The key challenge was to sell both the problem and the solution. And doing that successfully whilst navigating internal and external tensions: perceived cost versus value, self-serve simplicity versus legal and security requirements, startup speed versus enterprise governance, and alignment across globally distributed teams, sponsors and industry experts.
 ---
 
 ## My Role
 
 <!-- What you specifically did. Keep it first-person and concrete. -->
 
-I was responsible for the end-to-end experience strategy and execution for KOSIGN, ultimately made possible by working hand in had with product management and engineering to shape a path to market, building on the music expertise our business possess. 
+I was responsible for defining the end-to-end experience strategy and execution for KOSIGN. 
 
-As well as translating the existing Kobalt ‘Portal’ functionality into a self-serve product for a mid-market audience, I set and implemented design direction across application, onboarding, verification, in-life usage, marketing and socials, collaborating closely with product, engineering, legal, operations, marketing and executive stakeholders to get to market - and grow once there.
+The core of the experience is built on functionality made possible by the existing Kobalt client ‘Portal’ - transposing these capabilities into a self-serve product for a mid-market audience. I set and implemented design direction across application, onboarding, verification, in-life usage, marketing and socials, collaborating closely with product, engineering, legal, operations, marketing and executive stakeholders to get to market - and grow once there. 
 
-Close contact and observation of our successful applicants meant my own life after launch was focused on the moments across the funnel that contributed most to our North Star metric. We defined this as # of ‘delivered’ writers - successful applicants who completed onboarding and setup, before critically submitting their first song - or set of songs - for registration and collection. 
+My own life after launch prioritise the moments across the funnel most closely related to delivering on our North Star metric of number of ‘delivered’ writers - the successful applicants who completed onboarding and setup, before critically submitting their first songs for registration and eventual collection.
 
 ---
 
@@ -99,13 +99,13 @@ Close contact and observation of our successful applicants meant my own life aft
 
 <!-- Intro paragraph + bulleted list of the specific choices made and why. -->
 
-To ensure rapid deployment and learning in-market, we deliberately deferred a number of augmentation and enhancement ideas. Rather than reinventing the product wholesale, we focused on adapting the core experience to prove demand and operational viability first. 
+In prioritising speed to market, we deliberately deferred capabilities and interactions we knew would add value. Our immediate focus was to ensure the core experience was able to prove demand and operational viability in market. 
 
-- We opted to use the website as a sales and demand tool, majoring on increasing the quantity - not quality - of applications
-- We identified the post-acceptance journey as a key moment early on, and focused on increasing intuition and reduced friction wherever possible reduce procrastination through perceived effort, and drop-off through confusion
-- Once the contract had been standardised, we provided a summary of what is still a relatively complex document with clear summaries and optional depth to reduce friction in a key moment in this onboarding process
-- We focused heavily on the ‘empty and interim state’ product experience, majoring on directing user activity towards submitting music for collection as the key interaction
-- We re-architecting the song submission flow into focused, low-friction steps, before eventually augmenting it with optionality for input methods (link submission and reactive suggestions)
+- The website initially acted a sales and demand tool, majoring on increasing the quantity - not quality - of applications
+- Thee post-acceptance journey was always key, and was priorities from a design perspective to increase intuition and reduce friction that might increase perceived effort or drop-off
+- A newly standardised contract was summarised reduce friction in a key moment in the onboarding journey
+- The ‘empty state’ product experience was also a focus, majoring on directing user activity towards submitting music for collection in the interim period
+- Architecting the song submission flow as focused, low-friction steps, before eventually augmenting it with optionality for input methods (link submission and reactive suggestions), was the most impactful workstream.
 
 ---
 
@@ -113,8 +113,8 @@ To ensure rapid deployment and learning in-market, we deliberately deferred a nu
 
 <!-- 1–2 paragraphs. What did this project teach you? What would you do differently? -->
 
-KOSIGN reinforced that many of the hardest design problems aren’t about pixels or flows. They’re about the context our target segments operate with, about sequencing effort across multi-disciplinary teams, and about finding the right relationship with the mothership to be able to ship and learn at pace. 
+KOSIGN reinforced that many of the hardest design challenges are outside of  pixels or flows. They’re about the context our target segments operate with, sequencing effort across multi-disciplinary teams, and finding the right relationship with the mothership to be able to ship and learn at pace. 
 
-One key mistake was not keeping website development in-house early enough. While the core product supported fast iteration, the website stack limited our ability to experiment at the pace required. A more explicit focus on data and metrics in the buildup to launch - as opposed to shifting focus in the weeks and months that followed - would have had a significant impact on our ability to identify opportunities. 
+One key learning was not re-claiming ownership of website development early enough. The core product supported fast iteration, but the web stack limited our ability to experiment at the pace required. A more explicit focus on foundations for capturing data and metrics in the buildup to launch would have had a significant impact on our ability to identify opportunities. 
 
-Had we retained the ability to shape our ‘design conditions’ across tooling, decision making, and metrics across the funnel, it’s highly likely that more positive change could have been realised. We’re now in the process of rectifying that.
+Had we retained the ability to shape our ‘design conditions’ across tooling, decision making, and metrics across the funnel, it’s likely more positive change could have been realised. We’re now in the process of rectifying that.

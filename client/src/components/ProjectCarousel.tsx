@@ -49,15 +49,17 @@ export default function ProjectCarousel({ slides }: ProjectCarouselProps) {
 
   return (
     <>
-      <div className="relative group">
+      <div className="relative group -mr-4 md:-mr-8 overflow-hidden">
         <div ref={trackRef} className="flex gap-4 overflow-x-hidden">
           {slides.map((slide, i) => (
-            <div key={slide.id} className="min-w-full lg:min-w-[50%] flex-shrink-0 relative group/slide">
-              <img
-                src={slide.src}
-                alt={slide.title || slide.id}
-                className="w-full aspect-video object-cover rounded-xl"
-              />
+            <div key={slide.id} className="w-[85vw] lg:w-[calc(50vw-2rem)] flex-shrink-0 relative group/slide">
+              <div className="w-full aspect-video rounded-xl overflow-hidden">
+                <img
+                  src={slide.src}
+                  alt={slide.title || slide.id}
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <button
                 onClick={() => setFullscreen(i)}
                 className="absolute top-3 right-3 p-1.5 bg-background/70 rounded-md opacity-0 group-hover/slide:opacity-100 transition-opacity"

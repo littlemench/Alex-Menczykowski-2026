@@ -8,10 +8,10 @@ export default function WorkIndex() {
       <section className="layout-grid">
         <div className="content-width space-y-6 mb-24">
           <p>
-            My work sits across product strategy, design, and delivery. I'm usually brought in when problems are ambiguous, systems are complex, or teams need to move faster without creating unnecessary risk.
+            My outlook spans product strategy, design, and delivery. I enjoy my work most when we're solving ambiguous problems, simplifying complex systems, or helping teams move faster without increasing risk.
           </p>
           <p>
-            I lead a team that partners closely with business leadership on framing the right problems, with product management to shape and prioritise opportunities, and with engineering to ensure what we build is feasible - and can ship without delay.
+            I lead a department that partners closely with business leadership on attacking the right problems, with product management to shape and prioritise opportunities, and with engineering to ensure what we build can work - and can ship without delay.
           </p>
         </div>
 
