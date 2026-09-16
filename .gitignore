@@ -42,3 +42,4 @@ replit.nix
 # Misc
 *.tar.gz
 *.zip
+.vercel

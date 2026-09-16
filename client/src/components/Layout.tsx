@@ -32,6 +32,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="m-0 leading-none">Work</h1>
           ) : location.includes('nexus-black') ? (
             <h1 className="m-0 leading-none">Work / Nexus Black</h1>
+          ) : location.includes('/work/platform') ? (
+            <h1 className="m-0 leading-none">Work / Publishing Data Platform</h1>
           ) : location.startsWith('/work/') ? (
             <h1 className="m-0 leading-none">{location.split('/').pop()?.toUpperCase()}</h1>
           ) : (

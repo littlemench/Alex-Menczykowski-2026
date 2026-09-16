@@ -4,7 +4,7 @@
 
 ## Meta
 
-- **title**: Publ Data Platform
+- **title**: Publishing Data Platform
 - **subtitle**: [A new generation of data processing tools for the Kobalt music group]
 - **client**: Kobalt Music Group
 - **year**: 2024–Present
@@ -44,10 +44,6 @@
   - **value**: [190%]
   **label**: [Increase]
   **note**: [Processed clusters up 190% half-on-half (1,321 in H2 vs. 450 in H1)]
-
-- **value**: [7%]
-  **label**: [Corrective actions]
-  **note**: [Corrective actions on processed clusters reduced from 10% to 3%]
 
 ### [Usage & Royalties]
 

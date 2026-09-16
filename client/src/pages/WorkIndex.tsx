@@ -36,14 +36,14 @@ export default function WorkIndex() {
             </div>
           </div>
 
-          {/* Internal Data Platform */}
+          {/* Publishing Data Platform */}
           <div className="space-y-4 content-width">
             <div className="space-y-1">
-              <h2>Internal Data Platform</h2>
+              <h2>Publishing Data Platform</h2>
               <p>A new generation of data processing tools for the Kobalt music group</p>
             </div>
             <Link href="/work/platform" className="block group">
-              <img src="/Preview-Tools.png" alt="Internal Data Platform" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-Tools.png" alt="Publishing Data Platform" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
             </Link>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">January 2024 — Present</span>
