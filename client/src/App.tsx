@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import WorkIndex from "@/pages/WorkIndex";
 import KosignProject from "@/pages/project/Kosign";
 import NexusBlack from "@/pages/project/NexusBlack";
+import PlatformProject from "@/pages/project/Platform";
 import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
         <Route path="/work" component={WorkIndex} />
         <Route path="/work/kosign" component={KosignProject} />
         <Route path="/work/nexus-black" component={NexusBlack} />
+        <Route path="/work/platform" component={PlatformProject} />
         <Route component={NotFound} />
       </Switch>
     </>

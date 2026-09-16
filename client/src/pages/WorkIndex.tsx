@@ -36,6 +36,23 @@ export default function WorkIndex() {
             </div>
           </div>
 
+          {/* Internal Data Platform */}
+          <div className="space-y-4 content-width">
+            <div className="space-y-1">
+              <h2>Internal Data Platform</h2>
+              <p>A new generation of data processing tools for the Kobalt music group</p>
+            </div>
+            <Link href="/work/platform" className="block group">
+              <img src="/Preview-Tools.png" alt="Internal Data Platform" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+            </Link>
+            <div className="flex items-center justify-between">
+              <span className="label text-muted-foreground">January 2024 — Present</span>
+              <Link href="/work/platform">
+                <ArrowRight size={20} className="text-muted-foreground hover:text-foreground transition-colors" />
+              </Link>
+            </div>
+          </div>
+
           {/* Kobalt Client Product */}
           <div className="space-y-4 content-width opacity-60">
             <div className="space-y-1">
@@ -47,21 +64,6 @@ export default function WorkIndex() {
             </div>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">June 2024 — Present</span>
-              <ArrowRight size={20} className="text-muted-foreground opacity-30" />
-            </div>
-          </div>
-
-          {/* Internal Data Platform */}
-          <div className="space-y-4 content-width opacity-60">
-            <div className="space-y-1">
-              <h2>Internal Data Platform</h2>
-              <p>A new generation of data processing tools for the Kobalt music group</p>
-            </div>
-            <div className="cursor-not-allowed">
-              <img src="/Preview-Tools.png" alt="Internal Data Platform" className="w-full h-auto grayscale transition-all duration-300 rounded-xl" />
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="label text-muted-foreground">January 2024 — Present</span>
               <ArrowRight size={20} className="text-muted-foreground opacity-30" />
             </div>
           </div>
