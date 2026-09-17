@@ -20,9 +20,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Work
             </a>
           </Link>
-          <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-          <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
-          <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
         </nav>
 
         <div className="z-[70] flex flex-col gap-1 w-full md:w-auto">
@@ -33,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           ) : location.includes('nexus-black') ? (
             <h1 className="m-0 leading-none">Work / Nexus Black</h1>
           ) : location.includes('/work/platform') ? (
-            <h1 className="m-0 leading-none">Work / Publishing Data Platform</h1>
+            <h1 className="m-0 leading-none">Publishing Data Platform</h1>
           ) : location.startsWith('/work/') ? (
             <h1 className="m-0 leading-none">{location.split('/').pop()?.toUpperCase()}</h1>
           ) : (
@@ -67,20 +64,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      {/* Footer / Social Links */}
-      <footer id="contact" className="py-24 mt-24">
+      {/* Footer - Mobile only */}
+      <footer id="contact" className="md:hidden py-24 mt-24">
         <div className="layout-grid">
-           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
-              <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                LinkedIn
-              </a>
-              <a href="https://www.instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Instagram
-              </a>
-              <a href="mailto:alex.menczykowski@gmail.com" className="hover:underline">
-                Email
-              </a>
-           </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
+            <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
+            <a href="https://www.instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
+            <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
+          </div>
         </div>
       </footer>
     </div>
