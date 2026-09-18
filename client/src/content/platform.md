@@ -23,13 +23,13 @@
   **label**: [Catalog]
   **note**: [98% of amra's catalogue now ingested through the rebuilt pipeline in FY26, up from a fully manual baseline]
 
-- **value**: [60]
-  **label**: [Micro-ingestions]
-  **note**: [Throughput scaled to ~60 micro-ingestions a day, with +170% adoption growth quarter-on-quarter across 96k Kobalt ingestions]
+- **value**: [3x]
+  **label**: [Reduction]
+  **note**: [Average ingestion gets completed within 1.5 days - 3 times faster than via legacy system]
 
-- **value**: [>1m]
-  **label**: [Works]
-  **note**: [Handled the largest automated ingestion to date, alongside a new wave of varied-format partner data and rising KOSIGN volume]
+- **value**: [2.5m]
+  **label**: [Songs onboarded]
+  **note**: [2.5m songs onboarded through the new workflow in the first year]
 
 ### [Catalog Data Quality]
 
