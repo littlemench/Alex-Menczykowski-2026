@@ -5,9 +5,12 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import WorkIndex from "@/pages/WorkIndex";
+import PlayIndex from "@/pages/PlayIndex";
 import KosignProject from "@/pages/project/Kosign";
 import NexusBlack from "@/pages/project/NexusBlack";
 import PlatformProject from "@/pages/project/Platform";
+import Kobalt25Project from "@/pages/play/Kobalt25";
+import ListJockeyProject from "@/pages/play/ListJockey";
 import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
@@ -20,6 +23,9 @@ function Router() {
         <Route path="/work/kosign" component={KosignProject} />
         <Route path="/work/nexus-black" component={NexusBlack} />
         <Route path="/work/platform" component={PlatformProject} />
+        <Route path="/play" component={PlayIndex} />
+        <Route path="/play/kobalt25" component={Kobalt25Project} />
+        <Route path="/play/listjockey" component={ListJockeyProject} />
         <Route component={NotFound} />
       </Switch>
     </>

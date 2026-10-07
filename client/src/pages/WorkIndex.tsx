@@ -8,13 +8,13 @@ export default function WorkIndex() {
       <section className="layout-grid">
         <div className="content-width space-y-6 mb-24">
           <p>
-            My outlook spans product strategy, design, and delivery. I enjoy my work most when we're solving ambiguous problems, simplifying complex systems, or helping teams move faster without increasing risk. 
+            My work spans product strategy, design, and delivery. I enjoy myself most when we're solving ambiguous problems, simplifying complex systems, or helping teams move faster without increasing risk.
           </p>
           <p>
-            I'm also excited by, and relentessly pushing to adopt, the changes to our workflows, tools, and roles brought by the advent and improvement of AI and emerging technologies.  
+            I'm particularly excited by the opportunities for refining and (where relevant) accelerating Design and Discovery workflows using by the advent and improvement of AI and emerging technologies.
           </p>
           <p>
-            I lead a department that partners closely with business leadership on attacking the right problems, with product management to shape and prioritise opportunities, and with engineering to ensure what we build can work - and can ship without delay.
+            I currently lead a department that partners closely with business leadership to identify the right problems, with product management to increase confidence in opportunities, and with engineering to understand what's possible, and make it happen.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function WorkIndex() {
               <p>Resetting the client experience for the worlds biggest independent music publisher</p>
             </div>
             <div className="cursor-not-allowed">
-              <img src="/Preview-Portal.png" alt="Kobalt Client Product" className="w-full h-auto grayscale transition-all duration-300 rounded-xl" />
+              <img src="/Preview-Portal.png" alt="Kobalt Client Product" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-300 rounded-xl" />
             </div>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">June 2024 — Present</span>

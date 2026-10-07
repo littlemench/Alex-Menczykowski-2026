@@ -1,9 +1,25 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Timeless Sans';
+  src: url('/fonts/timeless/TimelessSans-SansLight.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Timeless Serif';
+  src: url('/fonts/timeless/TimelessSerif-Thin.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
-  --font-sans: 'Geist', sans-serif;
-  --font-google: 'Product Sans', sans-serif;
-  
+  --font-sans: 'Timeless Sans', 'Space Grotesk', 'Geist', sans-serif;
+  --font-serif: 'Timeless Serif', Georgia, serif;
+
   --color-background: #ffffff;
   --color-foreground: #000000;
   
@@ -28,32 +44,37 @@
   }
 
   body {
-  @apply font-sans antialiased bg-background text-foreground selection:bg-gray-100 selection:text-black;
+  @apply font-serif antialiased bg-background text-foreground selection:bg-gray-100 selection:text-black;
   font-feature-settings: "ss01", "ss02", "cv11";
 }
 
 /* Typography System */
 h1 {
-  @apply font-google text-[44px] sm:text-[54px] lg:text-[58px] font-medium leading-[0.9] tracking-[-0.0425em] text-primary;
+  @apply font-sans text-[48px] sm:text-[54px] lg:text-[58px] font-light leading-[0.9] tracking-[-0.0425em] text-primary;
 }
 
 h2 {
-  @apply font-sans text-[20px] font-normal leading-snug text-primary normal-case tracking-normal;
+  @apply font-sans text-[18px] font-light leading-snug text-primary normal-case tracking-normal;
 }
 
 h3 {
-  @apply font-google text-[18px] font-medium leading-snug text-primary;
+  @apply font-sans text-[16px] font-light leading-snug text-primary;
 }
 
 p, li, ul, ol {
-  @apply font-sans text-[16px] md:text-[18px] font-normal leading-[1.6];
+  @apply font-serif text-[14px] md:text-[16px] font-extralight leading-[1.6];
   color: #0d0d0d;
 }
 
+p.font-light {
+  @apply text-[16px] md:text-[18px];
+}
+
 .label {
-  font-family: 'Geist', sans-serif;
-  font-weight: 200;
-  font-size: 12px;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 10px;
+  text-transform: uppercase;
 }
 
   ul {

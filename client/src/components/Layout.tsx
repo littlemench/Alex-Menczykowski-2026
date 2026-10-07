@@ -20,6 +20,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Work
             </a>
           </Link>
+          <Link href="/play">
+            <a className={`transition-colors hover:underline ${location.startsWith('/play') ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Play
+            </a>
+          </Link>
         </nav>
 
         <div className="z-[70] flex flex-col gap-1 w-full md:w-auto">
@@ -27,8 +32,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="m-0 leading-none">Alex Menczykowski</h1>
           ) : location === '/work' ? (
             <h1 className="m-0 leading-none">Work</h1>
+          ) : location === '/play' ? (
+            <h1 className="m-0 leading-none">Play</h1>
           ) : location.includes('nexus-black') ? (
             <h1 className="m-0 leading-none">Work / Nexus Black</h1>
+          ) : location.includes('/play/kobalt25') ? (
+            <h1 className="m-0 leading-none">Kobalt25</h1>
+          ) : location.includes('/play/listjockey') ? (
+            <h1 className="m-0 leading-none">List Jockey</h1>
           ) : location.includes('/work/platform') ? (
             <h1 className="m-0 leading-none">Publishing Data Platform</h1>
           ) : location.startsWith('/work/') ? (
@@ -51,9 +62,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Work
             </a>
           </Link>
+          <Link href="/play">
+            <a className={`transition-colors hover:underline ${location.startsWith('/play') ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Play
+            </a>
+          </Link>
           <div className="mt-4 flex flex-col gap-0.5 items-end">
             <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-            <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
+            <a href="mailto:alex.menczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
             <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
           </div>
         </nav>
@@ -70,7 +86,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
             <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
             <a href="https://www.instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-            <a href="mailto:alexmenczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
+            <a href="mailto:alex.menczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
           </div>
         </div>
       </footer>
