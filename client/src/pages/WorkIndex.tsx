@@ -8,13 +8,13 @@ export default function WorkIndex() {
       <section className="layout-grid">
         <div className="content-width space-y-6 mb-24">
           <p>
-            My work spans product strategy, design, and delivery. I enjoy myself most when we're solving ambiguous problems, simplifying complex systems, or helping teams move faster without increasing risk.
+            I love working across product strategy, design, and delivery. I enjoy going from "zero to one" — structuring the approach and articulating our beliefs — as much as I do refining and crafting for growth based on data.
           </p>
           <p>
-            I'm particularly excited by the opportunities for refining and (where relevant) accelerating Design and Discovery workflows using by the advent and improvement of AI and emerging technologies.
+            I currently lead a Design department that focuses on collaborating closely across all business units to identify the right problems, increase confidence in opportunities, and understand what's possible before we make it happen.
           </p>
           <p>
-            I currently lead a department that partners closely with business leadership to identify the right problems, with product management to increase confidence in opportunities, and with engineering to understand what's possible, and make it happen.
+            All within the context of how emerging technologies are accelerating workflows, and increasing expectations.
           </p>
         </div>
 
