@@ -62,12 +62,12 @@ h3 {
 }
 
 p, li, ul, ol {
-  @apply font-serif text-[14px] md:text-[16px] font-normal leading-[1.6];
+  @apply font-serif text-[16px] font-normal leading-[1.6];
   color: #0d0d0d;
 }
 
 p.font-light {
-  @apply text-[16px] md:text-[18px];
+  @apply text-[18px];
 }
 
 .label {
