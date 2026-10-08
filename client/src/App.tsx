@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import WorkIndex from "@/pages/WorkIndex";
 import PlayIndex from "@/pages/PlayIndex";
+import Links from "@/pages/Links";
 import KosignProject from "@/pages/project/Kosign";
 import NexusBlack from "@/pages/project/NexusBlack";
 import PlatformProject from "@/pages/project/Platform";
@@ -26,6 +27,7 @@ function Router() {
         <Route path="/play" component={PlayIndex} />
         <Route path="/play/kobalt25" component={Kobalt25Project} />
         <Route path="/play/listjockey" component={ListJockeyProject} />
+        <Route path="/links" component={Links} />
         <Route component={NotFound} />
       </Switch>
     </>

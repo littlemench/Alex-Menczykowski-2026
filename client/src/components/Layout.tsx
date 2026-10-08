@@ -25,6 +25,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Play
             </a>
           </Link>
+          <Link href="/links">
+            <a className={`transition-colors hover:underline ${location.startsWith('/links') ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Links
+            </a>
+          </Link>
         </nav>
 
         <div className="z-[70] flex flex-col gap-1 w-full md:w-auto">
@@ -34,6 +39,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="m-0 leading-none">Work</h1>
           ) : location === '/play' ? (
             <h1 className="m-0 leading-none">Play</h1>
+          ) : location === '/links' ? (
+            <h1 className="m-0 leading-none">Links</h1>
           ) : location.includes('nexus-black') ? (
             <h1 className="m-0 leading-none">Work / Nexus Black</h1>
           ) : location.includes('/play/kobalt25') ? (
@@ -67,11 +74,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Play
             </a>
           </Link>
-          <div className="mt-4 flex flex-col gap-0.5 items-end">
-            <a href="https://instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-            <a href="mailto:alex.menczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
-            <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
-          </div>
+          <Link href="/links">
+            <a className={`transition-colors hover:underline ${location.startsWith('/links') ? 'text-foreground' : 'text-muted-foreground'}`}>
+              Links
+            </a>
+          </Link>
         </nav>
       </header>
 
@@ -80,14 +87,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      {/* Footer - Mobile only */}
-      <footer id="contact" className="md:hidden py-24 mt-24">
+      {/* Footer */}
+      <footer id="contact" className="py-24 mt-24">
         <div className="layout-grid">
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
-            <a href="https://www.linkedin.com/in/alexmenczykowski/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">LinkedIn</a>
-            <a href="https://www.instagram.com/alex.mench/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">Instagram</a>
-            <a href="mailto:alex.menczykowski@gmail.com" className="text-muted-foreground hover:underline">Email</a>
-          </div>
+          <span className="text-sm font-medium text-muted-foreground">Alex Menczykowski 2026</span>
         </div>
       </footer>
     </div>
