@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react";
 import Layout from "@/components/Layout";
 
 const links = [
@@ -22,10 +21,9 @@ export default function Links() {
                 href={href}
                 target={href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="group inline-flex items-center gap-2 py-1"
+                className="hover:underline"
               >
-                <ArrowRight size={20} className="text-muted-foreground group-hover:text-foreground transition-colors" />
-                <span className="group-hover:underline">{label}</span>
+                {label}
               </a>
             </p>
           ))}
