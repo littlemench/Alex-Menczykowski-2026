@@ -17,16 +17,17 @@ export default function Links() {
       <section className="layout-grid">
         <div className="content-width space-y-1">
           {links.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-              className="group flex items-center gap-2 py-1"
-            >
-              <span className="group-hover:underline">{label}</span>
-              <ArrowRight size={20} className="text-muted-foreground group-hover:text-foreground transition-colors" />
-            </a>
+            <p key={label}>
+              <a
+                href={href}
+                target={href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className="group inline-flex items-center gap-2 py-1"
+              >
+                <span className="group-hover:underline">{label}</span>
+                <ArrowRight size={20} className="text-muted-foreground group-hover:text-foreground transition-colors" />
+              </a>
+            </p>
           ))}
         </div>
       </section>
