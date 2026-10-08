@@ -6,7 +6,7 @@ const links = [
   { label: "Instagram", href: "https://www.instagram.com/alex.mench/" },
   { label: "Twitter", href: "https://x.com/Alex_Mench" },
   { label: "Radio", href: "http://mixcloud.com/minimumshuffle/" },
-  { label: "Current rotation", href: "https://open.spotify.com/playlist/12rZqPp2b5AsmtlckEgBwr?si=ffd09e59c045455e" },
+  { label: "Current Rotation", href: "https://open.spotify.com/playlist/12rZqPp2b5AsmtlckEgBwr?si=ffd09e59c045455e" },
   { label: "Photography", href: "http://shots.photography/" },
 ];
 
