@@ -54,7 +54,7 @@ export default function PlayIndex() {
               <p>Spotify playlist arc curation</p>
             </div>
             <Link href="/play/listjockey" className="block group">
-              <img src="/Preview-ListJockey.png" alt="List Jockey" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-LJ.png" alt="List Jockey" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
             </Link>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">June 2026</span>
