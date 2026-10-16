@@ -18,15 +18,15 @@ export default function WorkIndex() {
           </p>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-16">
           {/* KOSIGN */}
           <div className="space-y-4 content-width">
             <div className="space-y-1">
               <h2>KOSIGN</h2>
-              <p>Launching a self-serve music publishing platform</p>
+              <p className="sub-header">Launching a self-serve music publishing platform</p>
             </div>
             <Link href="/work/kosign" className="block group">
-              <img src="/Preview-KOSIGN.png" alt="KOSIGN Case Study" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-KOSIGN.png" alt="KOSIGN Case Study" className="w-full h-auto rounded-[2px]" />
             </Link>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">March 2025 — Present</span>
@@ -40,10 +40,10 @@ export default function WorkIndex() {
           <div className="space-y-4 content-width">
             <div className="space-y-1">
               <h2>Publishing Data Platform</h2>
-              <p>A new generation of data processing tools for the Kobalt music group</p>
+              <p className="sub-header">A new generation of data processing tools for the Kobalt music group</p>
             </div>
             <Link href="/work/platform" className="block group">
-              <img src="/Preview-Tools.png" alt="Publishing Data Platform" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-Tools.png" alt="Publishing Data Platform" className="w-full h-auto rounded-[2px]" />
             </Link>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">January 2024 — Present</span>
@@ -57,10 +57,10 @@ export default function WorkIndex() {
           <div className="space-y-4 content-width opacity-60">
             <div className="space-y-1">
               <h2>Kobalt Client Product</h2>
-              <p>Resetting the client experience for the worlds biggest independent music publisher</p>
+              <p className="sub-header">Resetting the client experience for the worlds biggest independent music publisher</p>
             </div>
             <div className="cursor-not-allowed">
-              <img src="/Preview-Portal.png" alt="Kobalt Client Product" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-Portal.png" alt="Kobalt Client Product" className="w-full h-auto rounded-[2px]" />
             </div>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">June 2024 — Present</span>

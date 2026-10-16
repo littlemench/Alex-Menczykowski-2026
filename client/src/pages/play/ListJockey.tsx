@@ -11,7 +11,7 @@ export default function ListJockeyProject() {
           </div>
 
           <div className="space-y-3 content-width">
-            <img src="/listjockey/LJ-2.png" alt="Create session" className="w-full h-auto rounded-xl" />
+            <img src="/listjockey/LJ-2.png" alt="Create session" className="w-full h-auto rounded-[2px]" />
             <span className="label text-muted-foreground">CREATE SESSION</span>
           </div>
 
@@ -20,7 +20,7 @@ export default function ListJockeyProject() {
           </div>
 
           <div className="content-width">
-            <img src="/listjockey/LJ-3.png" alt="Shape a section" className="w-full h-auto rounded-xl" />
+            <img src="/listjockey/LJ-3.png" alt="Shape a section" className="w-full h-auto rounded-[2px]" />
           </div>
 
           <div className="content-width space-y-6">
@@ -29,13 +29,13 @@ export default function ListJockeyProject() {
 
           <div className="space-y-16">
             <div className="content-width">
-              <img src="/listjockey/LJ-4.png" alt="Shape a section" className="w-full h-auto rounded-xl" />
+              <img src="/listjockey/LJ-4.png" alt="Shape a section" className="w-full h-auto rounded-[2px]" />
             </div>
             <div className="content-width">
-              <img src="/listjockey/LJ-5.png" alt="Shape a section" className="w-full h-auto rounded-xl" />
+              <img src="/listjockey/LJ-5.png" alt="Shape a section" className="w-full h-auto rounded-[2px]" />
             </div>
             <div className="content-width">
-              <img src="/listjockey/LJ-6.png" alt="The finished arc" className="w-full h-auto rounded-xl" />
+              <img src="/listjockey/LJ-6.png" alt="The finished arc" className="w-full h-auto rounded-[2px]" />
             </div>
           </div>
 

@@ -24,12 +24,43 @@ export default function ProjectCarousel({ slides }: ProjectCarouselProps) {
     if (!track) return;
     const slide = track.children[index] as HTMLElement;
     if (!slide) return;
-    track.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
-    setCurrent(index);
+    const delta = slide.getBoundingClientRect().left - track.getBoundingClientRect().left;
+    track.scrollTo({ left: track.scrollLeft + delta, behavior: "smooth" });
   };
 
   const next = () => scrollTo(Math.min(current + 1, slides.length - 1));
   const prev = () => scrollTo(Math.max(current - 1, 0));
+
+  // Keep `current` in sync with whatever the user actually scrolled/dragged to,
+  // not just programmatic nav — so the caption and arrow states never go stale.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || slides.length === 0) return;
+
+    const onScroll = () => {
+      const maxScrollLeft = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft >= maxScrollLeft - 1) {
+        setCurrent(slides.length - 1);
+        return;
+      }
+
+      const trackLeft = track.getBoundingClientRect().left;
+      const children = Array.from(track.children) as HTMLElement[];
+      let closest = 0;
+      let closestDelta = Infinity;
+      children.forEach((child, i) => {
+        const delta = Math.abs(child.getBoundingClientRect().left - trackLeft);
+        if (delta < closestDelta) {
+          closestDelta = delta;
+          closest = i;
+        }
+      });
+      setCurrent(closest);
+    };
+
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => track.removeEventListener("scroll", onScroll);
+  }, [slides.length]);
 
   const fsNext = () => setFullscreen((i) => (i !== null ? Math.min(i + 1, slides.length - 1) : null));
   const fsPrev = () => setFullscreen((i) => (i !== null ? Math.max(i - 1, 0) : null));
@@ -50,10 +81,10 @@ export default function ProjectCarousel({ slides }: ProjectCarouselProps) {
   return (
     <>
       <div className="relative group -mr-4 md:-mr-8 overflow-hidden">
-        <div ref={trackRef} className="flex gap-4 overflow-x-hidden">
+        <div ref={trackRef} className="flex gap-4 overflow-x-auto scrollbar-hide">
           {slides.map((slide, i) => (
-            <div key={slide.id} className="w-[85vw] lg:w-[calc(50vw-2rem)] flex-shrink-0 relative group/slide">
-              <div className="w-full aspect-video rounded-xl overflow-hidden">
+            <div key={slide.id} className="w-[85vw] lg:w-[calc(35vw-1.4rem)] flex-shrink-0 relative group/slide">
+              <div className="w-full aspect-video rounded-[2px] overflow-hidden">
                 <img
                   src={slide.src}
                   alt={slide.title || slide.id}

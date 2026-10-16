@@ -12,15 +12,15 @@ export default function PlayIndex() {
           </p>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-16">
           {/* Shots */}
           <div className="space-y-4 content-width">
             <div className="space-y-1">
               <h2>Shots</h2>
-              <p>A platform for my film photography</p>
+              <p className="sub-header">A platform for my film photography</p>
             </div>
             <a href="http://shots.photography/" target="_blank" rel="noopener noreferrer" className="block group">
-              <img src="/Preview-Shots.png" alt="Shots" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-Shots.png" alt="Shots" className="w-full h-auto rounded-[2px]" />
             </a>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">September 2026</span>
@@ -34,10 +34,10 @@ export default function PlayIndex() {
           <div className="space-y-4 content-width">
             <div className="space-y-1">
               <h2>Kobalt25</h2>
-              <p>Internal custom marketing asset generator</p>
+              <p className="sub-header">Internal custom marketing asset generator</p>
             </div>
             <Link href="/play/kobalt25" className="block group">
-              <img src="/Preview-Kobalt25.png" alt="Kobalt25" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-Kobalt25.png" alt="Kobalt25" className="w-full h-auto rounded-[2px]" />
             </Link>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">August 2026</span>
@@ -51,10 +51,10 @@ export default function PlayIndex() {
           <div className="space-y-4 content-width">
             <div className="space-y-1">
               <h2>List Jockey</h2>
-              <p>Spotify playlist arc curation</p>
+              <p className="sub-header">Spotify playlist arc curation</p>
             </div>
             <Link href="/play/listjockey" className="block group">
-              <img src="/Preview-ListJockey.png" alt="List Jockey" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-LJ.png" alt="List Jockey" className="w-full h-auto rounded-[2px]" />
             </Link>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">June 2026</span>
@@ -68,10 +68,10 @@ export default function PlayIndex() {
           <div className="space-y-4 content-width opacity-60">
             <div className="space-y-1">
               <h2>AI Caddy</h2>
-              <p>iOS and wearable app design for the next generation of on course assistance</p>
+              <p className="sub-header">iOS and wearable app design for the next generation of on course assistance</p>
             </div>
             <div className="cursor-not-allowed">
-              <img src="/Preview-AICaddy.png" alt="AI Caddy" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-AICaddy.png" alt="AI Caddy" className="w-full h-auto rounded-[2px]" />
             </div>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">2025</span>
@@ -83,10 +83,10 @@ export default function PlayIndex() {
           <div className="space-y-4 content-width opacity-60">
             <div className="space-y-1">
               <h2>Beeline</h2>
-              <p>Brand identity for pre-seed navigational route planner</p>
+              <p className="sub-header">Brand identity for pre-seed navigational route planner</p>
             </div>
             <div className="cursor-not-allowed">
-              <img src="/Preview-Beeline.png" alt="Beeline" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-300 rounded-xl" />
+              <img src="/Preview-Beeline.png" alt="Beeline" className="w-full h-auto rounded-[2px]" />
             </div>
             <div className="flex items-center justify-between">
               <span className="label text-muted-foreground">2021</span>
