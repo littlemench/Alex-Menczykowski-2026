@@ -18,7 +18,7 @@ export default function Kobalt25Project() {
             <p className="font-light">And in addition to a merch drop, some internal events, and a few other gifts we also created a simple desktop background generator that meant our teams could apply their own version of the identity.</p>
           </div>
 
-          <img src="/Kobalt25-Hero.jpg" alt="Kobalt25" className="w-full h-auto rounded-xl" />
+          <img src="/Kobalt25-Hero.jpg" alt="Kobalt25" className="w-full lg:w-[70%] mx-auto h-auto rounded-[2px]" />
 
           <div className="content-width space-y-6">
             <p className="font-light">The tool let users choose apply their choice of tones from the Kobalt pallete to one of four templates.</p>
@@ -27,7 +27,7 @@ export default function Kobalt25Project() {
           <div className="space-y-16">
             {gifs.map((gif) => (
               <div key={gif.label} className="space-y-3 content-width">
-                <img src={gif.src} alt={gif.label} className="w-full h-auto rounded-xl" />
+                <img src={gif.src} alt={gif.label} className="w-full h-auto rounded-[2px]" />
                 <span className="label text-muted-foreground">{gif.label}</span>
               </div>
             ))}

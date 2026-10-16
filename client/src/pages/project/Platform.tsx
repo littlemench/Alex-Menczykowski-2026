@@ -13,26 +13,26 @@ export default function PlatformProject() {
           {/* Sub-header + Hero carousel */}
           <div className="space-y-12">
             <div className="content-width space-y-6">
-              <p className="font-light">A new generation of data processing tools for the Kobalt music group</p>
+              <p className="sub-header">A new generation of data processing tools for the Kobalt music group</p>
             </div>
             <ProjectCarousel slides={carousel1Slides} />
           </div>
 
           {/* Context */}
           <section className="space-y-6 content-width">
-            <h2 className="text-[22px] font-semibold">Context</h2>
+            <h2>Context</h2>
             {sections.context.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
           {/* The real problem */}
           <section className="space-y-6 content-width">
-            <h2 className="text-[22px] font-semibold">The real problem</h2>
+            <h2>The real problem</h2>
             {sections.realProblem.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
           {/* My role */}
           <section className="space-y-6 content-width">
-            <h2 className="text-[22px] font-semibold">My role</h2>
+            <h2>My role</h2>
             {sections.myRole.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
@@ -41,7 +41,7 @@ export default function PlatformProject() {
 
           {/* Strategy */}
           <section className="space-y-6 content-width">
-            <h2 className="text-[22px] font-semibold">Strategy, tradeoffs and key decisions</h2>
+            <h2>Strategy, tradeoffs and key decisions</h2>
             <p>{sections.strategyIntro}</p>
             <ul className="list-disc pl-5 space-y-4">
               {sections.strategyDecisions.map((d, i) => <li key={i}>{d}</li>)}
@@ -50,7 +50,7 @@ export default function PlatformProject() {
 
           {/* Proof points */}
           <section className="space-y-6 content-width">
-            <h2 className="text-[22px] font-semibold">Results</h2>
+            <h2>Results</h2>
             <ProofPoints sections={proofPointSections} />
           </section>
 
@@ -59,7 +59,7 @@ export default function PlatformProject() {
 
           {/* Reflection */}
           <section className="space-y-6 content-width">
-            <h2 className="text-[22px] font-semibold">Reflection</h2>
+            <h2>Reflection</h2>
             {sections.reflection.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
