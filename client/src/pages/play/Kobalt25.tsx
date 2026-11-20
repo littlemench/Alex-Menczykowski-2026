@@ -14,14 +14,14 @@ export default function Kobalt25Project() {
       <article className="layout-grid">
         <div className="space-y-16">
           <div className="content-width space-y-6">
-            <p className="font-light">We celebrated our 25th anniversary as a business with a new logo and derivative of the Kobalt brand identity.</p>
-            <p className="font-light">And in addition to a merch drop, some internal events, and a few other gifts we also created a simple desktop background generator that meant our teams could apply their own version of the identity.</p>
+            <p className="lead">We celebrated our 25th anniversary as a business with a new logo and derivative of the Kobalt brand identity.</p>
+            <p className="lead">And in addition to a merch drop, some internal events, and a few other gifts we also created a simple desktop background generator that meant our teams could apply their own version of the identity.</p>
           </div>
 
           <img src="/Kobalt25-Hero.jpg" alt="Kobalt25" className="w-full lg:w-[70%] mx-auto h-auto rounded-[2px]" />
 
           <div className="content-width space-y-6">
-            <p className="font-light">The tool let users choose apply their choice of tones from the Kobalt pallete to one of four templates.</p>
+            <p className="lead">The tool let users choose apply their choice of tones from the Kobalt pallete to one of four templates.</p>
           </div>
 
           <div className="space-y-16">
