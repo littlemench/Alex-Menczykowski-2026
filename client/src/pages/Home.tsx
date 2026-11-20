@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <Layout>
       <section className="layout-grid">
-        <div className="content-width space-y-6">
+        <div className="w-full lg:w-[35%] space-y-6">
           <p>
             I lead Product Design across the Kobalt music group, dividing my time between <a href="https://www.kobaltmusic.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border underline-offset-2 hover:text-muted-foreground transition-colors">Kobalt</a>, <a href="https://www.amra.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border underline-offset-2 hover:text-muted-foreground transition-colors">amra</a> and now <a href="https://www.kosignmusic.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border underline-offset-2 hover:text-muted-foreground transition-colors">KOSIGN</a>.
           </p>

@@ -12,7 +12,7 @@ export default function PlatformProject() {
 
           {/* Sub-header + Hero carousel */}
           <div className="space-y-12">
-            <div className="content-width space-y-6">
+            <div>
               <p className="sub-header">A new generation of data processing tools for the Kobalt music group</p>
             </div>
             <ProjectCarousel slides={carousel1Slides} />

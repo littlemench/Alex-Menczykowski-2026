@@ -14,7 +14,7 @@ export default function Links() {
   return (
     <Layout>
       <section className="layout-grid">
-        <div className="content-width space-y-1">
+        <div className="w-full lg:w-[35%] space-y-1">
           {links.map(({ label, href }) => (
             <p key={label}>
               <a
