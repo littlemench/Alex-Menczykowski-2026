@@ -10,6 +10,7 @@ import Links from "@/pages/Links";
 import KosignProject from "@/pages/project/Kosign";
 import NexusBlack from "@/pages/project/NexusBlack";
 import PlatformProject from "@/pages/project/Platform";
+import PortalProject from "@/pages/project/Portal";
 import Kobalt25Project from "@/pages/play/Kobalt25";
 import ListJockeyProject from "@/pages/play/ListJockey";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -24,6 +25,7 @@ function Router() {
         <Route path="/work/kosign" component={KosignProject} />
         <Route path="/work/nexus-black" component={NexusBlack} />
         <Route path="/work/platform" component={PlatformProject} />
+        <Route path="/work/portal" component={PortalProject} />
         <Route path="/play" component={PlayIndex} />
         <Route path="/play/kobalt25" component={Kobalt25Project} />
         <Route path="/play/listjockey" component={ListJockeyProject} />

@@ -21,10 +21,10 @@ export default function WorkIndex() {
           </div>
 
           {/* Kobalt Client Product */}
-          <div className="content-width opacity-60">
-            <div className="cursor-not-allowed">
-              <img src="/Preview-Portal.png" alt="Kobalt Client Product" className="w-full h-auto rounded-[2px]" />
-            </div>
+          <div className="content-width">
+            <Link href="/work/portal" className="block group">
+              <img src="/Preview-Portal.png" alt="Kobalt Client Portal" className="w-full h-auto rounded-[2px]" />
+            </Link>
           </div>
         </div>
 

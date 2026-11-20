@@ -10,7 +10,7 @@ const WHITE = "#FFFFFF";
 const PAGE_THEMES: { match: string; bg: string; fg: string }[] = [
   { match: "/work/kosign", bg: "#0059FF", fg: WHITE },        // KOSIGN blue
   { match: "/work/platform", bg: "#ACAFFF", fg: DARK_GREY },  // Publishing Data Platform
-  { match: "/work/portal", bg: "#CDD07F", fg: DARK_GREY },    // Client Portal (page not built yet)
+  { match: "/work/portal", bg: "#CDD07F", fg: DARK_GREY },    // Kobalt Client Portal
   { match: "/work/podium", bg: "#F7F6F6", fg: DARK_GREY },    // Podium Platform (page not built yet)
   { match: "/work/nexus-black", bg: "#000000", fg: WHITE },   // Nexus Black
   { match: "/play/kobalt25", bg: "#000000", fg: WHITE },      // Kobalt25
@@ -51,7 +51,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Top Header - Responsive Title + Nav */}
       <header className="pt-8 px-4 md:px-8 w-full mx-auto flex flex-col md:flex-row justify-between items-start relative z-50">
         {/* Mobile/Tablet Nav - Visible only below md */}
-        <nav className="flex md:hidden flex-row gap-6 text-sm font-medium items-center mb-6 w-full overflow-x-auto whitespace-nowrap scrollbar-hide">
+        <nav className="flex md:hidden flex-row gap-6 text-sm font-normal items-center mb-6 w-full overflow-x-auto whitespace-nowrap scrollbar-hide">
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
               Home
@@ -91,6 +91,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="m-0 leading-none">List Jockey</h1>
           ) : location.includes('/work/platform') ? (
             <h1 className="m-0 leading-none">Publishing Data Platform</h1>
+          ) : location.includes('/work/portal') ? (
+            <h1 className="m-0 leading-none">Kobalt Client Portal</h1>
           ) : location.startsWith('/work/') ? (
             <h1 className="m-0 leading-none">{location.split('/').pop()?.toUpperCase()}</h1>
           ) : (
@@ -100,7 +102,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Desktop Nav - Visible only md and up */}
-        <nav className="hidden md:flex flex-col gap-0.5 text-sm font-medium items-end text-right">
+        <nav className="hidden md:flex flex-col gap-0.5 text-sm font-normal items-end text-right">
            <Link href="/">
             <a className={`transition-colors hover:underline ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
               Home
