@@ -2,8 +2,40 @@
 
 @font-face {
   font-family: 'Timeless Sans';
-  src: url('/fonts/timeless/TimelessSans-SansLight.woff2') format('woff2');
+  src: url('/fonts/Sans-Grotesk/static/woff2/TimelessSans-GroteskLight.woff2') format('woff2');
   font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Timeless Sans';
+  src: url('/fonts/Sans-Grotesk/static/woff2/TimelessSans-GroteskRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Timeless Sans';
+  src: url('/fonts/Sans-Grotesk/static/woff2/TimelessSans-GroteskMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Timeless Sans';
+  src: url('/fonts/Sans-Grotesk/static/woff2/TimelessSans-GroteskSemibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Timeless Sans';
+  src: url('/fonts/Sans-Grotesk/static/woff2/TimelessSans-GroteskBold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -41,11 +73,11 @@
 
 /* Typography System */
 h1 {
-  @apply font-sans text-[58px] sm:text-[65px] lg:text-[70px] font-normal leading-[0.9] tracking-[-0.0425em] text-primary;
+  @apply font-sans text-[58px] sm:text-[65px] lg:text-[70px] font-light leading-[0.9] tracking-[-0.0425em] text-primary;
 }
 
 h2 {
-  @apply font-sans text-[22px] font-semibold leading-snug text-primary normal-case tracking-normal;
+  @apply font-sans text-[22px] font-normal leading-snug text-primary normal-case tracking-normal;
 }
 
 h3 {
