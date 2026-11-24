@@ -1,11 +1,7 @@
-import { useRef } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
-import PeelSticker from "@/components/peel-sticker/PeelSticker";
 
 export default function WorkIndex() {
-  const kobalt25Ref = useRef<HTMLAnchorElement>(null);
-
   return (
     <Layout>
       <section className="layout-grid">
@@ -28,21 +24,6 @@ export default function WorkIndex() {
           <div className="content-width">
             <Link href="/work/portal" className="block group">
               <img src="/Preview-Portal.png" alt="Kobalt Client Portal" className="w-full h-auto rounded-[2px]" />
-            </Link>
-          </div>
-
-          {/* Kobalt25: live peeling sticker; hovering anywhere on the card peels it */}
-          <div className="content-width">
-            <Link href="/play/kobalt25" ref={kobalt25Ref} className="block group" aria-label="Kobalt25">
-              <div className="aspect-[16/9] w-full rounded-[2px] bg-[#F7F6F6] flex items-center justify-center">
-                <PeelSticker
-                  src="/kobalt25/sticker-25-years.png"
-                  dieCutSrc="/kobalt25/sticker-25-years-diecut.png"
-                  alt="Kobalt 25 years sticker"
-                  hoverTargetRef={kobalt25Ref}
-                  style={{ width: "40%" }}
-                />
-              </div>
             </Link>
           </div>
         </div>
