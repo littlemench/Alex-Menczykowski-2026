@@ -1,11 +1,9 @@
-import { useRef } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
+import AnimatedThumbnail from "@/components/animated-thumbnail/AnimatedThumbnail";
 import PeelSticker from "@/components/peel-sticker/PeelSticker";
 
 export default function PlayIndex() {
-  const kobalt25Ref = useRef<HTMLAnchorElement>(null);
-
   return (
     <Layout>
       <section className="layout-grid">
@@ -17,19 +15,19 @@ export default function PlayIndex() {
             </a>
           </div>
 
-          {/* Kobalt25: live peeling sticker; hovering anywhere on the card peels it */}
+          {/* Kobalt25: peeling clear-vinyl sticker */}
           <div className="content-width">
-            <Link href="/play/kobalt25" ref={kobalt25Ref} className="block group" aria-label="Kobalt25">
-              <div className="aspect-square w-full rounded-[2px] bg-white flex items-center justify-center">
+            <AnimatedThumbnail href="/play/kobalt25" label="Kobalt25">
+              {({ active }) => (
                 <PeelSticker
                   src="/kobalt25/sticker-25-years.png"
                   dieCutSrc="/kobalt25/sticker-25-years-diecut.png"
                   alt="Kobalt 25 years sticker"
-                  hoverTargetRef={kobalt25Ref}
+                  active={active}
                   style={{ width: "62%" }}
                 />
-              </div>
-            </Link>
+              )}
+            </AnimatedThumbnail>
           </div>
 
           {/* List Jockey */}
