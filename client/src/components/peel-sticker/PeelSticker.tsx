@@ -1,5 +1,9 @@
 import { useEffect, useRef, type CSSProperties, type RefObject } from "react";
-import { createPeelSticker, type PeelStickerOptions } from "./peel-sticker-core";
+import {
+  createPeelSticker,
+  type PeelStickerInstance,
+  type PeelStickerOptions,
+} from "./peel-sticker-core";
 
 type Tunables = Partial<
   Pick<
@@ -26,6 +30,11 @@ export interface PeelStickerProps extends Tunables {
   style?: CSSProperties;
   /** element whose hover / focus drives the peel, e.g. a wrapping card link */
   hoverTargetRef?: RefObject<HTMLElement | null>;
+  /**
+   * Controlled mode: when defined, the parent decides when the corner is peeled
+   * (e.g. <AnimatedThumbnail>) and the sticker's own hover/scroll triggers are off.
+   */
+  active?: boolean;
 }
 
 /**
@@ -47,9 +56,12 @@ export default function PeelSticker({
   className,
   style,
   hoverTargetRef,
+  active,
   ...tunables
 }: PeelStickerProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const inst = useRef<PeelStickerInstance | null>(null);
+  const controlled = active !== undefined;
   const key = JSON.stringify(tunables);
 
   useEffect(() => {
@@ -60,13 +72,22 @@ export default function PeelSticker({
       alt,
       hoverTarget: hoverTargetRef?.current ?? null,
     };
+    if (controlled) opts.trigger = "manual";
     (Object.keys(tunables) as (keyof Tunables)[]).forEach((k) => {
       if (tunables[k] !== undefined) (opts as Record<string, unknown>)[k] = tunables[k];
     });
-    const inst = createPeelSticker(ref.current, opts);
-    return () => inst.destroy();
+    const created = createPeelSticker(ref.current, opts);
+    inst.current = created;
+    return () => {
+      created.destroy();
+      inst.current = null;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [src, dieCutSrc, alt, hoverTargetRef, key]);
+  }, [src, dieCutSrc, alt, hoverTargetRef, controlled, key]);
+
+  useEffect(() => {
+    if (controlled) inst.current?.setPeeled(Boolean(active));
+  }, [controlled, active]);
 
   return (
     <div
