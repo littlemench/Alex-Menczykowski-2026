@@ -20,13 +20,13 @@ export default function PlayIndex() {
           {/* Kobalt25: live peeling sticker; hovering anywhere on the card peels it */}
           <div className="content-width">
             <Link href="/play/kobalt25" ref={kobalt25Ref} className="block group" aria-label="Kobalt25">
-              <div className="aspect-[16/9] w-full rounded-[2px] bg-[#F7F6F6] flex items-center justify-center">
+              <div className="aspect-square w-full rounded-[2px] bg-white flex items-center justify-center">
                 <PeelSticker
                   src="/kobalt25/sticker-25-years.png"
                   dieCutSrc="/kobalt25/sticker-25-years-diecut.png"
                   alt="Kobalt 25 years sticker"
                   hoverTargetRef={kobalt25Ref}
-                  style={{ width: "40%" }}
+                  style={{ width: "62%" }}
                 />
               </div>
             </Link>
