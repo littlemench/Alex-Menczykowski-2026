@@ -27,7 +27,7 @@ export interface KosignSplashProps {
   width?: string;
 }
 
-export default function KosignSplash({ active, width = "88%" }: KosignSplashProps) {
+export default function KosignSplash({ active, width = "94%" }: KosignSplashProps) {
   const frame = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [scale, setScale] = useState(0.35);

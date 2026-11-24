@@ -1,6 +1,7 @@
 /* KOSIGN splash thumbnail.
    Laid out in a fixed 1232 x 637 "screen" (the proportions of the live site's
-   hero at desktop width), then scaled to fit the thumbnail as one unit. */
+   hero at desktop width), then scaled to fit the thumbnail as one unit.
+   The badge / headline / sub-copy group is centred vertically in the frame. */
 
 @font-face {
   font-family: "KOSIGN Serial";
@@ -109,7 +110,7 @@
 .ks-badge {
   position: absolute;
   left: 50%;
-  top: 279px;
+  top: 198.5px;
   transform: translateX(-50%);
   height: 25px;
   padding: 0 12px;
@@ -133,7 +134,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 338px;
+  top: 257.5px;
   margin: 0;
   text-align: center;
   font-size: 73.5px;
@@ -146,7 +147,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 510px;
+  top: 429.5px;
   transform: translateY(-50%);
   margin: 0;
   text-align: center;
