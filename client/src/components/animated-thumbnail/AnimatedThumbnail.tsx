@@ -36,7 +36,13 @@ export interface AnimatedThumbnailProps {
   label: string;
   /** greyed out, not clickable, never animates (projects not yet live) */
   disabled?: boolean;
-  /** touch: how long the animation stays active after scrolling into view */
+  /**
+   * touch behaviour: "peek" plays for `holdMs` each time the card scrolls into
+   * view; "whileVisible" stays active for as long as the card is on screen
+   * (better for looping video)
+   */
+  touchMode?: "peek" | "whileVisible";
+  /** touch "peek": how long the animation stays active after scrolling into view */
   holdMs?: number;
   /** touch: fraction of the card that must be visible to trigger */
   threshold?: number;
@@ -62,6 +68,7 @@ export default function AnimatedThumbnail({
   href,
   label,
   disabled = false,
+  touchMode = "peek",
   holdMs = 1400,
   threshold = 0.6,
   className = "",
@@ -72,13 +79,14 @@ export default function AnimatedThumbnail({
   const canHover = useMedia("(hover: hover) and (pointer: fine)");
   const reducedMotion = useMedia("(prefers-reduced-motion: reduce)");
 
-  // touch: play once each time the card scrolls into view
+  // touch: play when the card scrolls into view
   useEffect(() => {
     const el = ref.current;
     if (!el || canHover || disabled || reducedMotion) return undefined;
     let armed = true;
     let hold = 0;
     let delay = 0;
+    const exit = touchMode === "whileVisible" ? 0.25 : 0;
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
@@ -86,13 +94,17 @@ export default function AnimatedThumbnail({
             armed = false;
             delay = window.setTimeout(() => {
               setActive(true);
-              hold = window.setTimeout(() => setActive(false), holdMs);
+              if (touchMode === "peek") {
+                hold = window.setTimeout(() => setActive(false), holdMs);
+              }
             }, 150);
-          } else if (e.intersectionRatio === 0) {
+          } else if (e.intersectionRatio <= exit) {
             armed = true;
+            window.clearTimeout(delay);
+            if (touchMode === "whileVisible") setActive(false);
           }
         }),
-      { threshold: [0, threshold] }
+      { threshold: [0, exit, threshold] }
     );
     io.observe(el);
     return () => {
@@ -100,7 +112,7 @@ export default function AnimatedThumbnail({
       window.clearTimeout(hold);
       window.clearTimeout(delay);
     };
-  }, [canHover, disabled, reducedMotion, holdMs, threshold]);
+  }, [canHover, disabled, reducedMotion, touchMode, holdMs, threshold]);
 
   const hoverHandlers =
     canHover && !disabled

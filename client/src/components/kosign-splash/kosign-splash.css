@@ -1,0 +1,157 @@
+/* KOSIGN splash thumbnail.
+   Laid out in a fixed 1232 x 637 "screen" (the proportions of the live site's
+   hero at desktop width), then scaled to fit the thumbnail as one unit.
+   The badge / headline / sub-copy group is centred vertically in the frame. */
+
+@font-face {
+  font-family: "KOSIGN Serial";
+  src: url("/kosign/fonts/serial-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "KOSIGN Serial";
+  src: url("/kosign/fonts/serial-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "KOSIGN Serial";
+  src: url("/kosign/fonts/serial-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+.ks-frame {
+  position: relative;
+  overflow: hidden;
+  background: #1b2026;
+  /* radius + shadow are set inline, in real pixels, from the current scale */
+  isolation: isolate;
+}
+
+.ks-screen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1232px;
+  height: 637px;
+  transform-origin: 0 0;
+  font-family: "KOSIGN Serial", Arial, sans-serif;
+  color: var(--ks-ink, #fff);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: normal;
+  letter-spacing: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* isolate from the portfolio's global h1/h2/p rules */
+.ks-screen,
+.ks-screen * {
+  color: var(--ks-ink, #fff);
+  font-feature-settings: normal;
+}
+.ks-screen * { font-family: inherit; }
+.ks-screen .ks-btn,
+.ks-screen .ks-badge { letter-spacing: normal; }
+
+.ks-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.ks-logo {
+  position: absolute;
+  left: 17px;
+  top: 17px;
+  width: 134px;
+}
+.ks-logo svg { display: block; width: 100%; height: auto; }
+.ks-logo .logo-icon { fill: #0059ff; }
+.ks-logo .logo-wordmark,
+.ks-logo .logo-powered { fill: var(--ks-ink, #fff); }
+
+.ks-nav {
+  position: absolute;
+  top: 31px;
+  transform: translateY(-50%);
+  font-size: 9.6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ks-btn {
+  position: absolute;
+  top: 17px;
+  width: 61px;
+  height: 27px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8.2px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.ks-btn--login { left: 1085px; background: rgba(255, 255, 255, 0.2); }
+.ks-btn--apply {
+  left: 1153px;
+  background: linear-gradient(45deg, #ff0e73 0%, #e501fd 45%, #3a1ffe 100%);
+}
+
+.ks-badge {
+  position: absolute;
+  left: 50%;
+  top: 198.5px;
+  transform: translateX(-50%);
+  height: 25px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9.6px;
+  white-space: nowrap;
+}
+.ks-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background: linear-gradient(45deg, #ff0e73 0%, #e501fd 45%, #3a1ffe 100%);
+}
+.ks-badge-arrow { margin-left: 4px; }
+
+.ks-headline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 257.5px;
+  margin: 0;
+  text-align: center;
+  font-size: 73.5px;
+  font-weight: 700;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.ks-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 429.5px;
+  transform: translateY(-50%);
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+}
