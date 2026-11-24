@@ -1,16 +1,18 @@
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
+import AnimatedThumbnail from "@/components/animated-thumbnail/AnimatedThumbnail";
+import KosignSplash from "@/components/kosign-splash/KosignSplash";
 
 export default function WorkIndex() {
   return (
     <Layout>
       <section className="layout-grid">
         <div className="space-y-16">
-          {/* KOSIGN */}
+          {/* KOSIGN: the kosignmusic.com hero; the video plays on hover / while on screen */}
           <div className="content-width">
-            <Link href="/work/kosign" className="block group">
-              <img src="/Preview-KOSIGN.png" alt="KOSIGN Case Study" className="w-full h-auto rounded-[2px]" />
-            </Link>
+            <AnimatedThumbnail href="/work/kosign" label="KOSIGN Case Study" touchMode="whileVisible">
+              {({ active }) => <KosignSplash active={active} />}
+            </AnimatedThumbnail>
           </div>
 
           {/* Publishing Data Platform */}
