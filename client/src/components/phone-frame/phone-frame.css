@@ -1,0 +1,55 @@
+/* PhoneFrame: a simple dark phone (no Dynamic Island) whose screen runs to
+   the very top. Every measurement is in container units (cqw) of .pf, so
+   the device keeps its proportions, radius and shadow at any size. Style
+   after dmcg.co: near-black body, generous radius, soft low-contrast shadow. */
+
+.pf {
+  container-type: inline-size;
+  position: relative;
+}
+
+.pf-body {
+  position: relative;
+  padding: 4.2cqw;
+  border-radius: 15.5cqw;
+  background: linear-gradient(150deg, #2a2a2c 0%, #111112 22%, #0c0c0d 70%, #232325 100%);
+  box-shadow:
+    inset 0 0 0 0.45cqw #3b3b3e,            /* metal edge */
+    inset 0 0 0 0.9cqw #0b0b0c,             /* inner rim */
+    0 1.2cqw 2.4cqw rgba(0, 0, 0, 0.10),    /* contact */
+    0 7cqw 16cqw -2cqw rgba(0, 0, 0, 0.22); /* soft drop */
+}
+
+/* side buttons, just proud of the frame */
+.pf-btn {
+  position: absolute;
+  width: 0.9cqw;
+  border-radius: 0.6cqw;
+  background: linear-gradient(90deg, #2c2c2e, #18181a);
+}
+.pf-btn--action { left: -0.7cqw; top: 22%; height: 5%; }
+.pf-btn--vol-up { left: -0.7cqw; top: 30%; height: 9%; }
+.pf-btn--vol-down { left: -0.7cqw; top: 41%; height: 9%; }
+.pf-btn--power { right: -0.7cqw; top: 32%; height: 14%; }
+
+.pf-screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 11.4cqw;
+  background: #fff;
+}
+.pf-screen > img,
+.pf-screen > .pf-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.pf-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 9cqw/1 system-ui, sans-serif;
+  color: rgba(0, 0, 0, 0.35);
+}
