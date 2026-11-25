@@ -4,8 +4,8 @@ import "./kosign-splash.css";
 /**
  * KosignSplash — the top of kosignmusic.com as a thumbnail: the hero video
  * with the site's logo, nav, CTAs and copy over it, in a rounded,
- * drop-shadowed frame. The video plays while `active`, pauses (and later
- * resumes from the same frame) when not.
+ * drop-shadowed frame. The video plays from the start while `active`, and
+ * pauses and rewinds to the first frame when not.
  *
  * Laid out on a fixed 1232 x 637 "screen" so it matches the live site's
  * proportions, then scaled to whatever width the frame gets.
@@ -50,7 +50,9 @@ export default function KosignSplash({ active, width = "94%" }: KosignSplashProp
       // if the browser still refuses (e.g. Low Power Mode), the poster stays.
       v.play().catch(() => {});
     } else {
+      // back to the first frame, so every hover starts from the beginning
       v.pause();
+      v.currentTime = 0;
     }
   }, [active]);
 
