@@ -1,0 +1,35 @@
+/* ScreenSequence: desktop screens in the same rounded, soft-shadowed frame as
+   the KOSIGN thumbnail, dissolving from one screen to the next.
+   KOSIGN's frame is defined on a 1232px-wide design: radius 20px and shadow
+   0 32px 76px rgba(0,0,0,.3) + 0 4px 12px rgba(0,0,0,.08). Here the same
+   values are expressed as a share of the frame's width (cqw), so any
+   frame width matches. */
+
+.ss {
+  container-type: inline-size;
+  width: 94%;
+}
+
+.ss-frame {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 1.623cqw; /* 20 / 1232 */
+  box-shadow:
+    0 2.597cqw 6.169cqw rgba(0, 0, 0, 0.3), /* 32 / 1232, 76 / 1232 */
+    0 0.325cqw 0.974cqw rgba(0, 0, 0, 0.08);
+  isolation: isolate;
+}
+
+.ss-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: opacity 350ms ease;
+}
+.ss-layer:first-child { position: relative; display: block; height: auto; }
+
+.ss--reduced .ss-layer { transition: none; }
