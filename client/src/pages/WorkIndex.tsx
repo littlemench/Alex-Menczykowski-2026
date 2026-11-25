@@ -1,8 +1,14 @@
-import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import AnimatedThumbnail from "@/components/animated-thumbnail/AnimatedThumbnail";
 import KosignSplash from "@/components/kosign-splash/KosignSplash";
 import PortalScreens from "@/components/portal-screens/PortalScreens";
+import ScreenSequence from "@/components/screen-sequence/ScreenSequence";
+
+const PLATFORM_SCREENS = [
+  "/platform/1-default.webp",
+  "/platform/2-retained.webp",
+  "/platform/3-merged.webp",
+];
 
 export default function WorkIndex() {
   return (
@@ -16,11 +22,13 @@ export default function WorkIndex() {
             </AnimatedThumbnail>
           </div>
 
-          {/* Publishing Data Platform */}
+          {/* Publishing Data Platform: IP cluster task, dissolving Default -> Retained -> Merged */}
           <div className="content-width">
-            <Link href="/work/platform" className="block group">
-              <img src="/Preview-Platform.png" alt="Publishing Data Platform" className="w-full h-auto rounded-[2px]" />
-            </Link>
+            <AnimatedThumbnail href="/work/platform" label="Publishing Data Platform" touchMode="whileVisible">
+              {({ active, reducedMotion }) => (
+                <ScreenSequence active={active} reducedMotion={reducedMotion} screens={PLATFORM_SCREENS} />
+              )}
+            </AnimatedThumbnail>
           </div>
 
           {/* Kobalt Client Product */}
