@@ -36,8 +36,14 @@ export default function KosignProject() {
             {sections.myRole.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
-          {/* Carousel */}
-          <ProjectCarousel slides={carousel2Slides} />
+          {/* Main preview: the Submit screen (replaces the middle carousel for now; carousel2Slides kept for easy revert) */}
+          <div className="content-width">
+            <img
+              src="/Kosign-Submit.png"
+              alt="KOSIGN app: songs list with the Submit button in the tab bar"
+              className="w-full h-auto"
+            />
+          </div>
 
           {/* Strategy */}
           <section className="space-y-6 content-width">
