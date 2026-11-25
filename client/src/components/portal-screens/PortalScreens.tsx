@@ -25,10 +25,11 @@ const SCREEN_ASPECT = 390 / 844;
 // times (no scaling), so four overlap like a fanned hand. Home moves RIGHT
 // and stays on top, and each later screen fans out to the LEFT from behind
 // the one before, so every tucked screen shows its left side (where its
-// title and key content sit). The row spans 4%-96%: Home's centre is at 79%,
-// then 59.7%, 40.3% and 21%. translateX is in phone widths:
-// (centre - 0.5) / 0.34, plus the -50% that centres the phone.
-const ROW_X = [35.3, -21.6, -78.4, -135.3]; // % : Home, Balance, Catalog, Sync
+// title and key content sit). Centres are 14.5% apart, and the row
+// (11.25%-88.75%) is centred in the square: Home at 71.75%, then 57.25%,
+// 42.75% and 28.25%. translateX is in phone widths: (centre - 0.5) / 0.34,
+// plus the -50% that centres the phone.
+const ROW_X = [13.97, -28.68, -71.32, -113.97]; // % : Home, Balance, Catalog, Sync
 const STAGGER_MS = 30;
 
 export interface PortalScreensProps {
