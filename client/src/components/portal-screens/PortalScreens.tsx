@@ -29,7 +29,7 @@ const SCREEN_ASPECT = 390 / 844;
 // then 59.7%, 40.3% and 21%. translateX is in phone widths:
 // (centre - 0.5) / 0.34, plus the -50% that centres the phone.
 const ROW_X = [35.3, -21.6, -78.4, -135.3]; // % : Home, Balance, Catalog, Sync
-const STAGGER_MS = 45;
+const STAGGER_MS = 30;
 
 export interface PortalScreensProps {
   active: boolean;
