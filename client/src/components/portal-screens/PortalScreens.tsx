@@ -6,7 +6,8 @@ import "./portal-screens.css";
  *
  * Rest: the Home screen alone, centred, with the other three hidden
  * directly behind it. Active: the four slide sideways, without scaling, into
- * an overlapping row. Home moves to the first slot and the others slide out
+ * an overlapping row. Home moves right and stays on top; the others fan out
+ * to the left, showing their left sides. Home moves to the first slot and the others slide out
  * from behind it, staggered so each appears to come from behind the one
  * before. On the way back they return in reverse order.
  */
@@ -21,11 +22,13 @@ const SCREENS = [
 const SCREEN_ASPECT = 390 / 844;
 
 // Row geometry, as fractions of the square. Phones are 34% wide at all
-// times (no scaling), so four overlap like a fanned hand: Home on top and
-// each later screen tucked behind the one before. The row spans 4%-96%,
-// with centres at 21%, 40.3%, 59.7% and 79%. translateX is in phone
-// widths: (centre - 0.5) / 0.34, plus the -50% that centres the phone.
-const ROW_X = [-135.3, -78.4, -21.6, 35.3]; // %
+// times (no scaling), so four overlap like a fanned hand. Home moves RIGHT
+// and stays on top, and each later screen fans out to the LEFT from behind
+// the one before, so every tucked screen shows its left side (where its
+// title and key content sit). The row spans 4%-96%: Home's centre is at 79%,
+// then 59.7%, 40.3% and 21%. translateX is in phone widths:
+// (centre - 0.5) / 0.34, plus the -50% that centres the phone.
+const ROW_X = [35.3, -21.6, -78.4, -135.3]; // % : Home, Balance, Catalog, Sync
 const STAGGER_MS = 45;
 
 export interface PortalScreensProps {
