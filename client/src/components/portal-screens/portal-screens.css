@@ -1,5 +1,6 @@
 /* Client Portal thumbnail: Home alone at rest; on hover all four screens
-   line up, the others sliding out from behind Home. */
+   slide sideways (no scaling) into an overlapping row, the others coming
+   out from behind Home. */
 
 .ps {
   position: relative;
@@ -11,7 +12,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 40%;
+  width: 34%;
   transform-origin: 50% 50%;
   transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
