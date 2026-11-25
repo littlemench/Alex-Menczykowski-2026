@@ -5,7 +5,8 @@ import { Link } from "wouter";
  * AnimatedThumbnail — the shared shell for every project thumbnail.
  *
  * Owns everything that is the same for all thumbnails:
- *   - square, white, 2px radius, content centred
+ *   - white, 2px radius, content centred with `padY` (30px) above and below;
+ *     the card's height follows the animation's own height
  *   - links through to the project (internal route, external URL, or none)
  *   - decides WHEN the animation is active:
  *       desktop (fine pointer + hover): while the card is hovered or focused
@@ -46,6 +47,9 @@ export interface AnimatedThumbnailProps {
   holdMs?: number;
   /** touch: fraction of the card that must be visible to trigger */
   threshold?: number;
+  /** white space above and below the animation, in px; the card's height is
+   *  the animation's own height plus this, top and bottom */
+  padY?: number;
   className?: string;
   children: (state: ThumbnailState) => ReactNode;
 }
@@ -71,6 +75,7 @@ export default function AnimatedThumbnail({
   touchMode = "peek",
   holdMs = 1400,
   threshold = 0.6,
+  padY = 30,
   className = "",
   children,
 }: AnimatedThumbnailProps) {
@@ -127,7 +132,8 @@ export default function AnimatedThumbnail({
   const face = (
     <div
       ref={ref}
-      className="aspect-square w-full rounded-[2px] bg-white flex items-center justify-center"
+      className="w-full rounded-[2px] bg-white flex items-center justify-center"
+      style={{ paddingBlock: `${padY}px` }}
     >
       {children({ active: disabled ? false : active, reducedMotion })}
     </div>
