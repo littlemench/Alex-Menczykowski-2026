@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import AnimatedThumbnail from "@/components/animated-thumbnail/AnimatedThumbnail";
 import KosignSplash from "@/components/kosign-splash/KosignSplash";
+import PortalScreens from "@/components/portal-screens/PortalScreens";
 
 export default function WorkIndex() {
   return (
@@ -23,10 +24,13 @@ export default function WorkIndex() {
           </div>
 
           {/* Kobalt Client Product */}
+          {/* Client Portal: Home at rest; all four screens line up on hover */}
           <div className="content-width">
-            <Link href="/work/portal" className="block group">
-              <img src="/Preview-Portal.png" alt="Kobalt Client Portal" className="w-full h-auto rounded-[2px]" />
-            </Link>
+            <AnimatedThumbnail href="/work/portal" label="Kobalt Client Portal" holdMs={2500}>
+              {({ active, reducedMotion }) => (
+                <PortalScreens active={active} reducedMotion={reducedMotion} />
+              )}
+            </AnimatedThumbnail>
           </div>
         </div>
 
