@@ -5,9 +5,9 @@ import PortalScreens from "@/components/portal-screens/PortalScreens";
 import ScreenSequence from "@/components/screen-sequence/ScreenSequence";
 
 const PLATFORM_SCREENS = [
-  "/platform/1-default.webp",
-  "/platform/2-retained.webp",
-  "/platform/3-merged.webp",
+  "/platform/1-period.webp",
+  "/platform/2-schedule.webp",
+  "/platform/3-block.webp",
 ];
 
 export default function WorkIndex() {
@@ -32,7 +32,7 @@ export default function WorkIndex() {
             </AnimatedThumbnail>
           </div>
 
-          {/* Publishing Data Platform: IP cluster task, dissolving Default -> Retained -> Merged */}
+          {/* Publishing Data Platform: new client agreement, dissolving Period -> Schedule -> Block creation */}
           <div className="content-width">
             <AnimatedThumbnail href="/work/platform" label="Publishing Data Platform" touchMode="whileVisible">
               {({ active, reducedMotion }) => (
