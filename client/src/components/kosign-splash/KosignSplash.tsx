@@ -65,7 +65,7 @@ export default function KosignSplash({ active, width = "94%" }: KosignSplashProp
         width,
         aspectRatio: `${SCREEN_W} / ${SCREEN_H}`,
         borderRadius: `${20 * scale}px`,
-        boxShadow: `0 ${16 * scale}px ${38 * scale}px rgba(0, 0, 0, 0.3), 0 ${2 * scale}px ${6 * scale}px rgba(0, 0, 0, 0.08)`,
+        boxShadow: `0 ${32 * scale}px ${76 * scale}px rgba(0, 0, 0, 0.3), 0 ${4 * scale}px ${12 * scale}px rgba(0, 0, 0, 0.08)`,
       }}
     >
       <div className="ks-screen" style={{ transform: `scale(${scale})` }} aria-hidden="true">
