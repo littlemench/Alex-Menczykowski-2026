@@ -22,21 +22,21 @@ export default function WorkIndex() {
             </AnimatedThumbnail>
           </div>
 
-          {/* Publishing Data Platform: new client agreement, dissolving Period -> Schedule -> Block creation */}
-          <div className="content-width">
-            <AnimatedThumbnail href="/work/platform" label="Publishing Data Platform" touchMode="whileVisible">
-              {({ active, reducedMotion }) => (
-                <ScreenSequence active={active} reducedMotion={reducedMotion} screens={PLATFORM_SCREENS} />
-              )}
-            </AnimatedThumbnail>
-          </div>
-
           {/* Kobalt Client Product */}
           {/* Client Portal: Home at rest; all four screens line up on hover */}
           <div className="content-width">
             <AnimatedThumbnail href="/work/portal" label="Kobalt Client Portal" holdMs={2500}>
               {({ active, reducedMotion }) => (
                 <PortalScreens active={active} reducedMotion={reducedMotion} />
+              )}
+            </AnimatedThumbnail>
+          </div>
+
+          {/* Publishing Data Platform: new client agreement, dissolving Period -> Schedule -> Block creation */}
+          <div className="content-width">
+            <AnimatedThumbnail href="/work/platform" label="Publishing Data Platform" touchMode="whileVisible">
+              {({ active, reducedMotion }) => (
+                <ScreenSequence active={active} reducedMotion={reducedMotion} screens={PLATFORM_SCREENS} />
               )}
             </AnimatedThumbnail>
           </div>
