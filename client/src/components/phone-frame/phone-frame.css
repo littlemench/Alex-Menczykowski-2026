@@ -16,9 +16,16 @@
   box-shadow:
     inset 0 0 0 0.45cqw #3b3b3e,            /* metal edge */
     inset 0 0 0 0.9cqw #0b0b0c,             /* inner rim */
+    var(--pf-shadow);
+  --pf-shadow:
     0 1.2cqw 2.4cqw rgba(0, 0, 0, 0.10),    /* contact */
     0 7cqw 16cqw -2cqw rgba(0, 0, 0, 0.22); /* soft drop */
 }
+
+/* for groups of overlapping devices: drop the per-device shadow and shadow
+   the group instead (filter: drop-shadow on the parent), so overlaps don't
+   double up and darken */
+.pf--no-shadow .pf-body { --pf-shadow: 0 0 0 transparent; }
 
 /* side buttons, just proud of the frame */
 .pf-btn {

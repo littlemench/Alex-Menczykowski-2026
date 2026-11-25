@@ -2,10 +2,22 @@
    slide sideways (no scaling) into an overlapping row, the others coming
    out from behind Home. */
 
+.ps-wrap {
+  container-type: inline-size;
+  width: 100%;
+  height: 100%;
+}
+
+/* One shadow for the whole group, following the combined outline of the
+   phones, so overlaps don't double it up. These are PhoneFrame's own contact
+   and drop shadows converted to the square's units (a phone is 34% wide). */
 .ps {
   position: relative;
   width: 100%;
   height: 100%;
+  filter:
+    drop-shadow(0 0.4cqw 0.8cqw rgba(0, 0, 0, 0.10))
+    drop-shadow(0 2.4cqw 5.4cqw rgba(0, 0, 0, 0.20));
 }
 
 .ps-phone {

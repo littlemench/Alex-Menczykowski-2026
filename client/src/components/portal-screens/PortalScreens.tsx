@@ -39,7 +39,8 @@ export interface PortalScreensProps {
 export default function PortalScreens({ active, reducedMotion = false }: PortalScreensProps) {
   const last = SCREENS.length - 1;
   return (
-    <div className={`ps ${reducedMotion ? "ps--reduced" : ""}`} aria-hidden="true">
+    <div className="ps-wrap" aria-hidden="true">
+    <div className={`ps ${reducedMotion ? "ps--reduced" : ""}`}>
       {SCREENS.map((s, i) => {
         // purely lateral: same size at rest and in the row
         const transform = active ? `translate(${ROW_X[i]}%, -50%)` : "translate(-50%, -50%)";
@@ -51,11 +52,13 @@ export default function PortalScreens({ active, reducedMotion = false }: PortalS
             src={s.src}
             alt=""
             screenAspect={SCREEN_ASPECT}
+            shadow={false}
             className="ps-phone"
             style={{ transform, transitionDelay: `${delay}ms`, zIndex: SCREENS.length - i }}
           />
         );
       })}
+    </div>
     </div>
   );
 }

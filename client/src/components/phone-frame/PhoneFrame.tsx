@@ -15,6 +15,11 @@ export interface PhoneFrameProps {
   alt?: string;
   /** screen width / height; defaults to a 393 x 852 pt iPhone display */
   screenAspect?: number;
+  /**
+   * false removes the device's own drop shadow. Use it when several devices
+   * overlap, and shadow their shared parent with filter: drop-shadow instead.
+   */
+  shadow?: boolean;
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;
@@ -24,12 +29,13 @@ export default function PhoneFrame({
   src,
   alt = "",
   screenAspect = 393 / 852,
+  shadow = true,
   className = "",
   style,
   children,
 }: PhoneFrameProps) {
   return (
-    <div className={`pf ${className}`} style={style}>
+    <div className={`pf ${shadow ? "" : "pf--no-shadow"} ${className}`} style={style}>
       <div className="pf-body">
         <span className="pf-btn pf-btn--action" />
         <span className="pf-btn pf-btn--vol-up" />
