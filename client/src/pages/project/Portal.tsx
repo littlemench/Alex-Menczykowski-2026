@@ -40,6 +40,11 @@ export default function PortalProject() {
             {sections.realProblem.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
+          {/* Song submission, start to finish */}
+          <figure className="media-width">
+            <SubmissionFlow />
+          </figure>
+
           {/* My role */}
           <section className="space-y-6 content-width">
             <h2>My role</h2>
@@ -67,14 +72,9 @@ export default function PortalProject() {
             </ul>
           </section>
 
-          {/* D2C vs B2B: the same royalty flow, two UIs */}
+          {/* Sync and royalties flows, side by side on one clock */}
           <figure className="media-width">
             <RoyaltyCompare />
-          </figure>
-
-          {/* Song submission, start to finish */}
-          <figure className="media-width">
-            <SubmissionFlow />
           </figure>
 
           {/* Proof points */}
