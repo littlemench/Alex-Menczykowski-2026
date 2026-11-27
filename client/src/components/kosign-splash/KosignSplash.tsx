@@ -23,11 +23,13 @@ const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 50" f
 
 export interface KosignSplashProps {
   active: boolean;
+  /** show the first frame only, as an image (no video is loaded) */
+  still?: boolean;
   /** frame width as a CSS length, relative to the thumbnail */
   width?: string;
 }
 
-export default function KosignSplash({ active, width = "94%" }: KosignSplashProps) {
+export default function KosignSplash({ active, still = false, width = "94%" }: KosignSplashProps) {
   const frame = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [scale, setScale] = useState(0.35);
@@ -69,17 +71,21 @@ export default function KosignSplash({ active, width = "94%" }: KosignSplashProp
       }}
     >
       <div className="ks-screen" style={{ transform: `scale(${scale})` }} aria-hidden="true">
+{still ? (
+          <img className="ks-video" src={POSTER_SRC} alt="" draggable={false} />
+        ) : (
         <video
-          ref={video}
-          className="ks-video"
-          src={VIDEO_SRC}
-          poster={POSTER_SRC}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          disablePictureInPicture
-        />
+            ref={video}
+            className="ks-video"
+            src={VIDEO_SRC}
+            poster={POSTER_SRC}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            disablePictureInPicture
+          />
+        )}
         <div className="ks-logo" dangerouslySetInnerHTML={{ __html: LOGO_SVG }} />
         <span className="ks-nav" style={{ left: 516 }}>How it works</span>
         <span className="ks-nav" style={{ left: 597 }}>Roster</span>
