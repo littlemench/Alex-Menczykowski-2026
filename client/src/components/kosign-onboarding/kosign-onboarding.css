@@ -1,0 +1,231 @@
+/* KosignOnboarding: two phones on one clock (layout as RoyaltyCompare).
+   Inside a screen, sizes are iPhone points: --pt is 1/402 of the screen's
+   width, so the whole UI scales with the phone. */
+
+.ko {
+  display: flex;
+  justify-content: center;
+  gap: 8%;
+}
+.ko-col { width: 42%; }
+
+.ko-screen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #fff;
+  container-type: inline-size;
+  --pt: calc(100cqw / 402);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  color: #1f1f1f;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: normal;
+  text-align: left;
+  line-height: 1.25;
+}
+.ko-screen img { max-width: none; }
+
+/* pages stack; each new one enters over the last */
+.ko-page {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  will-change: transform;
+  transform-origin: 50% 0;
+  transition:
+    transform 450ms cubic-bezier(0.32, 0.72, 0, 1),
+    filter 450ms ease,
+    opacity 380ms ease;
+}
+
+/* ---------- Gmail */
+.ko-gm-toolbar {
+  position: absolute;
+  top: calc(var(--pt) * 54);
+  left: 0;
+  right: 0;
+  height: calc(var(--pt) * 44);
+  padding: 0 calc(var(--pt) * 12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  z-index: 2;
+}
+.ko-gm-tools {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pt) * 18);
+  margin-left: auto;
+}
+.ko-gm-viewport {
+  position: absolute;
+  top: calc(var(--pt) * 98);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.ko-gm-scroll {
+  position: relative;
+  will-change: transform;
+  transition: transform 1250ms cubic-bezier(0.45, 0, 0.25, 1);
+}
+.ko-gm-subject {
+  height: calc(var(--pt) * 48);
+  padding: calc(var(--pt) * 8) calc(var(--pt) * 16) 0;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pt) * 8);
+  font-size: calc(var(--pt) * 21);
+  white-space: nowrap;
+}
+.ko-gm-chip {
+  font-size: calc(var(--pt) * 11);
+  background: #e9eef6;
+  color: #444746;
+  border-radius: calc(var(--pt) * 4);
+  padding: calc(var(--pt) * 2) calc(var(--pt) * 6);
+}
+.ko-gm-sender {
+  height: calc(var(--pt) * 56);
+  padding: 0 calc(var(--pt) * 16);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pt) * 12);
+}
+.ko-gm-avatar {
+  flex: none;
+  width: calc(var(--pt) * 38);
+  height: calc(var(--pt) * 38);
+  border-radius: 50%;
+  background: #0059ff;
+  color: #fff;
+  font-weight: 700;
+  font-size: calc(var(--pt) * 17);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ko-gm-from {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--pt) * 2);
+  font-size: calc(var(--pt) * 15);
+}
+.ko-gm-from b { font-weight: 600; }
+.ko-gm-time,
+.ko-gm-to {
+  color: #5f6368;
+  font-size: calc(var(--pt) * 12.5);
+}
+
+/* a press on a button in an email */
+.ko-press {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0);
+  transition: background-color 120ms ease;
+}
+.ko-press--on { background: rgba(0, 0, 0, 0.2); }
+
+/* ---------- Messages */
+.ko-sms-base { display: block; width: 100%; height: auto; }
+.ko-layer { position: absolute; display: block; height: auto; }
+.ko-fade { opacity: 0; transition: opacity 300ms ease; }
+.ko-send {
+  opacity: 0;
+  transform: translateY(calc(var(--pt) * 80)) scale(0.9);
+  transform-origin: 100% 100%;
+  transition: transform 520ms cubic-bezier(0.2, 0.9, 0.3, 1.04), opacity 220ms ease;
+}
+.ko-pop {
+  opacity: 0;
+  transform: scale(0.6);
+  transform-origin: 0 100%;
+  transition: transform 360ms cubic-bezier(0.3, 1.4, 0.5, 1), opacity 160ms ease;
+}
+.ko-fade.ko-in,
+.ko-send.ko-in,
+.ko-pop.ko-in { opacity: 1; transform: none; }
+
+/* ---------- chrome */
+.ko-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 10;
+}
+.ko-home {
+  position: absolute;
+  left: calc(var(--pt) * 133.5);
+  width: calc(var(--pt) * 135);
+  bottom: calc(var(--pt) * 8);
+  height: calc(var(--pt) * 5);
+  border-radius: 999px;
+  background: #000;
+  z-index: 10;
+}
+
+/* ---------- notification banner */
+.ko-banner {
+  position: absolute;
+  top: calc(var(--pt) * 50);
+  left: calc(var(--pt) * 9);
+  right: calc(var(--pt) * 9);
+  z-index: 20;
+  display: flex;
+  gap: calc(var(--pt) * 10);
+  padding: calc(var(--pt) * 12) calc(var(--pt) * 14) calc(var(--pt) * 13);
+  border-radius: calc(var(--pt) * 22);
+  background: rgba(242, 242, 247, 0.92);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  backdrop-filter: blur(20px) saturate(1.6);
+  box-shadow: 0 calc(var(--pt) * 8) calc(var(--pt) * 28) rgba(0, 0, 0, 0.18);
+  color: #000;
+  transition:
+    transform 520ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 260ms ease,
+    filter 150ms ease;
+}
+.ko-banner--hidden { transform: translateY(-190%); opacity: 0; }
+.ko-banner--shown { transform: none; opacity: 1; }
+.ko-banner--pressed { transform: scale(0.97); opacity: 1; filter: brightness(0.94); }
+.ko-banner--gone { transform: translateY(-40%) scale(0.97); opacity: 0; }
+.ko-banner-icon {
+  flex: none;
+  width: calc(var(--pt) * 38);
+  height: calc(var(--pt) * 38);
+  border-radius: calc(var(--pt) * 9);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ko-banner-icon svg { width: calc(var(--pt) * 26); height: calc(var(--pt) * 26); }
+.ko-banner-text {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(var(--pt) * 15);
+  line-height: 1.3;
+}
+.ko-banner-top { display: flex; justify-content: space-between; align-items: baseline; }
+.ko-banner-top b { font-weight: 600; }
+.ko-banner-now { color: #8a8a8e; font-size: calc(var(--pt) * 13); }
+.ko-banner-body {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #3c3c43;
+}
+
+/* reset off screen without animating */
+.ko-instant,
+.ko-instant * { transition: none !important; }
+.ko--reduced * { transition: none !important; animation: none !important; }

@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import RichText from "@/components/RichText";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import ProofPoints from "@/components/ProofPoints";
+import KosignOnboarding from "@/components/kosign-onboarding/KosignOnboarding";
 import { Link } from "wouter";
 import { sections, proofPoints, carousel1Slides, carousel2Slides, carousel3Slides, credit } from "@/content/kosign.content";
 
@@ -30,6 +31,11 @@ export default function KosignProject() {
             <h2>The real problem</h2>
             {sections.realProblem.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
+
+          {/* Onboarding: the manager's side of client setup */}
+          <figure className="media-width">
+            <KosignOnboarding />
+          </figure>
 
           {/* My role */}
           <section className="space-y-6 content-width">
