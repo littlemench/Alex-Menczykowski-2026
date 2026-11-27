@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 /** Shared pieces for the KOSIGN onboarding phones. Sizes are iPhone points
  *  via --pt (1pt = 100cqw / 402), set on .ko-screen. */
@@ -10,6 +10,9 @@ export const HEADER = 112; // Gmail subject + sender rows above the email, pt
 export const STATUS_SRC = "/kosign/onboarding/status.webp";
 
 export const pt = (n: number) => `calc(var(--pt) * ${n})`;
+/** app screens are 390px-wide exports: px converts their px to pt */
+export const K = W / 390;
+export const px = (n: number) => pt(n * K);
 
 // ------------------------------------------------------------------ Gmail
 export interface Email {
@@ -113,4 +116,94 @@ export function Banner({ src, alt, state }: { src: string; alt: string; state: "
       <img src={src} alt={alt} draggable={false} />
     </div>
   );
+}
+
+// ------------------------------------------------------------ app screens
+/** a crop of an export, placed where it sits on the screen */
+export function Crop({ src, box, imgH = 844, style }: { src: string; box: number[]; imgH?: number; style?: CSSProperties }) {
+  const [x0, y0, x1, y1] = box;
+  const w = x1 - x0;
+  const h = y1 - y0;
+  return (
+    <span className="ko-crop" style={{ left: px(x0), top: px(y0), width: px(w), height: px(h), ...style }}>
+      <img
+        src={src}
+        alt=""
+        draggable={false}
+        style={{ left: px(-x0), top: px(-y0), width: px(390), height: px(imgH) }}
+      />
+    </span>
+  );
+}
+
+export function Press({ box, on, radius }: { box: number[]; on: boolean; radius?: number }) {
+  const [x0, y0, x1, y1] = box;
+  return (
+    <span
+      className={`ko-press ${on ? "ko-press--on" : ""}`}
+      style={{ left: px(x0), top: px(y0), width: px(x1 - x0), height: px(y1 - y0), ...(radius !== undefined ? { borderRadius: px(radius) } : {}) }}
+    />
+  );
+}
+
+export function AppPage({
+  src, h = 844, scroll = 0, bg = "#ececec", style, children,
+}: {
+  src: string; h?: number; scroll?: number; bg?: string; style: CSSProperties; children?: ReactNode;
+}) {
+  return (
+    <div className="ko-page" style={{ background: bg, ...style }}>
+      <div className="ko-app-scroll" style={{ transform: `translateY(${px(-scroll)})` }}>
+        <img src={src} alt="" draggable={false} style={{ display: "block", width: "100%", height: px(h) }} />
+        {children}
+      </div>
+    </div>
+  );
+}
+
+
+// ------------------------------------------------------------------ player
+/**
+ * Plays a phone's timeline once each time it scrolls into view (60%), and
+ * resets to the start, without animating, once it's fully out of view.
+ * schedule() starts one run and returns its timers.
+ */
+export function useOnceInView(schedule: () => number[], reset: () => void) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [instant, setInstant] = useState(true);
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const el = ref.current;
+    if (!el || mq.matches) return undefined;
+    let armed = true;
+    let timers: number[] = [];
+    const clear = () => timers.forEach((t) => window.clearTimeout(t));
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.intersectionRatio >= 0.6 && armed) {
+            armed = false;
+            clear();
+            setInstant(false);
+            timers = schedule();
+          } else if (e.intersectionRatio === 0) {
+            armed = true;
+            clear();
+            setInstant(true);
+            reset();
+          }
+        }),
+      { threshold: [0, 0.6] }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      clear();
+    };
+    // schedule/reset only call state setters, which are stable
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return { ref, instant, reduced };
 }

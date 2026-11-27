@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 import PhoneFrame from "@/components/phone-frame/PhoneFrame";
-import { BANNERS, Banner, GmailPage, SCREEN, type Email } from "./parts";
+import { BANNERS, Banner, GmailPage, SCREEN, useOnceInView, type Email } from "./parts";
 import { ArtistPhone, ARTIST_STEPS, ARTIST_TIMELINE, TYPING, TYPE_MS } from "./ArtistPhone";
 import "./kosign-onboarding.css";
 
@@ -197,51 +197,6 @@ function ManagerPhone({ n, instant }: { n: number; instant: boolean }) {
       </div>
     </PhoneFrame>
   );
-}
-
-/**
- * Plays a phone's timeline once each time it scrolls into view (60%), and
- * resets to the start, without animating, once it's fully out of view.
- * schedule(play) returns the timers for one run.
- */
-function useOnceInView(schedule: () => number[], reset: () => void) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [instant, setInstant] = useState(true);
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const el = ref.current;
-    if (!el || mq.matches) return undefined;
-    let armed = true;
-    let timers: number[] = [];
-    const clear = () => timers.forEach((t) => window.clearTimeout(t));
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.intersectionRatio >= 0.6 && armed) {
-            armed = false;
-            clear();
-            setInstant(false);
-            timers = schedule();
-          } else if (e.intersectionRatio === 0) {
-            armed = true;
-            clear();
-            setInstant(true);
-            reset();
-          }
-        }),
-      { threshold: [0, 0.6] }
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      clear();
-    };
-    // schedule/reset only call state setters, which are stable
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  return { ref, instant, reduced };
 }
 
 /** The manager's side: acceptance email to Start submitting songs. */

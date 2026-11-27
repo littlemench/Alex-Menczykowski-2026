@@ -3,6 +3,7 @@ import RichText from "@/components/RichText";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import ProofPoints from "@/components/ProofPoints";
 import { ManagerOnboarding, ArtistOnboarding } from "@/components/kosign-onboarding/KosignOnboarding";
+import ReviewOnboarding from "@/components/kosign-onboarding/ReviewFlow";
 import { Link } from "wouter";
 import { sections, proofPoints, carousel1Slides, carousel3Slides, credit } from "@/content/kosign.content";
 
@@ -32,9 +33,9 @@ export default function KosignProject() {
             {sections.realProblem.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
-          {/* Onboarding: the manager's side of client setup */}
+          {/* Reviewing suggestions through to submission */}
           <figure className="media-width">
-            <ManagerOnboarding />
+            <ReviewOnboarding />
           </figure>
 
           {/* My role */}
@@ -43,9 +44,9 @@ export default function KosignProject() {
             {sections.myRole.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
-          {/* Onboarding: the artist's side, activation to first submission */}
+          {/* Onboarding: the manager's side of client setup */}
           <figure className="media-width">
-            <ArtistOnboarding />
+            <ManagerOnboarding />
           </figure>
 
           {/* Strategy */}
@@ -62,6 +63,11 @@ export default function KosignProject() {
             <h2>Results</h2>
             <ProofPoints points={proofPoints} />
           </section>
+
+          {/* Onboarding: the artist's side, activation to first submission */}
+          <figure className="media-width">
+            <ArtistOnboarding />
+          </figure>
 
           {/* Carousel 3 */}
           <ProjectCarousel slides={carousel3Slides} />

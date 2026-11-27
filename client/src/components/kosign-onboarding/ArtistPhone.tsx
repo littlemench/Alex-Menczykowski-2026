@@ -1,6 +1,5 @@
-import type { CSSProperties, ReactNode } from "react";
 import PhoneFrame from "@/components/phone-frame/PhoneFrame";
-import { BANNERS, Banner, GmailPage, SCREEN, W, pt, type Email } from "./parts";
+import { AppPage, BANNERS, Banner, Crop, GmailPage, K, Press, SCREEN, W, pt, px, type Email } from "./parts";
 
 /**
  * ArtistPhone: the artist's side of setup, from the acceptance email to
@@ -18,8 +17,6 @@ import { BANNERS, Banner, GmailPage, SCREEN, W, pt, type Email } from "./parts";
  */
 
 const DIR = "/kosign/setup";
-const K = W / 390;
-const px = (n: number) => pt(n * K);
 const SCREEN_PX = 874 / K; // screen height in export px
 
 export const ARTIST_STEPS = [
@@ -81,23 +78,6 @@ export const TYPING: [string, ArtistStep, number][] = [
   ["code", "s24Type", F_CODE.edges.length],
 ];
 
-/** a crop of an export, placed where it sits on the screen */
-function Crop({ src, box, imgH = 844, style }: { src: string; box: number[]; imgH?: number; style?: CSSProperties }) {
-  const [x0, y0, x1, y1] = box;
-  const w = x1 - x0;
-  const h = y1 - y0;
-  return (
-    <span className="ko-crop" style={{ left: px(x0), top: px(y0), width: px(w), height: px(h), ...style }}>
-      <img
-        src={src}
-        alt=""
-        draggable={false}
-        style={{ left: px(-x0), top: px(-y0), width: px(390), height: px(imgH) }}
-      />
-    </span>
-  );
-}
-
 function Typing({ f, focused, chars, caret }: { f: Field; focused: boolean; chars: number; caret: boolean }) {
   const [tx0, ty0, , ty1] = f.text;
   const right = chars === 0 ? tx0 : f.edges[chars - 1] + 1;
@@ -113,31 +93,6 @@ function Typing({ f, focused, chars, caret }: { f: Field; focused: boolean; char
         />
       )}
     </>
-  );
-}
-
-function Press({ box, on }: { box: number[]; on: boolean }) {
-  const [x0, y0, x1, y1] = box;
-  return (
-    <span
-      className={`ko-press ${on ? "ko-press--on" : ""}`}
-      style={{ left: px(x0), top: px(y0), width: px(x1 - x0), height: px(y1 - y0) }}
-    />
-  );
-}
-
-function AppPage({
-  src, h = 844, scroll = 0, bg = "#ececec", style, children,
-}: {
-  src: string; h?: number; scroll?: number; bg?: string; style: CSSProperties; children?: ReactNode;
-}) {
-  return (
-    <div className="ko-page" style={{ background: bg, ...style }}>
-      <div className="ko-app-scroll" style={{ transform: `translateY(${px(-scroll)})` }}>
-        <img src={src} alt="" draggable={false} style={{ display: "block", width: "100%", height: px(h) }} />
-        {children}
-      </div>
-    </div>
   );
 }
 
