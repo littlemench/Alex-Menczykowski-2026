@@ -1,9 +1,10 @@
 import Layout from "@/components/Layout";
 import RichText from "@/components/RichText";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import KosignSplash from "@/components/kosign-splash/KosignSplash";
 import ProofPoints from "@/components/ProofPoints";
 import { Link } from "wouter";
-import { sections, proofPoints, carousel1Slides, carousel2Slides, carousel3Slides, credit } from "@/content/kosign.content";
+import { sections, proofPoints, carousel2Slides, carousel3Slides, credit } from "@/content/kosign.content";
 
 export default function KosignProject() {
   return (
@@ -11,12 +12,19 @@ export default function KosignProject() {
       <article className="layout-grid">
         <div className="space-y-24">
 
-          {/* Sub-header + Hero carousel */}
+          {/* Sub-header + Hero */}
           <div className="space-y-12">
             <div>
               <p className="sub-header">Launching a self-serve publishing platform for mid-market creators</p>
             </div>
-            <ProjectCarousel slides={carousel1Slides} />
+            {/* Hero: the first frame of the KOSIGN thumbnail, held still */}
+            <div
+              className="media-width"
+              role="img"
+              aria-label="The kosignmusic.com home page: Get every dollar your song earns"
+            >
+              <KosignSplash active={false} still width="100%" />
+            </div>
           </div>
 
           {/* Context */}
