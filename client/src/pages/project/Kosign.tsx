@@ -2,9 +2,9 @@ import Layout from "@/components/Layout";
 import RichText from "@/components/RichText";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import ProofPoints from "@/components/ProofPoints";
-import KosignOnboarding from "@/components/kosign-onboarding/KosignOnboarding";
+import { ManagerOnboarding, ArtistOnboarding } from "@/components/kosign-onboarding/KosignOnboarding";
 import { Link } from "wouter";
-import { sections, proofPoints, carousel1Slides, carousel2Slides, carousel3Slides, credit } from "@/content/kosign.content";
+import { sections, proofPoints, carousel1Slides, carousel3Slides, credit } from "@/content/kosign.content";
 
 export default function KosignProject() {
   return (
@@ -34,7 +34,7 @@ export default function KosignProject() {
 
           {/* Onboarding: the manager's side of client setup */}
           <figure className="media-width">
-            <KosignOnboarding />
+            <ManagerOnboarding />
           </figure>
 
           {/* My role */}
@@ -43,8 +43,10 @@ export default function KosignProject() {
             {sections.myRole.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
-          {/* Carousel */}
-          <ProjectCarousel slides={carousel2Slides} />
+          {/* Onboarding: the artist's side, activation to first submission */}
+          <figure className="media-width">
+            <ArtistOnboarding />
+          </figure>
 
           {/* Strategy */}
           <section className="space-y-6 content-width">

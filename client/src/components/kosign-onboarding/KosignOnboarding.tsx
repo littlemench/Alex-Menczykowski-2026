@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import PhoneFrame from "@/components/phone-frame/PhoneFrame";
 import { BANNERS, Banner, GmailPage, SCREEN, type Email } from "./parts";
 import { ArtistPhone, ARTIST_STEPS, ARTIST_TIMELINE, TYPING, TYPE_MS } from "./ArtistPhone";
 import "./kosign-onboarding.css";
 
 /**
- * KosignOnboarding: two phones on one clock, in the style of the Portal
- * RoyaltyCompare. Left: the manager's side of client setup.
+ * KOSIGN onboarding, as two separate single-phone moments in the style of the
+ * Portal animations: ManagerOnboarding and ArtistOnboarding (ArtistPhone.tsx).
+ * Each plays once when it scrolls into view. The manager's side:
  *
  *   "Accepted" email (Gmail) -> scrolls down to the four setup steps -> back
  *   up to Client link share -> Share via message -> Messages opens, the setup
@@ -14,9 +15,6 @@ import "./kosign-onboarding.css";
  *   incomplete" email -> Share via message -> the chase text sends -> Gmail
  *   notification -> "Start submitting songs" email, where it rests.
  *
- * Right: the artist's side (ArtistPhone): activation through to Submit songs.
- * The manager's flow finishes first and rests while the artist's carries on.
- * Plays once each time it scrolls into view; resets when fully out of view.
  *
  * Units: everything on screen is positioned in iPhone points (402 x 874),
  * converted with --pt (1pt = 100cqw / 402), so it scales with the phone.
@@ -201,18 +199,15 @@ function ManagerPhone({ n, instant }: { n: number; instant: boolean }) {
   );
 }
 
-function Col({ children }: { children?: ReactNode }) {
-  return <div className="ko-col">{children}</div>;
-}
-
-export default function KosignOnboarding() {
+/**
+ * Plays a phone's timeline once each time it scrolls into view (60%), and
+ * resets to the start, without animating, once it's fully out of view.
+ * schedule(play) returns the timers for one run.
+ */
+function useOnceInView(schedule: () => number[], reset: () => void) {
   const ref = useRef<HTMLDivElement>(null);
-  const [n, setN] = useState(0);
-  const [m, setM] = useState(0);
-  const [typed, setTyped] = useState<Record<string, number>>({});
   const [instant, setInstant] = useState(true);
   const [reduced, setReduced] = useState(false);
-
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReduced(mq.matches);
@@ -221,35 +216,19 @@ export default function KosignOnboarding() {
     let armed = true;
     let timers: number[] = [];
     const clear = () => timers.forEach((t) => window.clearTimeout(t));
-    const play = () => {
-      clear();
-      setInstant(false);
-      // one clock: every phone's timeline is scheduled from the same start
-      timers = [
-        ...TIMELINE.map(([s, ms]) => window.setTimeout(() => setN(at(s)), ms * SPEED + 400)),
-        ...ARTIST_TIMELINE.map(([s, ms]) => window.setTimeout(() => setM(ARTIST_STEPS.indexOf(s)), ms * SPEED + 400)),
-      ];
-      TYPING.forEach(([key, step, count]) => {
-        const start = ARTIST_TIMELINE.find(([s]) => s === step)![1] * SPEED + 400;
-        for (let i = 1; i <= count; i++) {
-          timers.push(window.setTimeout(() => setTyped((t) => ({ ...t, [key]: i })), start + i * TYPE_MS));
-        }
-      });
-    };
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (e.intersectionRatio >= 0.6 && armed) {
             armed = false;
-            play();
+            clear();
+            setInstant(false);
+            timers = schedule();
           } else if (e.intersectionRatio === 0) {
-            // out of view: back to the start without animating
             armed = true;
             clear();
             setInstant(true);
-            setN(0);
-            setM(0);
-            setTyped({});
+            reset();
           }
         }),
       { threshold: [0, 0.6] }
@@ -259,23 +238,67 @@ export default function KosignOnboarding() {
       io.disconnect();
       clear();
     };
+    // schedule/reset only call state setters, which are stable
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  return { ref, instant, reduced };
+}
 
+/** The manager's side: acceptance email to Start submitting songs. */
+export function ManagerOnboarding() {
+  const [n, setN] = useState(0);
+  const { ref, instant, reduced } = useOnceInView(
+    () => TIMELINE.map(([s, ms]) => window.setTimeout(() => setN(at(s)), ms * SPEED + 400)),
+    () => setN(0)
+  );
   return (
     <div
       ref={ref}
       className={`ko ${reduced ? "ko--reduced" : ""}`}
       role="img"
-      aria-label="Two phones. The manager's: the KOSIGN acceptance email, sharing the client's setup link by text, a reminder when setup is incomplete, a second text, and the email confirming they can start submitting songs. The artist's: activating their account, setting a password and authenticator, verifying their identity with Stripe, signing the agreement, and arriving at Submit songs and start earning"
+      aria-label="A manager's phone: the KOSIGN acceptance email, sharing the client's setup link by text, a reminder when setup is incomplete, a second text, and the email confirming they can start submitting songs"
       data-step={STEPS[n]}
+    >
+      <div className="ko-col">
+        <ManagerPhone n={n} instant={instant} />
+      </div>
+    </div>
+  );
+}
+
+/** The artist's side: activation to Submit songs and start earning. */
+export function ArtistOnboarding() {
+  const [m, setM] = useState(0);
+  const [typed, setTyped] = useState<Record<string, number>>({});
+  const { ref, instant, reduced } = useOnceInView(
+    () => {
+      const timers = ARTIST_TIMELINE.map(([s, ms]) =>
+        window.setTimeout(() => setM(ARTIST_STEPS.indexOf(s)), ms * SPEED + 400)
+      );
+      TYPING.forEach(([key, step, count]) => {
+        const start = ARTIST_TIMELINE.find(([s]) => s === step)![1] * SPEED + 400;
+        for (let i = 1; i <= count; i++) {
+          timers.push(window.setTimeout(() => setTyped((t) => ({ ...t, [key]: i })), start + i * TYPE_MS));
+        }
+      });
+      return timers;
+    },
+    () => {
+      setM(0);
+      setTyped({});
+    }
+  );
+  return (
+    <div
+      ref={ref}
+      className={`ko ${reduced ? "ko--reduced" : ""}`}
+      role="img"
+      aria-label="An artist's phone: activating their KOSIGN account, setting a password and authenticator, verifying their identity with Stripe, signing the agreement, and arriving at Submit songs and start earning"
       data-artist-step={ARTIST_STEPS[m]}
     >
-      <Col>
-        <ManagerPhone n={n} instant={instant} />
-      </Col>
-      <Col>
+      <div className="ko-col">
         <ArtistPhone m={m} typed={typed} instant={instant} />
-      </Col>
+      </div>
     </div>
   );
 }
