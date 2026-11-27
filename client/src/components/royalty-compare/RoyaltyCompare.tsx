@@ -5,9 +5,9 @@ import "./royalty-compare.css";
 /**
  * RoyaltyCompare: D2C and B2B royalty views side by side, playing the same
  * flow on one shared clock, so only the UI differs:
- *   overview -> tap Insights -> insights pushes in -> scroll a third of the
- *   way down while the bars grow left to right -> scroll back up -> tap back
- *   -> overview.
+ *   overview -> Insights -> insights pushes in -> scroll a third of the
+ *   way down while the bars grow left to right -> scroll back up -> back
+ *   -> overview. No tap indicators.
  * Plays once each time it scrolls into view; rests on the overview.
  */
 
@@ -20,6 +20,8 @@ type Row = [number, number, number, number];
 
 interface Variant {
   key: string;
+  /** hidden variants keep their assets and data but aren't rendered */
+  hidden?: boolean;
   label: string;
   overview: string;
   insights: string;
@@ -40,6 +42,7 @@ const VARIANTS: Variant[] = [
   {
     key: "d2c",
     label: "D2C",
+    hidden: true, // off for now; to be replaced by the work submission flow
     overview: `${DIR}/d2c-overview.webp`,
     insights: `${DIR}/d2c-insights.webp`,
     insightsEmpty: `${DIR}/d2c-insights-empty.webp`,
@@ -61,10 +64,6 @@ const VARIANTS: Variant[] = [
     bars: [b2bRows(1090), b2bRows(1717), b2bRows(2347), b2bRows(2977)],
   },
 ];
-
-// Tap targets, as % of the screen (the same spot in both designs)
-const TAP_INSIGHTS = { left: "72%", top: "34%" };
-const TAP_BACK = { left: "9.7%", top: "9.6%" };
 
 type Step = "rest" | "tapIns" | "pushed" | "down" | "up" | "tapBack" | "popped";
 // when each step begins, ms after play starts
@@ -144,8 +143,6 @@ function Phone({ v, step }: { v: Variant; step: Step }) {
         <img className="rc-status" src={`${DIR}/status-bar.webp`} alt="" draggable={false} />
         <img className="rc-nav" src={`${DIR}/nav-bar.webp`} alt="" draggable={false} />
 
-        {step === "tapIns" && <span className="rc-tap" style={TAP_INSIGHTS} />}
-        {step === "tapBack" && <span className="rc-tap" style={TAP_BACK} />}
       </div>
     </PhoneFrame>
   );
@@ -195,7 +192,7 @@ export default function RoyaltyCompare() {
       aria-label="The same royalty flow in the D2C and B2B apps: from the balance overview to Insights, scrolling through the earnings charts, and back"
       data-step={step}
     >
-      {VARIANTS.map((v) => (
+      {VARIANTS.filter((v) => !v.hidden).map((v) => (
         <div key={v.key} className="rc-col">
           <Phone v={v} step={step} />
           <p className="rc-caption">{v.label}</p>

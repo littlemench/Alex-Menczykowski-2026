@@ -71,23 +71,4 @@
 .rc-status { top: 0; }
 .rc-nav { bottom: 0; }
 
-/* soft tap */
-.rc-tap {
-  position: absolute;
-  z-index: 4;
-  width: 15%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.28);
-  transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  pointer-events: none;
-  animation: rc-tap 500ms ease-out forwards;
-}
-@keyframes rc-tap {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-  25% { opacity: 1; transform: translate(-50%, -50%) scale(0.85); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.15); }
-}
-
 .rc--reduced * { transition: none !important; animation: none !important; }
