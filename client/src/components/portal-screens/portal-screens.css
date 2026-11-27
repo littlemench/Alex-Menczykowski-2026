@@ -8,8 +8,9 @@
 }
 
 /* One shadow for the whole group, following the combined outline of the
-   phones, so overlaps don't double it up. These are PhoneFrame's own contact
-   and drop shadows converted to the card's width units (a phone is 34% wide). */
+   phones, so overlaps don't double it up. These are PhoneFrame's own (dmcg-matched)
+   shadows converted to the card's width units (a phone is 34% wide);
+   drop-shadow has no spread, so that part is dropped. */
 .ps {
   position: relative;
   width: 100%;
@@ -17,8 +18,8 @@
      as it is wide (screen 390x844 + 4.2% bezels), i.e. 70.25% of the width */
   aspect-ratio: 1 / 0.70254;
   filter:
-    drop-shadow(0 0.4cqw 0.8cqw rgba(0, 0, 0, 0.10))
-    drop-shadow(0 2.4cqw 5.4cqw rgba(0, 0, 0, 0.20));
+    drop-shadow(0 0.75cqw 1.36cqw rgba(0, 0, 0, 0.55))
+    drop-shadow(0 4.4cqw 1.5cqw rgba(0, 0, 0, 0.05));
 }
 
 .ps-phone {

@@ -1,7 +1,7 @@
 /* PhoneFrame: a simple dark phone (no Dynamic Island) whose screen runs to
    the very top. Every measurement is in container units (cqw) of .pf, so
    the device keeps its proportions, radius and shadow at any size. Style
-   after dmcg.co: near-black body, generous radius, soft low-contrast shadow. */
+   after dmcg.co: near-black body, generous radius, and their device shadow. */
 
 .pf {
   container-type: inline-size;
@@ -17,9 +17,11 @@
     inset 0 0 0 0.45cqw #3b3b3e,            /* metal edge */
     inset 0 0 0 0.9cqw #0b0b0c,             /* inner rim */
     var(--pf-shadow);
+  /* matched to dmcg.co's device shadow, measured from their page: dense
+     just under the phone, dropping downwards, barely spreading sideways */
   --pf-shadow:
-    0 1.2cqw 2.4cqw rgba(0, 0, 0, 0.10),    /* contact */
-    0 7cqw 16cqw -2cqw rgba(0, 0, 0, 0.22); /* soft drop */
+    0 2.2cqw 4cqw -0.26cqw rgba(0, 0, 0, 0.55), /* contact */
+    0 13cqw 4.5cqw -1.3cqw rgba(0, 0, 0, 0.05); /* faint tail */
 }
 
 /* for groups of overlapping devices: drop the per-device shadow and shadow

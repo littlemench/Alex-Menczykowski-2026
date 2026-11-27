@@ -1,0 +1,50 @@
+/* PhoneCrop: the bottom of a large phone rising out of the page, after the
+   "a Portola adventure" image on dmcg.co/work/tolan. The phone is 71% of the
+   area's width, as on dmcg. The area is 46% as tall as it is wide: a short
+   fade at the top, and enough room below that the shadow is never cut off. The top fades out to the page colour (whatever it is) with
+   a mask, so the bezel and screen dissolve upwards. */
+
+.pc {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 1 / 0.46;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 26%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 26%);
+}
+
+.pc-phone {
+  position: absolute;
+  left: 50%;
+  bottom: 17.5cqw; /* room for the shadow below the phone */
+  width: 71cqw;
+  transform: translateX(-50%);
+}
+
+/* screen contents pinned to the bottom of the display */
+.pc-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #fff;
+}
+.pc-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* iOS home indicator: 134 x 5 pt, 8 pt from the bottom of a 390 pt screen.
+   cqw here is the phone's width (the screen is 91.6% of it). */
+.pc-home-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 1.9cqw;
+  width: 31.5cqw;
+  height: 1.17cqw;
+  border-radius: 1cqw;
+  background: #111;
+  transform: translateX(-50%);
+}

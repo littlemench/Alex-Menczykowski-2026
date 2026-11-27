@@ -123,4 +123,10 @@ p.lead {
   .content-width {
     @apply w-full lg:w-[35%] mx-auto text-left;
   }
+
+  /* Images and media: the text width on mobile, slightly wider than the text
+     on desktop (about 1.3x the 35% text column), after dmcg.co. */
+  .media-width {
+    @apply w-full lg:w-[45%] mx-auto;
+  }
 }
