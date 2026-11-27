@@ -79,7 +79,7 @@ export default function NexusBlack() {
 
         </div>
 
-        <footer className="mt-32 pt-16 border-t border-divider content-width">
+        <footer className="mt-32 content-width">
           <Link href="/work">
             <a className="text-sm font-medium hover:underline">← Back to Work</a>
           </Link>

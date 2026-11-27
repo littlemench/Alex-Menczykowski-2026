@@ -66,7 +66,7 @@ export default function KosignProject() {
 
         </div>
 
-        <footer className="mt-32 pt-16 border-t border-divider content-width space-y-6">
+        <footer className="mt-32 content-width space-y-6">
           {/* Credit */}
           <p className="text-sm opacity-70">
             <RichText text={credit} />
