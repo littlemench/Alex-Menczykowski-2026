@@ -15,7 +15,7 @@ export default function KosignProject() {
           {/* Sub-header + Hero */}
           <div className="space-y-12">
             <div>
-              <p className="sub-header">Launching a self-serve publishing platform for mid-market creators</p>
+              <p className="sub-header">Launching a self-serve publishing platform for the mid-market of creators</p>
             </div>
             {/* Hero: the first frame of the KOSIGN thumbnail, held still */}
             <div
@@ -74,7 +74,7 @@ export default function KosignProject() {
 
         </div>
 
-        <footer className="mt-32 pt-16 border-t border-divider content-width space-y-6">
+        <footer className="mt-32 content-width space-y-6">
           {/* Credit */}
           <p className="text-sm opacity-70">
             <RichText text={credit} />
