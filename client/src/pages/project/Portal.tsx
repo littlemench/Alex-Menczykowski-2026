@@ -1,9 +1,12 @@
 import Layout from "@/components/Layout";
 import RichText from "@/components/RichText";
-import ProjectCarousel from "@/components/ProjectCarousel";
 import ProofPoints from "@/components/ProofPoints";
 import { Link } from "wouter";
-import { meta, sections, proofPoints, carousel1Slides, credit } from "@/content/portal.content";
+import PortalScreens from "@/components/portal-screens/PortalScreens";
+import PhoneCrop from "@/components/phone-crop/PhoneCrop";
+import RoyaltyCompare from "@/components/royalty-compare/RoyaltyCompare";
+import SubmissionFlow from "@/components/submission-flow/SubmissionFlow";
+import { meta, sections, proofPoints, credit } from "@/content/portal.content";
 
 export default function PortalProject() {
   return (
@@ -11,12 +14,19 @@ export default function PortalProject() {
       <article className="layout-grid">
         <div className="space-y-24">
 
-          {/* Sub-header + Hero carousel */}
+          {/* Sub-header + Hero: the four app screens, as in the thumbnail's hover state */}
           <div className="space-y-12">
             <div>
               <p className="sub-header">{meta.subtitle}</p>
             </div>
-            <ProjectCarousel slides={carousel1Slides} />
+            <div
+              className="media-width"
+              role="img"
+              aria-label="Kobalt Client Portal app: Sync, Catalog, Balance and Home screens"
+            >
+              {/* active + reducedMotion = the lined-up row, held still with no transition */}
+              <PortalScreens active reducedMotion />
+            </div>
           </div>
 
           {/* Context */}
@@ -31,11 +41,24 @@ export default function PortalProject() {
             {sections.realProblem.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
+          {/* Song submission, start to finish */}
+          <figure className="media-width">
+            <SubmissionFlow />
+          </figure>
+
           {/* My role */}
           <section className="space-y-6 content-width">
             <h2>My role</h2>
             {sections.myRole.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
+
+          {/* Submit: the tab bar's central action, close up */}
+          <figure className="media-width">
+            <PhoneCrop
+              src="/portal/submit-tabbar.webp"
+              alt="Kobalt Client Portal app tab bar: Home, Balance, the central Submit button, Catalog and Sync"
+            />
+          </figure>
 
           {/* Strategy */}
           <section className="space-y-6 content-width">
@@ -49,6 +72,11 @@ export default function PortalProject() {
               ))}
             </ul>
           </section>
+
+          {/* Sync and royalties flows, side by side on one clock */}
+          <figure className="media-width">
+            <RoyaltyCompare />
+          </figure>
 
           {/* Proof points */}
           <section className="space-y-6 content-width">

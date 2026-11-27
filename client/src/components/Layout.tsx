@@ -9,8 +9,8 @@ const WHITE = "#FFFFFF";
 
 const PAGE_THEMES: { match: string; bg: string; fg: string }[] = [
   { match: "/work/kosign", bg: "#0059FF", fg: WHITE },        // KOSIGN blue
-  { match: "/work/platform", bg: "#ACAFFF", fg: DARK_GREY },  // Publishing Data Platform
-  { match: "/work/portal", bg: "#CDD07F", fg: DARK_GREY },    // Kobalt Client Portal
+  { match: "/work/platform", bg: "#D6D7FF", fg: DARK_GREY },  // Publishing Data Platform (#ACAFFF, 50% lighter)
+  { match: "/work/portal", bg: "#E6E8BF", fg: DARK_GREY },    // Kobalt Client Portal (#CDD07F, 50% lighter)
   { match: "/work/podium", bg: "#F7F6F6", fg: DARK_GREY },    // Podium Platform (page not built yet)
   { match: "/work/nexus-black", bg: "#000000", fg: WHITE },   // Nexus Black
   { match: "/play/kobalt25", bg: "#000000", fg: WHITE },      // Kobalt25

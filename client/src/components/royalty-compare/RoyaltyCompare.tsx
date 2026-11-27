@@ -1,0 +1,309 @@
+import { useEffect, useRef, useState } from "react";
+import PhoneFrame from "@/components/phone-frame/PhoneFrame";
+import "./royalty-compare.css";
+
+/**
+ * RoyaltyCompare: two app flows side by side on one shared clock (slides line
+ * up in time). Left: Sync, an opportunity advancing Potential -> Confirmed ->
+ * Paid. Right: royalties (B2B; the D2C variant is hidden for now):
+ *   overview -> Insights -> insights pushes in -> scroll a third of the
+ *   way down while the bars grow left to right -> scroll back up -> back
+ *   -> overview. No tap indicators.
+ * Plays once each time it scrolls into view; rests on the overview.
+ */
+
+const DIR = "/portal/royalties";
+const SCREEN = 390 / 844;
+
+// Bar rows found by diffing each Insights export against its bars-hidden
+// twin: [top, bottom, left, right] in px of the 390px-wide export.
+type Row = [number, number, number, number];
+
+interface Variant {
+  key: string;
+  /** hidden variants keep their assets and data but aren't rendered */
+  hidden?: boolean;
+  label: string;
+  overview: string;
+  insights: string;
+  insightsEmpty: string;
+  height: number; // insights export height, px at 390 wide
+  bars: Row[][]; // grouped by chart
+}
+
+const b2bRows = (y: number): Row[] => [
+  [y, y + 24, 15, 306],
+  [y + 33, y + 57, 12, 214],
+  [y + 66, y + 90, 12, 194],
+  [y + 99, y + 123, 12, 91],
+  [y + 133, y + 157, 12, 148],
+];
+
+const VARIANTS: Variant[] = [
+  {
+    key: "d2c",
+    label: "D2C",
+    hidden: true, // off for now; to be replaced by the work submission flow
+    overview: `${DIR}/d2c-overview.webp`,
+    insights: `${DIR}/d2c-insights.webp`,
+    insightsEmpty: `${DIR}/d2c-insights-empty.webp`,
+    height: 2815,
+    bars: [
+      [[424, 448, 15, 153], [458, 483, 12, 136], [493, 518, 12, 103], [528, 553, 12, 89]],
+      [[972, 996, 15, 153], [1006, 1031, 12, 136], [1041, 1066, 12, 103], [1076, 1101, 12, 89]],
+      b2bRows(1576),
+      b2bRows(2206),
+    ],
+  },
+  {
+    key: "b2b",
+    label: "B2B",
+    overview: `${DIR}/b2b-overview.webp`,
+    insights: `${DIR}/b2b-insights.webp`,
+    insightsEmpty: `${DIR}/b2b-insights-empty.webp`,
+    height: 3612,
+    bars: [b2bRows(1090), b2bRows(1717), b2bRows(2347), b2bRows(2977)],
+  },
+];
+
+type Step = "rest" | "tapIns" | "pushed" | "down" | "up" | "tapBack" | "popped";
+// when each step begins, ms after play starts
+const TIMELINE: [Step, number][] = [
+  ["tapIns", 600],
+  ["pushed", 900],
+  ["down", 1700],
+  ["up", 4800],
+  ["tapBack", 6100],
+  ["popped", 6400],
+  ["rest", 7000],
+];
+const SCROLL_DOWN_MS = 1400;
+const SCROLL_UP_MS = 1100;
+const BAR_START_MS = 700; // after the scroll down starts
+const BAR_STAGGER_MS = 60;
+
+function Phone({ v, step }: { v: Variant; step: Step }) {
+  const inInsights = step === "pushed" || step === "down" || step === "up" || step === "tapBack";
+  const grown = step === "down" || step === "up" || step === "tapBack" || step === "popped";
+  const scrolled = step === "down";
+  return (
+    <PhoneFrame screenAspect={SCREEN}>
+      <div className="rc-screen">
+        <div
+          className="rc-page rc-overview"
+          style={{
+            transform: inInsights ? "translateX(-30%)" : "translateX(0)",
+            filter: inInsights ? "brightness(0.92)" : "none",
+          }}
+        >
+          <img src={v.overview} alt="" draggable={false} />
+        </div>
+
+        <div className="rc-page rc-insights" style={{ transform: inInsights ? "translateX(0)" : "translateX(100%)" }}>
+          <div
+            className="rc-scroll"
+            style={{
+              transform: scrolled ? "translateY(-33.333%)" : "translateY(0)",
+              transition: `transform ${scrolled ? SCROLL_DOWN_MS : SCROLL_UP_MS}ms cubic-bezier(0.45, 0, 0.25, 1)`,
+            }}
+          >
+            <img src={v.insightsEmpty} alt="" draggable={false} />
+            {v.bars.flatMap((chart, c) =>
+              chart.map(([y0, y1, x0, x1], r) => {
+                const bw = x1 - x0 + 1;
+                const bh = y1 - y0 + 1;
+                return (
+                  <div
+                    key={`${c}-${r}`}
+                    className={`rc-bar ${grown ? "rc-bar--grown" : ""}`}
+                    style={{
+                      left: `${(x0 / 390) * 100}%`,
+                      top: `${(y0 / v.height) * 100}%`,
+                      width: `${(bw / 390) * 100}%`,
+                      height: `${(bh / v.height) * 100}%`,
+                      transitionDelay: grown && step === "down" ? `${BAR_START_MS + r * BAR_STAGGER_MS}ms` : "0ms",
+                    }}
+                  >
+                    <img
+                      src={v.insights}
+                      alt=""
+                      draggable={false}
+                      style={{
+                        width: `${(390 / bw) * 100}%`,
+                        left: `${(-x0 / bw) * 100}%`,
+                        top: `${(-y0 / bh) * 100}%`,
+                      }}
+                    />
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+
+        <img className="rc-status" src={`${DIR}/status-bar.webp`} alt="" draggable={false} />
+        <img className="rc-nav" src={`${DIR}/nav-bar.webp`} alt="" draggable={false} />
+
+      </div>
+    </PhoneFrame>
+  );
+}
+
+
+// ---------------------------------------------------------------- Sync flow
+// Sync list -> the Potential opportunity slides in -> it advances to Confirmed
+// then Paid (segments fill and recolour, pill and figures dissolve) -> back.
+const SYNC = "/portal/sync";
+type SyncStep = "rest" | "potential" | "confirmed" | "paid" | "popped";
+const SYNC_TIMELINE: [SyncStep, number][] = [
+  ["potential", 900],
+  ["confirmed", 2500],
+  ["paid", 3900],
+  ["popped", 6400],
+  ["rest", 7000],
+];
+// progress bar, px in the 780 x 1688 exports
+const BAR = { top: 608, bottom: 619, segs: [[48, 270], [278, 501], [509, 731]] as [number, number][] };
+const SYNC_COLOURS = { potential: "#FF7558", confirmed: "#0455EC", paid: "#48BB78", track: "#F2F1F1" };
+
+function SyncPhone({ step }: { step: SyncStep }) {
+  const inDetail = step === "potential" || step === "confirmed" || step === "paid";
+  // state shown on the detail page (it stays on Paid while sliding out)
+  const state: "potential" | "confirmed" | "paid" =
+    step === "rest" ? "potential" : step === "popped" ? "paid" : step;
+  const filled = state === "potential" ? 1 : state === "confirmed" ? 2 : 3;
+  const colour = SYNC_COLOURS[state];
+  const instant = step === "rest"; // reset off screen without animating
+  const pct = (v: number, of: number) => `${(v / of) * 100}%`;
+  return (
+    <PhoneFrame screenAspect={SCREEN}>
+      <div className="rc-screen">
+        <div
+          className="rc-page rc-overview"
+          style={{
+            transform: inDetail ? "translateX(-30%)" : "translateX(0)",
+            filter: inDetail ? "brightness(0.92)" : "none",
+          }}
+        >
+          <img src={`${SYNC}/overview.webp`} alt="" draggable={false} />
+        </div>
+
+        <div className="rc-page rc-insights" style={{ transform: inDetail ? "translateX(0)" : "translateX(100%)" }}>
+          <div className="rc-scroll">
+            {(["potential", "confirmed", "paid"] as const).map((k, i) => (
+              <img
+                key={k}
+                src={`${SYNC}/${k}.webp`}
+                alt=""
+                draggable={false}
+                className="rc-state"
+                style={{
+                  position: i === 0 ? "relative" : "absolute",
+                  opacity: k === "potential" || ["potential", "confirmed", "paid"].indexOf(state) >= i ? 1 : 0,
+                  transition: instant ? "none" : "opacity 350ms ease",
+                }}
+              />
+            ))}
+            {/* progress segments, drawn over the exports' own bar */}
+            <div
+              className="rc-progress"
+              style={{
+                top: pct(BAR.top - 4, 1688),
+                height: pct(BAR.bottom - BAR.top + 9, 1688),
+                left: pct(BAR.segs[0][0] - 4, 780),
+                width: pct(BAR.segs[2][1] - BAR.segs[0][0] + 9, 780),
+              }}
+            >
+              {BAR.segs.map(([x0, x1], i) => (
+                <span
+                  key={i}
+                  className="rc-seg"
+                  style={{
+                    left: pct(x0 - (BAR.segs[0][0] - 4), BAR.segs[2][1] - BAR.segs[0][0] + 9),
+                    width: pct(x1 - x0 + 1, BAR.segs[2][1] - BAR.segs[0][0] + 9),
+                    background: SYNC_COLOURS.track,
+                  }}
+                >
+                  <span
+                    className="rc-seg-fill"
+                    style={{
+                      width: i < filled ? "100%" : "0%",
+                      background: colour,
+                      transition: instant ? "none" : "width 600ms cubic-bezier(0.22, 1, 0.36, 1), background-color 350ms ease",
+                    }}
+                  />
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <img className="rc-status" src={`${DIR}/status-bar.webp`} alt="" draggable={false} />
+        <img className="rc-nav" src={`${SYNC}/nav-bar.webp`} alt="" draggable={false} />
+      </div>
+    </PhoneFrame>
+  );
+}
+
+export default function RoyaltyCompare() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [step, setStep] = useState<Step>("rest");
+  const [syncStep, setSyncStep] = useState<SyncStep>("rest");
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const el = ref.current;
+    if (!el || mq.matches) return undefined;
+    let armed = true;
+    let timers: number[] = [];
+    const play = () => {
+      timers.forEach((t) => window.clearTimeout(t));
+      setStep("rest");
+      setSyncStep("rest");
+      // one clock: both phones' timelines are scheduled from the same start
+      timers = [
+        ...TIMELINE.map(([s, at]) => window.setTimeout(() => setStep(s), at + 400)),
+        ...SYNC_TIMELINE.map(([s, at]) => window.setTimeout(() => setSyncStep(s), at + 400)),
+      ];
+    };
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.intersectionRatio >= 0.6 && armed) {
+            armed = false;
+            play();
+          } else if (e.intersectionRatio === 0) {
+            armed = true;
+          }
+        }),
+      { threshold: [0, 0.6] }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      timers.forEach((t) => window.clearTimeout(t));
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`rc ${reduced ? "rc--reduced" : ""}`}
+      role="img"
+      aria-label="Two flows in the Kobalt app: a sync opportunity progressing from Potential to Confirmed to Paid, and royalty Insights with earnings charts"
+      data-step={step}
+      data-sync-step={syncStep}
+    >
+      <div className="rc-col">
+        <SyncPhone step={syncStep} />
+      </div>
+      {VARIANTS.filter((v) => !v.hidden).map((v) => (
+        <div key={v.key} className="rc-col">
+          <Phone v={v} step={step} />
+        </div>
+      ))}
+    </div>
+  );
+}
