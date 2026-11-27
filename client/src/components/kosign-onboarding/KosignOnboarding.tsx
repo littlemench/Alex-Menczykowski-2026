@@ -48,7 +48,10 @@ const STEPS = [
 type Step = (typeof STEPS)[number];
 const at = (s: Step) => STEPS.indexOf(s);
 
-// when each step begins, ms after play starts
+/** both phones run at this rate: 0.75 = 25% quicker than first built */
+const SPEED = 0.75;
+
+// when each step begins, ms after play starts (before SPEED)
 const TIMELINE: [Step, number][] = [
   ["aSteps", 900],
   ["aShare", 3200],
@@ -223,11 +226,11 @@ export default function KosignOnboarding() {
       setInstant(false);
       // one clock: every phone's timeline is scheduled from the same start
       timers = [
-        ...TIMELINE.map(([s, ms]) => window.setTimeout(() => setN(at(s)), ms + 400)),
-        ...ARTIST_TIMELINE.map(([s, ms]) => window.setTimeout(() => setM(ARTIST_STEPS.indexOf(s)), ms + 400)),
+        ...TIMELINE.map(([s, ms]) => window.setTimeout(() => setN(at(s)), ms * SPEED + 400)),
+        ...ARTIST_TIMELINE.map(([s, ms]) => window.setTimeout(() => setM(ARTIST_STEPS.indexOf(s)), ms * SPEED + 400)),
       ];
       TYPING.forEach(([key, step, count]) => {
-        const start = ARTIST_TIMELINE.find(([s]) => s === step)![1] + 400;
+        const start = ARTIST_TIMELINE.find(([s]) => s === step)![1] * SPEED + 400;
         for (let i = 1; i <= count; i++) {
           timers.push(window.setTimeout(() => setTyped((t) => ({ ...t, [key]: i })), start + i * TYPE_MS));
         }

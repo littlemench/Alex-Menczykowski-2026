@@ -72,7 +72,7 @@ const F_CODE: Field = {
   src: `${DIR}/s2-5.webp`, notext: `${DIR}/s2-5-notext.webp`,
   box: [26, 333, 364, 385], text: [43, 353, 110, 366], edges: [50, 60, 69, 79, 89, 98, 108],
 };
-export const TYPE_MS = 75;
+export const TYPE_MS = 56;
 /** typing runs: field key, step it starts on, number of glyphs */
 export const TYPING: [string, ArtistStep, number][] = [
   ["email", "s10Type", F_EMAIL.edges.length],
@@ -104,7 +104,7 @@ function Typing({ f, focused, chars, caret }: { f: Field; focused: boolean; char
   const [, by0, , by1] = f.box;
   return (
     <>
-      <Crop src={f.notext} box={f.box} style={{ opacity: focused ? 1 : 0, transition: "opacity 200ms ease" }} />
+      <Crop src={f.notext} box={f.box} style={{ opacity: focused ? 1 : 0, transition: "opacity 150ms ease" }} />
       {chars > 0 && <Crop src={f.src} box={[tx0, ty0, right, ty1]} />}
       {caret && (
         <span
@@ -153,7 +153,7 @@ const EMAIL_13: Email = {
 
 // rings measured from Setup-5.0: radius (px) and white opacity
 const RINGS: [number, number][] = [[44.5, 0.3], [54.5, 0.19], [64.5, 0.1], [74.5, 0.07]];
-const RING_STAGGER_MS = 140;
+const RING_STAGGER_MS = 105;
 
 export function ArtistPhone({ m, typed, instant }: { m: number; typed: Record<string, number>; instant: boolean }) {
   const from = (s: ArtistStep) => m >= at(s);
@@ -267,7 +267,7 @@ export function ArtistPhone({ m, typed, instant }: { m: number; typed: Record<st
 
         {/* 3.6: image analysis, spinner turning */}
         <AppPage src={`${DIR}/s3-6.webp`} style={{ zIndex: 13, ...slid("s36"), ...covered(nextSlides("s36")) }}>
-          <Crop src={`${DIR}/spinner.webp`} box={[160, 705, 226, 771]} style={{ animation: "ko-spin 900ms linear infinite" }} />
+          <Crop src={`${DIR}/spinner.webp`} box={[160, 705, 226, 771]} style={{ animation: "ko-spin 680ms linear infinite" }} />
         </AppPage>
 
         <AppPage src={`${DIR}/s3-7.webp`} style={{ zIndex: 14, ...faded("s37"), ...covered(nextSlides("s37")) }} />

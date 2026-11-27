@@ -1,4 +1,5 @@
-/* KosignOnboarding: two phones on one clock (layout as RoyaltyCompare).
+/* Durations are 25% quicker than first built (x0.75), matching SPEED.
+   KosignOnboarding: two phones on one clock (layout as RoyaltyCompare).
    Inside a screen, sizes are iPhone points: --pt is 1/402 of the screen's
    width, so the whole UI scales with the phone. */
 
@@ -36,9 +37,9 @@
   will-change: transform;
   transform-origin: 50% 0;
   transition:
-    transform 450ms cubic-bezier(0.32, 0.72, 0, 1),
-    filter 450ms ease,
-    opacity 380ms ease;
+    transform 338ms cubic-bezier(0.32, 0.72, 0, 1),
+    filter 338ms ease,
+    opacity 285ms ease;
 }
 
 /* ---------- Gmail */
@@ -72,7 +73,7 @@
 .ko-gm-scroll {
   position: relative;
   will-change: transform;
-  transition: transform 1250ms cubic-bezier(0.45, 0, 0.25, 1);
+  transition: transform 938ms cubic-bezier(0.45, 0, 0.25, 1);
 }
 .ko-gm-subject {
   height: calc(var(--pt) * 48);
@@ -123,25 +124,25 @@
   position: absolute;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0);
-  transition: background-color 120ms ease;
+  transition: background-color 90ms ease;
 }
 .ko-press--on { background: rgba(0, 0, 0, 0.2); }
 
 /* ---------- Messages */
 .ko-sms-base { display: block; width: 100%; height: auto; }
 .ko-layer { position: absolute; display: block; height: auto; }
-.ko-fade { opacity: 0; transition: opacity 300ms ease; }
+.ko-fade { opacity: 0; transition: opacity 225ms ease; }
 .ko-send {
   opacity: 0;
   transform: translateY(calc(var(--pt) * 80)) scale(0.9);
   transform-origin: 100% 100%;
-  transition: transform 520ms cubic-bezier(0.2, 0.9, 0.3, 1.04), opacity 220ms ease;
+  transition: transform 390ms cubic-bezier(0.2, 0.9, 0.3, 1.04), opacity 165ms ease;
 }
 .ko-pop {
   opacity: 0;
   transform: scale(0.6);
   transform-origin: 0 100%;
-  transition: transform 360ms cubic-bezier(0.3, 1.4, 0.5, 1), opacity 160ms ease;
+  transition: transform 270ms cubic-bezier(0.3, 1.4, 0.5, 1), opacity 120ms ease;
 }
 .ko-fade.ko-in,
 .ko-send.ko-in,
@@ -166,7 +167,7 @@
   border-radius: 999px;
   background: #000;
   z-index: 40;
-  transition: background-color 300ms ease;
+  transition: background-color 225ms ease;
 }
 .ko-home--light { background: #fff; }
 
@@ -184,9 +185,9 @@
   backdrop-filter: blur(18px) saturate(1.6);
   box-shadow: 0 calc(var(--pt) * 8) calc(var(--pt) * 24) rgba(0, 0, 0, 0.14);
   transition:
-    transform 520ms cubic-bezier(0.32, 0.72, 0, 1),
-    opacity 260ms ease,
-    filter 150ms ease;
+    transform 390ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 195ms ease,
+    filter 112ms ease;
 }
 .ko-banner > img {
   display: block;
@@ -202,7 +203,7 @@
 .ko-app-scroll {
   position: relative;
   will-change: transform;
-  transition: transform 900ms cubic-bezier(0.45, 0, 0.25, 1);
+  transition: transform 675ms cubic-bezier(0.45, 0, 0.25, 1);
 }
 .ko-crop { position: absolute; overflow: hidden; display: block; }
 .ko-crop > img { position: absolute; display: block; max-width: none; }
@@ -213,7 +214,7 @@
   width: 100%;
   height: auto;
   display: block;
-  transition: opacity 300ms ease;
+  transition: opacity 225ms ease;
 }
 .ko-caret {
   position: absolute;
@@ -230,7 +231,7 @@
   inset: 0;
   z-index: 30;
   background: rgba(0, 0, 0, 0.36);
-  transition: opacity 300ms ease;
+  transition: opacity 225ms ease;
   pointer-events: none;
 }
 .ko-modal {
@@ -238,7 +239,7 @@
   z-index: 31;
   display: block;
   transform-origin: 50% 50%;
-  transition: opacity 280ms ease, transform 420ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: opacity 210ms ease, transform 315ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 .ko-modal > img { display: block; width: 100%; height: auto; }
 
@@ -254,7 +255,7 @@
 }
 .ko-ring--on {
   transform: scale(1);
-  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease;
+  transition: transform 675ms cubic-bezier(0.22, 1, 0.36, 1), opacity 375ms ease;
 }
 
 /* reset off screen without animating */
