@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import PhoneFrame from "@/components/phone-frame/PhoneFrame";
-import { Banner, GmailPage, SCREEN, type Email } from "./parts";
+import { BANNERS, Banner, GmailPage, SCREEN, type Email } from "./parts";
 import { ArtistPhone, ARTIST_STEPS, ARTIST_TIMELINE, TYPING, TYPE_MS } from "./ArtistPhone";
 import "./kosign-onboarding.css";
 
@@ -184,13 +184,13 @@ function ManagerPhone({ n, instant }: { n: number; instant: boolean }) {
         <span className="ko-home" />
 
         <Banner
-          title="Client setup incomplete"
-          body="Your artist has begun setting up their account, but hasn't completed the process."
+          src={`${BANNERS}/banner-chasing.webp`}
+          alt="KOSIGN: Setup incomplete. Help your artist get over the line"
           state={banner("notif1", "notif1Press", "cOpen")}
         />
         <Banner
-          title="Start submitting songs"
-          body="Your client's KOSIGN account has been set up, and they're in!"
+          src={`${BANNERS}/banner-acceptance.webp`}
+          alt="KOSIGN: Start submitting songs. Your artist has completed their setup"
           state={banner("notif2", "notif2Press", "eOpen")}
         />
       </div>

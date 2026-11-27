@@ -68,7 +68,7 @@ export function GmailPage({
             <span className="ko-gm-chip">Inbox</span>
           </div>
           <div className="ko-gm-sender">
-            <span className="ko-gm-avatar">K</span>
+            <img className="ko-gm-avatar" src="/kosign/onboarding/mark.webp" alt="" draggable={false} />
             <span className="ko-gm-from">
               <span>
                 <b>KOSIGN</b> <span className="ko-gm-time">{email.time}</span>
@@ -103,25 +103,14 @@ export function GmailPage({
   );
 }
 
-// ------------------------------------------------------- notification
-export function Banner({ title, body, state }: { title: string; body: string; state: "hidden" | "shown" | "pressed" | "gone" }) {
+export const BANNERS = "/kosign/onboarding";
+
+/** iOS notification banner: an exported banner image that drops in, is
+ *  pressed, then lifts away as its email opens. */
+export function Banner({ src, alt, state }: { src: string; alt: string; state: "hidden" | "shown" | "pressed" | "gone" }) {
   return (
     <div className={`ko-banner ko-banner--${state}`}>
-      {/* placeholder app icon: swap for the Gmail app icon */}
-      <span className="ko-banner-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M3.5 6.5h17v11h-17zM3.5 7l8.5 6.5L20.5 7" fill="none" stroke="#D93025" strokeWidth={1.9} strokeLinejoin="round" />
-        </svg>
-      </span>
-      <span className="ko-banner-text">
-        <span className="ko-banner-top">
-          <b>KOSIGN</b>
-          <span className="ko-banner-now">now</span>
-        </span>
-        <span className="ko-banner-subject">{title}</span>
-        <span className="ko-banner-body">{body}</span>
-      </span>
+      <img src={src} alt={alt} draggable={false} />
     </div>
   );
 }
-

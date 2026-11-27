@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import PhoneFrame from "@/components/phone-frame/PhoneFrame";
-import { Banner, GmailPage, SCREEN, W, pt, type Email } from "./parts";
+import { BANNERS, Banner, GmailPage, SCREEN, W, pt, type Email } from "./parts";
 
 /**
  * ArtistPhone: the artist's side of setup, from the acceptance email to
@@ -337,8 +337,8 @@ export function ArtistPhone({ m, typed, instant }: { m: number; typed: Record<st
         <span className={`ko-home ${from("s50") ? "ko-home--light" : ""}`} />
 
         <Banner
-          title="Your activation code"
-          body="Your account activation code is below. To kick off the process, click 'Enter code'."
+          src={`${BANNERS}/banner-activation.webp`}
+          alt="KOSIGN: Activation code. Your activation code to set up your KOSIGN account"
           state={banner}
         />
       </div>
