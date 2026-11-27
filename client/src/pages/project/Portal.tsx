@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import ProofPoints from "@/components/ProofPoints";
 import { Link } from "wouter";
 import PortalScreens from "@/components/portal-screens/PortalScreens";
+import PhoneCrop from "@/components/phone-crop/PhoneCrop";
 import { meta, sections, proofPoints } from "@/content/portal.content";
 
 export default function PortalProject() {
@@ -16,7 +17,7 @@ export default function PortalProject() {
               <p className="sub-header">{meta.subtitle}</p>
             </div>
             <div
-              className="content-width"
+              className="media-width"
               role="img"
               aria-label="Kobalt Client Portal app: Sync, Catalog, Balance and Home screens"
             >
@@ -42,6 +43,14 @@ export default function PortalProject() {
             <h2>My role</h2>
             {sections.myRole.map((p, i) => <p key={i}>{p}</p>)}
           </section>
+
+          {/* Submit: the tab bar's central action, close up */}
+          <figure className="media-width">
+            <PhoneCrop
+              src="/portal/submit-tabbar.webp"
+              alt="Kobalt Client Portal app tab bar: Home, Balance, the central Submit button, Catalog and Sync"
+            />
+          </figure>
 
           {/* Strategy */}
           <section className="space-y-6 content-width">
