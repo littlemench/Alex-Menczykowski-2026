@@ -1,5 +1,8 @@
 // Generated from kosign.md — edit copy there, then update this file to match.
 
+export const credit =
+  "The KOSIGN brand and website were created by [The Jays](https://www.thejaysgroup.com/).";
+
 export const meta = {
   title: "KOSIGN",
   subtitle: "Launching a self-serve publishing platform for independent songwriters",
@@ -51,7 +54,7 @@ export const sections = {
 
   myRole: [
     "I was responsible for defining the end-to-end experience strategy and execution for KOSIGN.",
-    "The core of the experience is built on functionality made possible by the existing Kobalt client 'Portal' — transposing these capabilities into a self-serve product for a mid-market audience. I set and implemented design direction across application, onboarding, verification, in-life usage, marketing and socials, collaborating closely with product, engineering, legal, operations, marketing and executive stakeholders to get to market — and grow once there.",
+    "The core of the experience is built on functionality made possible by the existing [Kobalt client 'Portal'](/work/portal) — transposing these capabilities into a self-serve product for a mid-market audience. I set and implemented design direction across application, onboarding, verification, in-life usage, marketing and socials, collaborating closely with product, engineering, legal, operations, marketing and executive stakeholders to get to market — and grow once there.",
     "My work after launch prioritised the moments across the funnel most closely related to delivering on our North Star metric of number of 'delivered' writers — the successful applicants who completed onboarding and setup, before critically submitting their first songs for registration and eventual collection.",
   ],
 

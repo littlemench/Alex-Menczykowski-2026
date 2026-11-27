@@ -1,5 +1,8 @@
 // Generated from portal.md — edit copy there, then update this file to match.
 
+export const credit =
+  "The Kobalt brand and original website were created by [Spin](https://spin.co.uk/).";
+
 export const meta = {
   title: "Kobalt Client Portal",
   // DRAFT — portal.md has no subtitle yet. Replace with the real one.

@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
+import RichText from "@/components/RichText";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import ProofPoints from "@/components/ProofPoints";
 import { Link } from "wouter";
-import { meta, sections, proofPoints, carousel1Slides } from "@/content/portal.content";
+import { meta, sections, proofPoints, carousel1Slides, credit } from "@/content/portal.content";
 
 export default function PortalProject() {
   return (
@@ -21,19 +22,19 @@ export default function PortalProject() {
           {/* Context */}
           <section className="space-y-6 content-width">
             <h2>Context</h2>
-            {sections.context.map((p, i) => <p key={i}>{p}</p>)}
+            {sections.context.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
           {/* The real problem */}
           <section className="space-y-6 content-width">
             <h2>The real problem</h2>
-            {sections.realProblem.map((p, i) => <p key={i}>{p}</p>)}
+            {sections.realProblem.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
           {/* My role */}
           <section className="space-y-6 content-width">
             <h2>My role</h2>
-            {sections.myRole.map((p, i) => <p key={i}>{p}</p>)}
+            {sections.myRole.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
           {/* Strategy */}
@@ -58,12 +59,16 @@ export default function PortalProject() {
           {/* Reflection */}
           <section className="space-y-6 content-width">
             <h2>Reflection</h2>
-            {sections.reflection.map((p, i) => <p key={i}>{p}</p>)}
+            {sections.reflection.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
         </div>
 
-        <footer className="mt-32 pt-16 border-t border-divider content-width">
+        <footer className="mt-32 pt-16 border-t border-divider content-width space-y-6">
+          {/* Credit */}
+          <p className="text-sm opacity-70">
+            <RichText text={credit} />
+          </p>
           <Link href="/work">
             <a className="text-sm font-medium hover:underline">← Back to Work</a>
           </Link>
