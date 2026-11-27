@@ -129,4 +129,14 @@ p.lead {
   .media-width {
     @apply w-full lg:w-[45%] mx-auto;
   }
+
+  /* Carousels sit in the image column but run on to the screen's right edge.
+     cqw here is the column's width (the carousel sets container-type). */
+  .carousel-track {
+    --bleed: calc((100vw - 100cqw) / 2);
+    width: calc(100cqw + var(--bleed));
+  }
+  .carousel-end {
+    width: max(0px, calc(var(--bleed) - 1rem));
+  }
 }

@@ -80,10 +80,16 @@ export default function ProjectCarousel({ slides }: ProjectCarouselProps) {
 
   return (
     <>
-      <div className="relative group -mr-4 md:-mr-8 overflow-hidden">
-        <div ref={trackRef} className="flex gap-4 overflow-x-auto scrollbar-hide">
+      {/* Aligned to the image column (.media-width): each slide is exactly the
+          column's width, and the track runs on to the right edge of the
+          screen so the next slide peeks in. */}
+      <div className="media-width relative group [container-type:inline-size]">
+        <div
+          ref={trackRef}
+          className="carousel-track flex gap-4 overflow-x-auto scrollbar-hide"
+        >
           {slides.map((slide, i) => (
-            <div key={slide.id} className="w-[85vw] lg:w-[calc(35vw-1.4rem)] flex-shrink-0 relative group/slide">
+            <div key={slide.id} className="w-[100cqw] flex-shrink-0 relative group/slide">
               <div className="w-full aspect-video rounded-[2px] overflow-hidden">
                 <img
                   src={slide.src}
@@ -100,6 +106,8 @@ export default function ProjectCarousel({ slides }: ProjectCarouselProps) {
               </button>
             </div>
           ))}
+          {/* room after the last slide so it can line up with the column */}
+          <div className="carousel-end flex-shrink-0" aria-hidden="true" />
         </div>
 
         {current > 0 && (
