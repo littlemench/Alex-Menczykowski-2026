@@ -14,7 +14,7 @@ export default function KosignProject() {
           {/* Sub-header + Hero carousel */}
           <div className="space-y-12">
             <div>
-              <p className="sub-header">Launching a self-serve publishing platform for mid-market creators</p>
+              <p className="sub-header">Launching a self-serve publishing platform for the mid-market of creators</p>
             </div>
             <ProjectCarousel slides={carousel1Slides} />
           </div>
