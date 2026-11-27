@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import PortalScreens from "@/components/portal-screens/PortalScreens";
 import PhoneCrop from "@/components/phone-crop/PhoneCrop";
 import RoyaltyCompare from "@/components/royalty-compare/RoyaltyCompare";
+import SubmissionFlow from "@/components/submission-flow/SubmissionFlow";
 import { meta, sections, proofPoints } from "@/content/portal.content";
 
 export default function PortalProject() {
@@ -69,6 +70,11 @@ export default function PortalProject() {
           {/* D2C vs B2B: the same royalty flow, two UIs */}
           <figure className="media-width">
             <RoyaltyCompare />
+          </figure>
+
+          {/* Song submission, start to finish */}
+          <figure className="media-width">
+            <SubmissionFlow />
           </figure>
 
           {/* Proof points */}
