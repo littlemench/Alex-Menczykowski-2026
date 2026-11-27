@@ -5,7 +5,7 @@ import ProofPoints from "@/components/ProofPoints";
 import { ManagerOnboarding, ArtistOnboarding } from "@/components/kosign-onboarding/KosignOnboarding";
 import ReviewOnboarding from "@/components/kosign-onboarding/ReviewFlow";
 import { Link } from "wouter";
-import { sections, proofPoints, carousel1Slides, carousel3Slides, credit } from "@/content/kosign.content";
+import { sections, proofPoints, carousel1Slides, credit } from "@/content/kosign.content";
 
 export default function KosignProject() {
   return (
@@ -68,9 +68,6 @@ export default function KosignProject() {
           <figure className="media-width">
             <ArtistOnboarding />
           </figure>
-
-          {/* Carousel 3 */}
-          <ProjectCarousel slides={carousel3Slides} />
 
           {/* Reflection */}
           <section className="space-y-6 content-width">

@@ -1,4 +1,5 @@
 import PhoneFrame from "@/components/phone-frame/PhoneFrame";
+import { useEffect, useRef } from "react";
 import { AppPage, BANNERS, Banner, Crop, GmailPage, K, Press, SCREEN, W, pt, px, type Email } from "./parts";
 
 /**
@@ -136,6 +137,20 @@ export function ArtistPhone({ m, typed, instant }: { m: number; typed: Record<st
   const scrimOn = from("m31") && before("s33");
   const ringsOn = from("rings");
 
+  // the welcome video plays from the start while 5.0 is showing
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const welcome = from("s50");
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (welcome) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [welcome]);
+
   // where the email buttons sit on screen once scrolled (for the app opening)
   const btnCentre = (e: Email, scroll: number) => {
     const [x0, y0, x1, y1] = e.button!;
@@ -248,8 +263,29 @@ export function ArtistPhone({ m, typed, instant }: { m: number; typed: Record<st
 
         <AppPage src={`${DIR}/s4-2.webp`} style={{ zIndex: 17, ...slid("s42") }} />
 
-        {/* 5.0: submit songs, rings ripple from the + */}
-        <AppPage src={`${DIR}/s5-0.webp`} bg="#001337" style={{ zIndex: 18, ...faded("s50") }}>
+        {/* 5.0: submit songs over the welcome video; rings ripple from the + */}
+        <div className="ko-page ko-welcome" style={{ zIndex: 18, ...faded("s50") }}>
+          <video
+            ref={videoRef}
+            className="ko-welcome-video"
+            src={`${DIR}/welcome-bg.mp4`}
+            poster={`${DIR}/welcome-poster.webp`}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          />
+          <span className="ko-welcome-tint" />
+          {/* glass card, with its content cut from the Setup-5.0 export */}
+          <span className="ko-glass" style={{ left: px(27), top: px(121), width: px(336), height: px(602), borderRadius: px(12) }} />
+          <img
+            className="ko-card-content"
+            src={`${DIR}/card-content.webp`}
+            alt=""
+            draggable={false}
+            style={{ left: px(27), top: px(121), width: px(336), height: px(602) }}
+          />
           <svg className="ko-rings" viewBox="0 0 390 844" preserveAspectRatio="none">
             {RINGS.map(([r, o], i) => (
               <circle
@@ -262,7 +298,7 @@ export function ArtistPhone({ m, typed, instant }: { m: number; typed: Record<st
               />
             ))}
           </svg>
-        </AppPage>
+        </div>
 
         {/* identity overlays: Stripe consent, then camera access */}
         <span className="ko-scrim" style={{ opacity: scrimOn ? 1 : 0 }} />

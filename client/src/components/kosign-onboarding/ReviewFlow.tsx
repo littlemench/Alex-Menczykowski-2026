@@ -8,9 +8,9 @@ import { AppPage, Crop, Press, SCREEN, px, useOnceInView } from "./parts";
  *   Home (1.1) -> the Spotify suggestions card opens the review flow, which
  *   rises from the bottom (2.1) -> two co-writers approved (ticks become Add
  *   split, 2.2) -> the third co-writer's trash is pressed (row turns red,
- *   2.3), the button rotates and wobbles, and is pressed again: the row is
+ *   2.3), the button tilts, and is pressed again: the row is
  *   removed and everything below closes up (2.4) -> both splits added (2.5)
- *   -> Submit & proceed -> song 2 of 10 (2.6) -> "all 10 done": Submitting?
+ *   -> Submit & proceed -> song 2 of 10 dissolves in (2.6) -> "all 10 done": Submitting?
  *   Please remember (3.1) -> Submit -> 10 songs submitted (3.2), rings
  *   ripple out from the check once. Plays once each time it scrolls into view.
  *
@@ -68,7 +68,7 @@ function ReviewPhone({ n, instant }: { n: number; instant: boolean }) {
 
         {/* Review: rises from the bottom */}
         <div className="ko-page ko-sheet" style={{ zIndex: 2, transform: from("sheetUp") ? "translateY(0)" : "translateY(100%)" }}>
-          <AppPage src={img("s2-1")} style={{ zIndex: 1, ...(from("song2") ? { transform: "translateX(-30%)", filter: "brightness(0.92)" } : {}) }}>
+          <AppPage src={img("s2-1")} style={{ zIndex: 1 }}>
             {/* approve two co-writers: ticks become Add split */}
             <Press box={[252, 417, 292, 457]} on={is("tick1Press")} />
             {row(img("s2-2"), ROW1, "tick1")}
@@ -95,7 +95,7 @@ function ReviewPhone({ n, instant }: { n: number; instant: boolean }) {
             >
               <img src={img("row3-red")} alt="" draggable={false} />
               <img
-                className={`ko-trash ${from("wobble") && !from("trashPress2") ? "ko-trash--wobble" : ""} ${is("trashPress2") ? "ko-trash--press" : ""}`}
+                className={`ko-trash ${from("wobble") && !from("trashPress2") ? "ko-trash--tilt" : ""} ${from("trashPress2") ? "ko-trash--press" : ""}`}
                 src={img("trash-red")}
                 alt=""
                 draggable={false}
@@ -124,8 +124,8 @@ function ReviewPhone({ n, instant }: { n: number; instant: boolean }) {
             <Press box={[40, 675, 350, 715]} on={is("submitPress")} />
           </AppPage>
 
-          {/* 2.6: the next song */}
-          <AppPage src={img("s2-6")} style={{ zIndex: 2, transform: from("song2") ? "translateX(0)" : "translateX(100%)" }} />
+          {/* 2.6: the next song dissolves in; the stepper stays put */}
+          <AppPage src={img("s2-6")} style={{ zIndex: 2, ...show("song2") }} />
         </div>
 
         {/* 3.1 Submitting? Please remember */}
