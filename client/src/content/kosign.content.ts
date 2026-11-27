@@ -1,7 +1,7 @@
 // Generated from kosign.md — edit copy there, then update this file to match.
 
 export const credit =
-  "The KOSIGN brand and website were created by [The Jays](https://www.thejaysgroup.com/).";
+  "The KOSIGN brand and website were created by [The Jays](https://www.thejaysgroup.com/) and [OhMy](https://www.ohmy.studio/).";
 
 export const meta = {
   title: "KOSIGN",
