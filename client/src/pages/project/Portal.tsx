@@ -1,8 +1,8 @@
 import Layout from "@/components/Layout";
-import ProjectCarousel from "@/components/ProjectCarousel";
 import ProofPoints from "@/components/ProofPoints";
 import { Link } from "wouter";
-import { meta, sections, proofPoints, carousel1Slides } from "@/content/portal.content";
+import PortalScreens from "@/components/portal-screens/PortalScreens";
+import { meta, sections, proofPoints } from "@/content/portal.content";
 
 export default function PortalProject() {
   return (
@@ -10,12 +10,19 @@ export default function PortalProject() {
       <article className="layout-grid">
         <div className="space-y-24">
 
-          {/* Sub-header + Hero carousel */}
+          {/* Sub-header + Hero: the four app screens, as in the thumbnail's hover state */}
           <div className="space-y-12">
             <div>
               <p className="sub-header">{meta.subtitle}</p>
             </div>
-            <ProjectCarousel slides={carousel1Slides} />
+            <div
+              className="content-width"
+              role="img"
+              aria-label="Kobalt Client Portal app: Sync, Catalog, Balance and Home screens"
+            >
+              {/* active + reducedMotion = the lined-up row, held still with no transition */}
+              <PortalScreens active reducedMotion />
+            </div>
           </div>
 
           {/* Context */}
