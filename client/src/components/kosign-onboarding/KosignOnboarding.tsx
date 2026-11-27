@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import PhoneFrame from "@/components/phone-frame/PhoneFrame";
+import { Banner, GmailPage, SCREEN, type Email } from "./parts";
+import { ArtistPhone, ARTIST_STEPS, ARTIST_TIMELINE, TYPING, TYPE_MS } from "./ArtistPhone";
 import "./kosign-onboarding.css";
 
 /**
@@ -12,7 +14,8 @@ import "./kosign-onboarding.css";
  *   incomplete" email -> Share via message -> the chase text sends -> Gmail
  *   notification -> "Start submitting songs" email, where it rests.
  *
- * Right: screens to follow (the column is kept so the layout is final).
+ * Right: the artist's side (ArtistPhone): activation through to Submit songs.
+ * The manager's flow finishes first and rests while the artist's carries on.
  * Plays once each time it scrolls into view; resets when fully out of view.
  *
  * Units: everything on screen is positioned in iPhone points (402 x 874),
@@ -20,12 +23,8 @@ import "./kosign-onboarding.css";
  */
 
 const DIR = "/kosign/onboarding";
-const W = 402; // screen width, pt
-const SCREEN = 804 / 1748;
 const SMS_W = 804; // Messages exports, px (2x)
 const SMS_H = 1748;
-const EMAIL_SCALE = W / 600; // email exports are 600px wide
-const HEADER = 112; // Gmail subject + sender rows above the email, pt
 
 const STEPS = [
   "rest", //          0  Accepted email, top
@@ -69,17 +68,7 @@ const TIMELINE: [Step, number][] = [
   ["eOpen", 16500],
 ];
 
-const pt = (n: number) => `calc(var(--pt) * ${n})`;
 
-// ------------------------------------------------------------------ Gmail
-interface Email {
-  src: string;
-  subject: string;
-  time: string;
-  height: number; // export height, px at 600 wide
-  /** Share via message button, px in the 600-wide export */
-  button?: [number, number, number, number]; // x0, y0, x1, y1
-}
 const EMAIL_A: Email = {
   src: `${DIR}/email-accepted.webp`,
   subject: "Welcome to KOSIGN",
@@ -100,85 +89,6 @@ const EMAIL_E: Email = {
   time: "2:15 PM",
   height: 1511,
 };
-
-const Icon = ({ d, size = 22 }: { d: string; size?: number }) => (
-  <svg viewBox="0 0 24 24" style={{ width: pt(size), height: pt(size) }} aria-hidden="true">
-    <path d={d} fill="none" stroke="#444746" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-const ICONS = {
-  back: "M15 5l-7 7 7 7",
-  archive: "M4 7h16v3H4zM5.5 10v9h13v-9M10 13.5h4",
-  trash: "M5 7h14M9.5 7V4.5h5V7M7 7l1 13h8l1-13",
-  mail: "M4 6h16v12H4zM4 7l8 6 8-6",
-  more: "M12 5.5v.01M12 12v.01M12 18.5v.01",
-  reply: "M10 8L5 12.5 10 17M5.5 12.5H15a4 4 0 014 4V18",
-};
-
-function GmailPage({
-  email,
-  scroll,
-  pressed,
-  style,
-}: {
-  email: Email;
-  scroll: number; // pt
-  pressed: boolean;
-  style: CSSProperties;
-}) {
-  const s = EMAIL_SCALE;
-  return (
-    <div className="ko-page" style={style}>
-      <div className="ko-gm-toolbar">
-        <Icon d={ICONS.back} size={24} />
-        <span className="ko-gm-tools">
-          <Icon d={ICONS.archive} />
-          <Icon d={ICONS.trash} />
-          <Icon d={ICONS.mail} />
-          <Icon d={ICONS.more} />
-        </span>
-      </div>
-      <div className="ko-gm-viewport">
-        <div className="ko-gm-scroll" style={{ transform: `translateY(${pt(-scroll)})` }}>
-          <div className="ko-gm-subject">
-            <span>{email.subject}</span>
-            <span className="ko-gm-chip">Inbox</span>
-          </div>
-          <div className="ko-gm-sender">
-            <span className="ko-gm-avatar">K</span>
-            <span className="ko-gm-from">
-              <span>
-                <b>KOSIGN</b> <span className="ko-gm-time">{email.time}</span>
-              </span>
-              <span className="ko-gm-to">to me ⌄</span>
-            </span>
-            <span className="ko-gm-tools">
-              <Icon d={ICONS.reply} size={20} />
-              <Icon d={ICONS.more} size={20} />
-            </span>
-          </div>
-          <img
-            src={email.src}
-            alt=""
-            draggable={false}
-            style={{ position: "absolute", top: pt(HEADER), left: 0, width: "100%", height: pt(email.height * s) }}
-          />
-          {email.button && (
-            <span
-              className={`ko-press ${pressed ? "ko-press--on" : ""}`}
-              style={{
-                left: pt(email.button[0] * s),
-                top: pt(HEADER + email.button[1] * s),
-                width: pt((email.button[2] - email.button[0]) * s),
-                height: pt((email.button[3] - email.button[1]) * s),
-              }}
-            />
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // --------------------------------------------------------------- Messages
 type Crop = [number, number, number, number]; // x0, y0, x1, y1 px in the 804 x 1748 export
@@ -234,28 +144,6 @@ function MessagesPage({
           <Layer name="bubble2" crop={SMS.bubble2} className={`ko-send ${vis(chased)}`} />
         </>
       )}
-    </div>
-  );
-}
-
-// ------------------------------------------------------- notification
-function Banner({ title, body, state }: { title: string; body: string; state: "hidden" | "shown" | "pressed" | "gone" }) {
-  return (
-    <div className={`ko-banner ko-banner--${state}`}>
-      {/* placeholder app icon: swap for the Gmail app icon */}
-      <span className="ko-banner-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M3.5 6.5h17v11h-17zM3.5 7l8.5 6.5L20.5 7" fill="none" stroke="#D93025" strokeWidth={1.9} strokeLinejoin="round" />
-        </svg>
-      </span>
-      <span className="ko-banner-text">
-        <span className="ko-banner-top">
-          <b>KOSIGN</b>
-          <span className="ko-banner-now">now</span>
-        </span>
-        <span className="ko-banner-subject">{title}</span>
-        <span className="ko-banner-body">{body}</span>
-      </span>
     </div>
   );
 }
@@ -317,6 +205,8 @@ function Col({ children }: { children?: ReactNode }) {
 export default function KosignOnboarding() {
   const ref = useRef<HTMLDivElement>(null);
   const [n, setN] = useState(0);
+  const [m, setM] = useState(0);
+  const [typed, setTyped] = useState<Record<string, number>>({});
   const [instant, setInstant] = useState(true);
   const [reduced, setReduced] = useState(false);
 
@@ -332,7 +222,16 @@ export default function KosignOnboarding() {
       clear();
       setInstant(false);
       // one clock: every phone's timeline is scheduled from the same start
-      timers = TIMELINE.map(([s, ms]) => window.setTimeout(() => setN(at(s)), ms + 400));
+      timers = [
+        ...TIMELINE.map(([s, ms]) => window.setTimeout(() => setN(at(s)), ms + 400)),
+        ...ARTIST_TIMELINE.map(([s, ms]) => window.setTimeout(() => setM(ARTIST_STEPS.indexOf(s)), ms + 400)),
+      ];
+      TYPING.forEach(([key, step, count]) => {
+        const start = ARTIST_TIMELINE.find(([s]) => s === step)![1] + 400;
+        for (let i = 1; i <= count; i++) {
+          timers.push(window.setTimeout(() => setTyped((t) => ({ ...t, [key]: i })), start + i * TYPE_MS));
+        }
+      });
     };
     const io = new IntersectionObserver(
       (entries) =>
@@ -346,6 +245,8 @@ export default function KosignOnboarding() {
             clear();
             setInstant(true);
             setN(0);
+            setM(0);
+            setTyped({});
           }
         }),
       { threshold: [0, 0.6] }
@@ -362,13 +263,16 @@ export default function KosignOnboarding() {
       ref={ref}
       className={`ko ${reduced ? "ko--reduced" : ""}`}
       role="img"
-      aria-label="A manager's phone: the KOSIGN acceptance email, sharing the client's setup link by text, a reminder email when setup is incomplete, a second text, and the email confirming they can start submitting songs"
+      aria-label="Two phones. The manager's: the KOSIGN acceptance email, sharing the client's setup link by text, a reminder when setup is incomplete, a second text, and the email confirming they can start submitting songs. The artist's: activating their account, setting a password and authenticator, verifying their identity with Stripe, signing the agreement, and arriving at Submit songs and start earning"
       data-step={STEPS[n]}
+      data-artist-step={ARTIST_STEPS[m]}
     >
       <Col>
         <ManagerPhone n={n} instant={instant} />
       </Col>
-      <Col />
+      <Col>
+        <ArtistPhone m={m} typed={typed} instant={instant} />
+      </Col>
     </div>
   );
 }

@@ -13,6 +13,9 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
+  /* clip to the phone's screen corners: composited layers can escape the
+     frame's own rounded overflow in Chromium (cqw here is the phone's) */
+  clip-path: inset(0 round 11.4cqw);
   background: #fff;
   container-type: inline-size;
   --pt: calc(100cqw / 402);
@@ -157,7 +160,7 @@
   width: 100%;
   height: auto;
   display: block;
-  z-index: 10;
+  z-index: 40;
 }
 .ko-home {
   position: absolute;
@@ -167,8 +170,10 @@
   height: calc(var(--pt) * 5);
   border-radius: 999px;
   background: #000;
-  z-index: 10;
+  z-index: 40;
+  transition: background-color 300ms ease;
 }
+.ko-home--light { background: #fff; }
 
 /* ---------- notification banner */
 .ko-banner {
@@ -176,7 +181,7 @@
   top: calc(var(--pt) * 50);
   left: calc(var(--pt) * 9);
   right: calc(var(--pt) * 9);
-  z-index: 20;
+  z-index: 50;
   display: flex;
   gap: calc(var(--pt) * 10);
   padding: calc(var(--pt) * 12) calc(var(--pt) * 14) calc(var(--pt) * 13);
@@ -223,6 +228,65 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: #3c3c43;
+}
+
+/* ---------- artist's app screens */
+.ko-app-scroll {
+  position: relative;
+  will-change: transform;
+  transition: transform 900ms cubic-bezier(0.45, 0, 0.25, 1);
+}
+.ko-crop { position: absolute; overflow: hidden; display: block; }
+.ko-crop > img { position: absolute; display: block; max-width: none; }
+.ko-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 300ms ease;
+}
+.ko-caret {
+  position: absolute;
+  width: calc(var(--pt) * 2);
+  border-radius: 1px;
+  background: #0059ff;
+  animation: ko-blink 1s steps(1) infinite;
+}
+@keyframes ko-blink { 50% { opacity: 0; } }
+@keyframes ko-spin { to { transform: rotate(360deg); } }
+
+.ko-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.36);
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+.ko-modal {
+  position: absolute;
+  z-index: 31;
+  display: block;
+  transform-origin: 50% 50%;
+  transition: opacity 280ms ease, transform 420ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.ko-modal > img { display: block; width: 100%; height: auto; }
+
+.ko-rings { position: absolute; top: 0; left: 0; width: 100%; height: calc(var(--pt) * 844 * 402 / 390); }
+.ko-ring {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.2;
+  transform-box: view-box;
+  transform-origin: 194.5px 219px;
+  transform: scale(0.5);
+  opacity: 0;
+}
+.ko-ring--on {
+  transform: scale(1);
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease;
 }
 
 /* reset off screen without animating */
