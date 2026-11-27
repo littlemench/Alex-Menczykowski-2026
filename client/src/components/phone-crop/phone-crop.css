@@ -1,16 +1,16 @@
 /* PhoneCrop: the bottom of a large phone rising out of the page, after the
    "a Portola adventure" image on dmcg.co/work/tolan. The phone is 71% of the
-   area's width, as on dmcg; the area is a little deeper than their 2:1
-   (57.5% of the width) so the soft shadow below the phone is never cut off. The top fades out to the page colour (whatever it is) with
+   area's width, as on dmcg. The area is 46% as tall as it is wide: a short
+   fade at the top, and enough room below that the shadow is never cut off. The top fades out to the page colour (whatever it is) with
    a mask, so the bezel and screen dissolve upwards. */
 
 .pc {
   container-type: inline-size;
   position: relative;
-  aspect-ratio: 1 / 0.575;
+  aspect-ratio: 1 / 0.46;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 13%, #000 45%);
-  mask-image: linear-gradient(to bottom, transparent 13%, #000 45%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 26%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 26%);
 }
 
 .pc-phone {
