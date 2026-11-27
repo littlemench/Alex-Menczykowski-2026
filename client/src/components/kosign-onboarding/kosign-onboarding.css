@@ -1,0 +1,316 @@
+/* Durations are 25% quicker than first built (x0.75), matching SPEED.
+   KosignOnboarding: two phones on one clock (layout as RoyaltyCompare).
+   Inside a screen, sizes are iPhone points: --pt is 1/402 of the screen's
+   width, so the whole UI scales with the phone. */
+
+.ko {
+  display: flex;
+  justify-content: center;
+  gap: 8%;
+}
+.ko-col { width: 42%; }
+
+.ko-screen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* clip to the phone's screen corners: composited layers can escape the
+     frame's own rounded overflow in Chromium (cqw here is the phone's) */
+  clip-path: inset(0 round 11.4cqw);
+  background: #fff;
+  container-type: inline-size;
+  --pt: calc(100cqw / 402);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  color: #1f1f1f;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: normal;
+  text-align: left;
+  line-height: 1.25;
+}
+.ko-screen img { max-width: none; }
+
+/* pages stack; each new one enters over the last */
+.ko-page {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  will-change: transform;
+  transform-origin: 50% 0;
+  transition:
+    transform 338ms cubic-bezier(0.32, 0.72, 0, 1),
+    filter 338ms ease,
+    opacity 285ms ease;
+}
+
+/* ---------- Gmail */
+.ko-gm-toolbar {
+  position: absolute;
+  top: calc(var(--pt) * 54);
+  left: 0;
+  right: 0;
+  height: calc(var(--pt) * 44);
+  padding: 0 calc(var(--pt) * 12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  z-index: 2;
+}
+.ko-gm-tools {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pt) * 18);
+  margin-left: auto;
+}
+.ko-gm-viewport {
+  position: absolute;
+  top: calc(var(--pt) * 98);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.ko-gm-scroll {
+  position: relative;
+  will-change: transform;
+  transition: transform 938ms cubic-bezier(0.45, 0, 0.25, 1);
+}
+.ko-gm-subject {
+  height: calc(var(--pt) * 48);
+  padding: calc(var(--pt) * 8) calc(var(--pt) * 16) 0;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pt) * 8);
+  font-size: calc(var(--pt) * 21);
+  white-space: nowrap;
+}
+.ko-gm-chip {
+  font-size: calc(var(--pt) * 11);
+  background: #e9eef6;
+  color: #444746;
+  border-radius: calc(var(--pt) * 4);
+  padding: calc(var(--pt) * 2) calc(var(--pt) * 6);
+}
+.ko-gm-sender {
+  height: calc(var(--pt) * 56);
+  padding: 0 calc(var(--pt) * 16);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pt) * 12);
+}
+.ko-gm-avatar {
+  flex: none;
+  width: calc(var(--pt) * 38);
+  height: calc(var(--pt) * 38);
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}
+.ko-gm-from {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--pt) * 2);
+  font-size: calc(var(--pt) * 15);
+}
+.ko-gm-from b { font-weight: 600; }
+.ko-gm-time,
+.ko-gm-to {
+  color: #5f6368;
+  font-size: calc(var(--pt) * 12.5);
+}
+
+/* a press on a button in an email */
+.ko-press {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0);
+  transition: background-color 90ms ease;
+}
+.ko-press--on { background: rgba(0, 0, 0, 0.2); }
+
+/* ---------- Messages */
+.ko-sms-base { display: block; width: 100%; height: auto; }
+.ko-layer { position: absolute; display: block; height: auto; }
+.ko-fade { opacity: 0; transition: opacity 225ms ease; }
+.ko-send {
+  opacity: 0;
+  transform: translateY(calc(var(--pt) * 80)) scale(0.9);
+  transform-origin: 100% 100%;
+  transition: transform 390ms cubic-bezier(0.2, 0.9, 0.3, 1.04), opacity 165ms ease;
+}
+.ko-pop {
+  opacity: 0;
+  transform: scale(0.6);
+  transform-origin: 0 100%;
+  transition: transform 270ms cubic-bezier(0.3, 1.4, 0.5, 1), opacity 120ms ease;
+}
+.ko-fade.ko-in,
+.ko-send.ko-in,
+.ko-pop.ko-in { opacity: 1; transform: none; }
+
+/* ---------- chrome */
+.ko-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 40;
+}
+.ko-home {
+  position: absolute;
+  left: calc(var(--pt) * 133.5);
+  width: calc(var(--pt) * 135);
+  bottom: calc(var(--pt) * 8);
+  height: calc(var(--pt) * 5);
+  border-radius: 999px;
+  background: #000;
+  z-index: 40;
+  transition: background-color 225ms ease;
+}
+.ko-home--light { background: #fff; }
+
+/* ---------- notification banner (exported iOS banner, 740 x 132 at 2x) */
+.ko-banner {
+  position: absolute;
+  top: calc(var(--pt) * 50);
+  left: calc(var(--pt) * 16);
+  width: calc(var(--pt) * 370);
+  z-index: 50;
+  /* the export is 60% opaque, so blur what's behind it, as iOS does */
+  border-radius: calc(var(--pt) * 22.5);
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  box-shadow: 0 calc(var(--pt) * 8) calc(var(--pt) * 24) rgba(0, 0, 0, 0.14);
+  transition:
+    transform 390ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 195ms ease,
+    filter 112ms ease;
+}
+.ko-banner > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ko-banner--hidden { transform: translateY(-190%); opacity: 0; }
+.ko-banner--shown { transform: none; opacity: 1; }
+.ko-banner--pressed { transform: scale(0.97); opacity: 1; filter: brightness(0.94); }
+.ko-banner--gone { transform: translateY(-40%) scale(0.97); opacity: 0; }
+
+/* ---------- artist's app screens */
+.ko-app-scroll {
+  position: relative;
+  will-change: transform;
+  transition: transform 675ms cubic-bezier(0.45, 0, 0.25, 1);
+}
+.ko-crop { position: absolute; overflow: hidden; display: block; }
+.ko-crop > img { position: absolute; display: block; max-width: none; }
+.ko-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 225ms ease;
+}
+.ko-caret {
+  position: absolute;
+  width: calc(var(--pt) * 2);
+  border-radius: 1px;
+  background: #0059ff;
+  animation: ko-blink 1s steps(1) infinite;
+}
+@keyframes ko-blink { 50% { opacity: 0; } }
+@keyframes ko-spin { to { transform: rotate(360deg); } }
+
+.ko-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.36);
+  transition: opacity 225ms ease;
+  pointer-events: none;
+}
+.ko-modal {
+  position: absolute;
+  z-index: 31;
+  display: block;
+  transform-origin: 50% 50%;
+  transition: opacity 210ms ease, transform 315ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.ko-modal > img { display: block; width: 100%; height: auto; }
+
+.ko-rings { position: absolute; top: 0; left: 0; width: 100%; height: calc(var(--pt) * 844 * 402 / 390); }
+.ko-ring {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.2;
+  transform-box: view-box;
+  transform-origin: 194.5px 219px;
+  transform: scale(0.5);
+  opacity: 0;
+}
+.ko-ring--on {
+  transform: scale(1);
+  transition: transform 675ms cubic-bezier(0.22, 1, 0.36, 1), opacity 375ms ease;
+}
+
+/* ---------- 5.0 welcome: blurred video, tint, glass card */
+.ko-welcome { background: #0b2a6b; overflow: hidden; }
+.ko-welcome-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* already blurred in the encode; matched to the export's cool grade */
+  filter: grayscale(0.55) brightness(1.08);
+}
+.ko-welcome-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(40, 80, 170, 0.42) 0%, rgba(10, 40, 120, 0.5) 55%, rgba(0, 19, 55, 0.78) 100%);
+}
+.ko-glass {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.09);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.ko-card-content { position: absolute; display: block; }
+
+/* ---------- review flow */
+.ko-strip {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: block;
+  object-fit: fill;
+  transition: opacity 150ms ease;
+}
+.ko-row-red {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: block;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.ko-row-red > img:first-child { display: block; width: 100%; height: 100%; }
+/* the trash button: cropped to its circle (no square corners), tilts as
+   it's armed, then is pressed */
+.ko-trash {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  transition: transform 260ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.ko-trash--tilt { transform: rotate(-20deg); }
+.ko-trash--press { transform: rotate(-20deg) scale(0.86); transition-duration: 120ms; }
+
+/* reset off screen without animating */
+.ko-instant,
+.ko-instant * { transition: none !important; }
+.ko--reduced * { transition: none !important; animation: none !important; }

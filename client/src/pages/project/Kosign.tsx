@@ -3,8 +3,10 @@ import RichText from "@/components/RichText";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import KosignSplash from "@/components/kosign-splash/KosignSplash";
 import ProofPoints from "@/components/ProofPoints";
+import { ManagerOnboarding, ArtistOnboarding } from "@/components/kosign-onboarding/KosignOnboarding";
+import ReviewOnboarding from "@/components/kosign-onboarding/ReviewFlow";
 import { Link } from "wouter";
-import { sections, proofPoints, carousel2Slides, carousel3Slides, credit } from "@/content/kosign.content";
+import { sections, proofPoints, credit } from "@/content/kosign.content";
 
 export default function KosignProject() {
   return (
@@ -39,14 +41,21 @@ export default function KosignProject() {
             {sections.realProblem.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
+          {/* Reviewing suggestions through to submission */}
+          <figure className="media-width">
+            <ReviewOnboarding />
+          </figure>
+
           {/* My role */}
           <section className="space-y-6 content-width">
             <h2>My role</h2>
             {sections.myRole.map((p, i) => <p key={i}><RichText text={p} /></p>)}
           </section>
 
-          {/* Carousel */}
-          <ProjectCarousel slides={carousel2Slides} />
+          {/* Onboarding: the manager's side of client setup */}
+          <figure className="media-width">
+            <ManagerOnboarding />
+          </figure>
 
           {/* Strategy */}
           <section className="space-y-6 content-width">
@@ -63,8 +72,10 @@ export default function KosignProject() {
             <ProofPoints points={proofPoints} />
           </section>
 
-          {/* Carousel 3 */}
-          <ProjectCarousel slides={carousel3Slides} />
+          {/* Onboarding: the artist's side, activation to first submission */}
+          <figure className="media-width">
+            <ArtistOnboarding />
+          </figure>
 
           {/* Reflection */}
           <section className="space-y-6 content-width">
